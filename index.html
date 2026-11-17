@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QeroHealth — Rehabilitación Acompañada</title>
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+   
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body>
+    <!-- ACCESIBILIDAD: Salto al contenido -->
+    <a href="#contenido" class="skip-link">Saltar al contenido principal</a>
+
+    <!-- SISTEMA DE RETROALIMENTACIÓN GLOBAL -->
+    <div id="ux-toast" role="status" aria-live="polite" class="toast hidden fade-in">
+        <i class="fa-solid fa-circle-check toast-icon"></i>
+        <span id="ux-toast-message">Acción confirmada</span>
+    </div>
+
+    <!-- NAVEGACIÓN PRINCIPAL -->
+    <header class="site-header">
+        <div class="container header-inner">
+            <a href="#" class="logo-group">
+                <div class="logo-icon">
+                    <i class="fa-solid fa-handshake-angle"></i>
+                </div>
+                <div class="logo-text">
+                    <span class="logo-title">QeroHealth</span>
+                    <span class="logo-subtitle">Rehabilitación acompañada</span>
+                </div>
+            </a>
+
+            <nav class="nav-desktop" aria-label="Navegación principal">
+                <a href="#perfiles" class="nav-link">1. Perfiles</a>
+                <a href="#como-funciona" class="nav-link">2. Cómo funciona</a>
+                <a href="#principios" class="nav-link">3. Principios</a>
+                <a href="#faq" class="nav-link">4. Ayuda</a>
+            </nav>
+
+            <div class="nav-actions desktop-only">
+                <button onclick="openModal('login')" class="btn btn-primary btn-interactive">
+                    <i class="fa-solid fa-right-to-bracket"></i> Iniciar sesión
+                </button>
+            </div>
+
+            <button id="mobile-menu-btn" onclick="toggleMobileMenu()" class="btn-mobile-menu mobile-only" aria-label="Abrir menú" aria-expanded="false">
+                <i class="fa-solid fa-bars" id="mobile-menu-icon"></i> <span class="sr-only">Menú</span>
+            </button>
+        </div>
+
+        <div id="mobile-menu" class="mobile-menu hidden container">
+            <a href="#perfiles" onclick="toggleMobileMenu()">1. Perfiles</a>
+            <a href="#como-funciona" onclick="toggleMobileMenu()">2. Cómo funciona</a>
+            <a href="#principios" onclick="toggleMobileMenu()">3. Principios</a>
+            <a href="#faq" onclick="toggleMobileMenu()">4. Ayuda</a>
+            <button onclick="openModal('login'); toggleMobileMenu()" class="btn btn-primary w-full justify-center mt-3">
+                <i class="fa-solid fa-right-to-bracket"></i> Iniciar sesión
+            </button>
+        </div>
+    </header>
+
+    <main id="contenido" tabindex="-1">
+        <!-- HERO SECTION -->
+        <section class="hero-section">
+            <div class="container hero-grid">
+                <div class="hero-content">
+                    <span class="badge badge-hero">
+                        <i class="fa-solid fa-heart-pulse"></i> Rehabilitación Acompañada
+                    </span>
+                    <h1 class="hero-title">
+                        Recupera confianza, <span class="highlight-text">un ejercicio a la vez.</span>
+                    </h1>
+                    <p class="hero-description">
+                        Plataforma de rehabilitación de lenguaje y movilidad facial desde casa, guiada por tu especialista.
+                    </p>
+                    
+                    <div class="hero-buttons mt-3">
+                        <button onclick="openModal('login')" class="btn btn-primary btn-large cta-guide-pulse btn-interactive">
+                            <span>Ingresar a mi rutina</span> <i class="fa-solid fa-arrow-right"></i>
+                        </button>
+                        <a href="#como-funciona" class="btn btn-outline btn-large btn-interactive">
+                            <i class="fa-solid fa-circle-down"></i> <span>Ver cómo funciona</span>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="hero-image-wrapper">
+                    <img src="img/banner.jpg" alt="Fisioterapeuta acompañando con una sonrisa a un paciente que camina en la cinta" class="hero-image">
+                    
+                    <div class="floating-card desktop-only">
+                        <div class="floating-icon"><i class="fa-solid fa-shield-halved"></i></div>
+                        <div class="floating-text">
+                            <p class="floating-title">Seguimiento Clínico</p>
+                            <p class="floating-subtitle">100% guiado por especialistas</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- BARRA DE ACCESOS RÁPIDOS -->
+        <div class="quick-access-wrapper">
+            <div class="container">
+                <div class="quick-access-bar">
+                    <a href="#perfiles" onclick="switchProfile('paciente')" class="quick-access-item">
+                        <div class="qa-info">
+                            <div class="qa-icon"><i class="fa-solid fa-calendar-check"></i></div>
+                            <div>
+                                <p class="qa-title">Rutinas guiadas</p>
+                                <p class="qa-subtitle">Paso a paso desde casa</p>
+                            </div>
+                        </div>
+                        <i class="fa-solid fa-chevron-right qa-arrow"></i>
+                    </a>
+
+                    <a href="#perfiles" onclick="switchProfile('cuidador')" class="quick-access-item border-left">
+                        <div class="qa-info">
+                            <div class="qa-icon"><i class="fa-solid fa-users"></i></div>
+                            <div>
+                                <p class="qa-title">Guía para cuidadores</p>
+                                <p class="qa-subtitle">Apoyo seguro y sin dolor</p>
+                            </div>
+                        </div>
+                        <i class="fa-solid fa-chevron-right qa-arrow"></i>
+                    </a>
+
+                    <a href="#perfiles" onclick="switchProfile('especialista')" class="quick-access-item border-left">
+                        <div class="qa-info">
+                            <div class="qa-icon"><i class="fa-solid fa-stethoscope"></i></div>
+                            <div>
+                                <p class="qa-title">Portal Especialistas</p>
+                                <p class="qa-subtitle">Monitoreo y continuidad</p>
+                            </div>
+                        </div>
+                        <i class="fa-solid fa-chevron-right qa-arrow"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- SECCIÓN INTERACTIVA: PERFILES -->
+        <section id="perfiles" class="section-perfiles">
+            <div class="container">
+                <div class="section-header">
+                    <span class="badge badge-step">Paso 1 · Selecciona tu rol</span>
+                    <h2 class="section-title">¿Cómo usarás QeroHealth?</h2>
+                    <p class="section-subtitle">Haz clic en un perfil para ver su interfaz adaptada.</p>
+                </div>
+
+                <div class="tabs-grid" role="tablist">
+                    <button onclick="switchProfile('paciente')" id="tab-paciente" role="tab" aria-selected="true" class="tab-btn active-tab btn-interactive">
+                        <div class="tab-icon-wrapper">
+                            <div class="tab-icon"><i class="fa-solid fa-heart"></i></div>
+                            <div class="tab-info">
+                                <h3>Paciente</h3>
+                                <p>Realizar mi rutina y ver mi progreso</p>
+                            </div>
+                        </div>
+                        <span id="badge-paciente" class="tab-badge">Seleccionado</span>
+                    </button>
+
+                    <button onclick="switchProfile('cuidador')" id="tab-cuidador" role="tab" aria-selected="false" class="tab-btn btn-interactive">
+                        <div class="tab-icon-wrapper">
+                            <div class="tab-icon"><i class="fa-solid fa-users"></i></div>
+                            <div class="tab-info">
+                                <h3>Cuidador</h3>
+                                <p>Acompañar la rutina de una persona</p>
+                            </div>
+                        </div>
+                        <span id="badge-cuidador" class="tab-badge hidden">Seleccionado</span>
+                    </button>
+
+                    <button onclick="switchProfile('especialista')" id="tab-especialista" role="tab" aria-selected="false" class="tab-btn btn-interactive">
+                        <div class="tab-icon-wrapper">
+                            <div class="tab-icon"><i class="fa-solid fa-stethoscope"></i></div>
+                            <div class="tab-info">
+                                <h3>Especialista</h3>
+                                <p>Crear rutinas y seguir pacientes</p>
+                            </div>
+                        </div>
+                        <span id="badge-especialista" class="tab-badge hidden">Seleccionado</span>
+                    </button>
+                </div>
+
+                <!-- Paneles -->
+                <div class="panels-container">
+                    <div id="panel-paciente" class="panel-grid fade-in">
+                        <div class="panel-content">
+                            <span class="badge badge-patient">Vista de Paciente</span>
+                            <h3>Puedes hacerlo a tu ritmo</h3>
+                            <p>Pausa cuando lo necesites. Tu progreso se guarda automáticamente.</p>
+                            <ul class="panel-list">
+                                <li><i class="fa-solid fa-video"></i> Videos lentos y subtitulados</li>
+                                <li><i class="fa-solid fa-pause"></i> Pausa sin perder tu avance</li>
+                            </ul>
+                            <button onclick="openModal('login', 'Paciente')" class="btn btn-primary btn-interactive">
+                                <span>Continuar como Paciente</span> <i class="fa-solid fa-arrow-right"></i>
+                            </button>
+                        </div>
+                        <div class="panel-image">
+                            <img src="img/ejercicio-paciente.webp" alt="Paciente sonriendo y levantando el brazo en señal de avance">
+                        </div>
+                    </div>
+
+                    <div id="panel-cuidador" class="panel-grid fade-in hidden">
+                        <div class="panel-content">
+                            <span class="badge badge-caregiver">Vista de Cuidador</span>
+                            <h3>Acompaña con calma</h3>
+                            <p>Habla con calma y permite descansos. No fuerces el movimiento.</p>
+                            <ul class="panel-list">
+                                <li><i class="fa-solid fa-book-open"></i> Guía breve en cada ejercicio</li>
+                                <li><i class="fa-solid fa-user-check"></i> Progreso compartido con el paciente</li>
+                            </ul>
+                            <button onclick="openModal('login', 'Cuidador')" class="btn btn-primary btn-interactive">
+                                <span>Continuar como Cuidador</span> <i class="fa-solid fa-arrow-right"></i>
+                            </button>
+                        </div>
+                        <div class="panel-image">
+                            <img src="img/guia-cuidador.webp" alt="Cuidador sonriente acompañando a un adulto mayor en silla de ruedas">
+                        </div>
+                    </div>
+
+                    <div id="panel-especialista" class="panel-grid fade-in hidden">
+                        <div class="panel-content">
+                            <span class="badge badge-specialist">Vista de Especialista</span>
+                            <h3>Panel clínico simple</h3>
+                            <p>Crea rutinas en minutos y monitorea la continuidad semanal.</p>
+                            <ul class="panel-list">
+                                <li><i class="fa-solid fa-sliders"></i> Configura tiempos y repeticiones</li>
+                                <li><i class="fa-solid fa-bell"></i> Alertas de inactividad</li>
+                            </ul>
+                            <button onclick="openModal('login', 'Especialista')" class="btn btn-primary btn-interactive">
+                                <span>Continuar como Especialista</span> <i class="fa-solid fa-arrow-right"></i>
+                            </button>
+                        </div>
+                        <div class="panel-image img-relative">
+                            <img src="img/panel-especialista.webp" alt="Especialista en rehabilitación con uniforme verde en su consultorio">
+                            <span class="img-floating-badge">24 Activos</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CÓMO FUNCIONA -->
+        <section id="como-funciona" class="section-como-funciona">
+            <div class="container">
+                <div class="section-header">
+                    <span class="badge-plain">Paso a paso claro</span>
+                    <h2 class="section-title">Cómo funciona QeroHealth</h2>
+                </div>
+
+                <div class="steps-grid">
+                    <div class="card step-card">
+                        <img src="img/paso-1-asignacion.webp" alt="Especialista revisando con una paciente sus resultados y su plan de ejercicios">
+                        <div class="step-content">
+                            <div class="step-number">01</div>
+                            <h3>Asignación clínica</h3>
+                            <p>Tu especialista configura tus ejercicios y videos demostrativos.</p>
+                        </div>
+                    </div>
+
+                    <div class="card step-card">
+                        <img src="img/paso-2-practica.webp" alt="Profesional de salud mostrando la rutina en una tablet a una paciente mayor">
+                        <div class="step-content">
+                            <div class="step-number">02</div>
+                            <h3>Práctica en casa</h3>
+                            <p>Realiza tu rutina paso a paso, a tu ritmo y con pausas seguras.</p>
+                        </div>
+                    </div>
+
+                    <div class="card step-card">
+                        <img src="img/paso-3-avance.webp" alt="Padre e hijo revisando juntos el avance de la rutina en una tablet">
+                        <div class="step-content">
+                            <div class="step-number">03</div>
+                            <h3>Avance compartido</h3>
+                            <p>Registra tus sesiones automáticamente para tu próximo control.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SOBRE QEROHEALTH Y ALCANCE MÉDICO -->
+        <section id="principios" class="section-principios">
+            <div class="container">
+                <div class="principios-grid">
+                    <div class="principios-text">
+                        <span class="badge badge-dark">Sobre QeroHealth</span>
+                        <h2>Tecnología humana para acompañar la rehabilitación</h2>
+                        <p>Complementa el seguimiento profesional. No reemplaza el diagnóstico ni el tratamiento de un especialista.</p>
+                    </div>
+
+                    <div class="features-grid">
+                        <div class="feature-box">
+                            <i class="fa-solid fa-eye"></i>
+                            <h3>Accesibilidad desde el diseño</h3>
+                        </div>
+                        <div class="feature-box">
+                            <i class="fa-solid fa-handshake-angle"></i>
+                            <h3>Acompañamiento humano</h3>
+                        </div>
+                        <div class="feature-box">
+                            <i class="fa-solid fa-lock"></i>
+                            <h3>Privacidad y transparencia</h3>
+                        </div>
+                        <div class="feature-box">
+                            <i class="fa-solid fa-wand-magic-sparkles"></i>
+                            <h3>Información clara</h3>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="disclaimer-grid">
+                    <div class="disclaimer-box box-green">
+                        <i class="fa-solid fa-circle-check"></i>
+                        <span><strong>Qué hace:</strong> Guía rutinas asignadas y registra avances.</span>
+                    </div>
+                    <div class="disclaimer-box box-green">
+                        <i class="fa-solid fa-circle-xmark" style="color: #fda4af;"></i>
+                        <span><strong>Qué no hace:</strong> No diagnostica ni atiende emergencias.</span>
+                    </div>
+                    <div class="disclaimer-box box-red">
+                        <i class="fa-solid fa-phone" style="color: #fda4af;"></i>
+                        <span><strong>Emergencias:</strong> Ante dolor o síntomas agudos, acude a urgencias.</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- PREGUNTAS FRECUENTES Y SOPORTE -->
+        <section id="faq" class="section-faq">
+            <div class="container faq-layout">
+                <div class="faq-list">
+                    <h2 class="section-title text-left">Preguntas frecuentes</h2>
+                    
+                    <div class="card accordion-card">
+                        <button onclick="toggleFaq(0)" class="faq-btn">
+                            <span>¿Puedo pausar una actividad?</span>
+                            <i id="faq-icon-0" class="fa-solid fa-chevron-down rotate-180 transition"></i>
+                        </button>
+                        <div id="faq-content-0" class="faq-answer">
+                            Sí. Toca "Pausar" y continúa cuando estés listo. El tiempo y las repeticiones quedan guardados.
+                        </div>
+                    </div>
+
+                    <div class="card accordion-card">
+                        <button onclick="toggleFaq(1)" class="faq-btn">
+                            <span>¿Quién crea mi rutina?</span>
+                            <i id="faq-icon-1" class="fa-solid fa-chevron-down transition"></i>
+                        </button>
+                        <div id="faq-content-1" class="faq-answer hidden">
+                            Tu especialista tratante asigna los ejercicios, repeticiones y videos según tu evolución.
+                        </div>
+                    </div>
+
+                    <div class="card accordion-card">
+                        <button onclick="toggleFaq(2)" class="faq-btn">
+                            <span>¿Qué hago si siento dolor?</span>
+                            <i id="faq-icon-2" class="fa-solid fa-chevron-down transition"></i>
+                        </button>
+                        <div id="faq-content-2" class="faq-answer hidden">
+                            Detén el ejercicio de inmediato, descansa y consulta a tu especialista.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="support-form-container">
+                    <div class="card support-card">
+                        <div>
+                            <h3>¿Necesitas ayuda?</h3>
+                            <p class="subtitle">Respondemos en menos de 24 horas hábiles.</p>
+                        </div>
+
+                        <div class="contact-info">
+                            <div class="contact-item">
+                                <i class="fa-solid fa-envelope"></i>
+                                <span>soporte@qerohealth.com</span>
+                            </div>
+                            <div class="contact-item">
+                                <i class="fa-solid fa-phone"></i>
+                                <span>+51 944754618 · Accesibilidad</span>
+                            </div>
+                        </div>
+
+                        <form onsubmit="handleSupportSubmit(event)" class="support-form">
+                            <label class="form-label">Envíanos una consulta rápida</label>
+                            <input type="text" required placeholder="Ej: Problemas con mi código de acceso..." class="form-input">
+                            <button type="submit" class="btn btn-primary w-full justify-center btn-interactive">Enviar mensaje</button>
+                            <div id="support-feedback" class="feedback-msg hidden">✓ Mensaje recibido. Te responderemos pronto.</div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- FOOTER -->
+    <footer id="contacto" class="site-footer">
+        <div class="container footer-grid">
+            <div class="footer-col">
+                <div class="footer-logo">
+                    <div class="footer-icon"><i class="fa-solid fa-handshake-angle"></i></div>
+                    <span>QeroHealth</span>
+                </div>
+                <p>Rehabilitación acompañada desde casa. Complementa el seguimiento de tu especialista; no reemplaza el diagnóstico ni el tratamiento.</p>
+                <button onclick="openModal('login')" class="footer-login-btn">Iniciar sesión</button>
+            </div>
+
+            <div class="footer-col">
+                <h3>Contacto</h3>
+                <ul class="footer-links">
+                    <li><i class="fa-solid fa-envelope"></i> <a href="mailto:contacto@qerohealth.com">contacto@qerohealth.com</a></li>
+                    <li><i class="fa-solid fa-phone"></i> <a href="tel:+51900000000">+51 944754618</a></li>
+                    <li><i class="fa-brands fa-whatsapp"></i> <a href="https://wa.me/51900000000">WhatsApp: +51 944754618</a></li>
+                    <li><i class="fa-solid fa-clock"></i> <span>Lunes a viernes, 8:00 a 18:00</span></li>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <h3>Síguenos</h3>
+                <ul class="footer-links">
+                    <li><a href="#">Instagram · @qerohealth</a></li>
+                    <li><a href="#">Facebook · QeroHealth</a></li>
+                    <li><a href="#">LinkedIn · QeroHealth</a></li>
+                    <li><a href="#">YouTube · QeroHealth</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <div class="container footer-bottom-inner">
+                <span>© 2026 QeroHealth. Todos los derechos reservados.</span>
+                <div class="footer-nav">
+                    <a href="#perfiles">Perfiles</a>
+                    <a href="#como-funciona">Cómo funciona</a>
+                    <a href="#faq">Ayuda</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- MODAL DE ACCESO (Con Accesibilidad Formularios) -->
+    <div id="auth-modal" class="modal-overlay hidden" role="dialog" aria-modal="true">
+        <div class="modal-card fade-in">
+            <button onclick="closeModal()" aria-label="Cerrar ventana" class="modal-close">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+
+            <!-- VISTA: LOGIN -->
+            <div id="modal-view-login">
+                <div class="modal-header">
+                    <span class="modal-badge">QeroHealth · Acceso</span>
+                    <h3 class="modal-title">Iniciar sesión</h3>
+                    <p id="selected-role-label" class="modal-role hidden"></p>
+                </div>
+
+                <div class="secure-box">
+                    <i class="fa-solid fa-shield-halved"></i>
+                    <div>
+                        <p class="secure-title">Acceso seguro</p>
+                        <p class="secure-subtitle">Tus datos de salud están protegidos.</p>
+                    </div>
+                </div>
+
+                <form onsubmit="handleLoginSubmit(event)" class="modal-form">
+                    <div class="form-group">
+                        <label for="login-email" class="form-label">Correo electrónico</label>
+                        <input id="login-email" type="email" required value="marta@correo.com" class="form-input" aria-describedby="email-error">
+                        <p id="email-error" class="error-text"></p>
+                    </div>
+                    <div class="form-group">
+                        <label for="login-password" class="form-label">Contraseña</label>
+                        <input id="login-password" type="password" required value="••••••••" class="form-input">
+                    </div>
+
+                    <div class="form-options">
+                        <button type="button" onclick="switchModalView('recover')" class="forgot-btn">¿Olvidaste tu contraseña?</button>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary w-full justify-center btn-interactive">Ingresar</button>
+                    <button type="button" onclick="switchModalView('recover')" class="btn btn-outline w-full justify-center btn-interactive">Ingresar con código de 6 dígitos</button>
+                </form>
+
+                <div id="login-success-msg" class="feedback-msg hidden">✓ ¡Acceso verificado! Cargando tu sesión...</div>
+            </div>
+
+            <!-- VISTA: RECUPERAR -->
+            <div id="modal-view-recover" class="hidden">
+                <div class="modal-header">
+                    <span class="modal-badge">QeroHealth · Acceso</span>
+                    <h3 class="modal-title">Código de acceso</h3>
+                </div>
+
+                <p class="recover-desc">Ingresa tu correo y te enviaremos un código temporal de 6 dígitos.</p>
+
+                <form onsubmit="handleRecoverSubmit(event)" class="modal-form">
+                    <div class="form-group">
+                        <label class="form-label">Correo electrónico</label>
+                        <input type="email" required value="marta@correo.com" class="form-input">
+                    </div>
+                    <button type="submit" class="btn btn-primary w-full justify-center btn-interactive">Enviar código</button>
+                </form>
+                
+                <div id="recover-code-sent" class="feedback-box hidden">
+                    <p class="fb-title">✓ Código enviado</p>
+                    <p class="fb-subtitle">Revisa tu bandeja de entrada. Vence en 10 minutos.</p>
+                </div>
+
+                <button type="button" onclick="switchModalView('login')" class="btn-back">
+                    <i class="fa-solid fa-arrow-left"></i> Volver a iniciar sesión
+                </button>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- BOTÓN FLOTANTE: VER AUTORES -->
+    <a href="autores.html" class="btn-fixed-autores btn-interactive" aria-label="Ver autores del proyecto">
+        <i class="fa-solid fa-users"></i>
+        <span>Ver autores</span>
+    </a>
+    <!-- SCRIPT ORIGINAL (Nombre original) -->
+    <script src="js/main.js"></script>
+</body>
+</html>
