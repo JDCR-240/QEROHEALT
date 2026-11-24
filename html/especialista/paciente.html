@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pacientes — QeroHealth</title>
+    <link rel="icon" href="../../img/logo.ico" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../../css/index.css">
+    <link rel="stylesheet" href="../../css/app.css">
+</head>
+<body class="app-body">
+
+    <!-- HEADER SUPERIOR -->
+    <header class="app-header">
+        <div class="container app-header-inner">
+            <a href="panel.html" class="logo-group">
+                <div class="logo-icon">
+                    <i class="fa-solid fa-handshake-angle"></i>
+                </div>
+                <span class="logo-title">QeroHealth</span>
+            </a>
+
+            <div class="app-header-right">
+                <nav class="app-nav" aria-label="Navegación de especialista">
+                    <a href="panel.html" class="app-nav-link">
+                        <i class="fa-solid fa-house"></i>
+                        <span>Panel</span>
+                    </a>
+                    <a href="paciente.html" class="app-nav-link active">
+                        <i class="fa-solid fa-users"></i>
+                        <span>Pacientes</span>
+                    </a>
+                    <a href="catalogo.html" class="app-nav-link">
+                        <i class="fa-solid fa-clipboard-list"></i>
+                        <span>Rutinas</span>
+                    </a>
+                    <a href="seguimiento.html" class="app-nav-link">
+                        <i class="fa-solid fa-chart-line"></i>
+                        <span>Seguimiento</span>
+                    </a>
+                    <a href="../ayuda.html" class="app-nav-link">
+                        <i class="fa-regular fa-circle-question"></i>
+                        <span>Ayuda</span>
+                    </a>
+                </nav>
+
+                <a href="../cuenta.html" class="app-nav-link app-nav-account" aria-label="Mi cuenta" title="Mi cuenta">
+                    <i class="fa-regular fa-user"></i>
+                </a>
+
+                <button type="button" id="btn-open-logout" class="app-nav-link app-nav-exit" aria-label="Cerrar sesión">
+                    <i class="fa-solid fa-right-from-bracket"></i>
+                    <span>Salir</span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- CONTENIDO PRINCIPAL -->
+    <main class="app-main">
+        <div class="container fade-in">
+
+            <section class="page-head">
+                <h1 class="page-title">Pacientes</h1>
+            </section>
+
+            <!-- LAYOUT 2 COLUMNAS (Buscador/Filtros + Lista) -->
+            <div class="panel-layout">
+
+                <!-- COLUMNA IZQUIERDA: BUSCADOR, 4 FILTROS Y AGREGAR -->
+                <section class="panel-side-col">
+                    <div class="filter-panel">
+                        <label for="search-patient" class="filter-label">Buscar</label>
+                        <div class="search-input-wrap">
+                            <i class="fa-solid fa-magnifying-glass search-icon"></i>
+                            <input
+                                type="search"
+                                id="search-patient"
+                                class="search-input"
+                                placeholder="Buscar por nombre o ID"
+                                autocomplete="off"
+                            >
+                        </div>
+
+                        <p class="filter-label" style="margin-top: 16px;">Ordenar por</p>
+                        <div class="filter-chips" role="group" aria-label="Filtros de orden">
+                            <button type="button" class="filter-chip active" data-sort="desc">100% a Alerta</button>
+                            <button type="button" class="filter-chip" data-sort="asc">Alerta a 100%</button>
+                            <button type="button" class="filter-chip" data-sort="az">A - Z</button>
+                            <button type="button" class="filter-chip" data-sort="za">Z - A</button>
+                        </div>
+                    </div>
+
+                    <button type="button" id="btn-open-add" class="btn btn-primary btn-large w-full justify-center btn-interactive">
+                        <i class="fa-solid fa-user-plus"></i>
+                        <span>Agregar paciente</span>
+                    </button>
+                </section>
+
+                <!-- COLUMNA DERECHA: LISTA DE PACIENTES -->
+                <section class="panel-main-col">
+                    <div class="section-row-head">
+                        <h2 id="patients-count" class="block-title">27 pacientes</h2>
+                    </div>
+
+                    <div id="patients-list" class="activity-list">
+                        <!-- Se llena dinámicamente desde js/pacientes.js -->
+                    </div>
+                    <div id="patients-more-wrap" class="patients-more-wrap hidden">
+                        <button type="button" id="btn-toggle-more-patients" class="btn btn-outline btn-interactive patients-more-btn">
+                            <i class="fa-solid fa-chevron-down"></i>
+                            <span>Mostrar más pacientes</span>
+                        </button>
+                    </div>
+
+
+                </section>
+
+            </div>
+
+        </div>
+    </main>
+
+    <!-- OVERLAY: AGREGAR PACIENTE -->
+    <div id="add-patient-modal" class="modal-overlay hidden">
+        <div class="modal-card modal-card-form fade-in">
+            <h2 class="modal-title">Agregar paciente</h2>
+            <p class="modal-desc">Registra los datos básicos para asignarle una rutina.</p>
+
+            <form id="add-patient-form" class="modal-form">
+                <div class="form-field">
+                    <label for="new-name" class="filter-label">Nombre completo</label>
+                    <input type="text" id="new-name" class="form-input-modal" placeholder="Ej. Luis Mendoza" required>
+                </div>
+
+                <div class="form-row-2">
+                    <div class="form-field">
+                        <label for="new-age" class="filter-label">Edad</label>
+                        <input type="number" id="new-age" class="form-input-modal" placeholder="Ej. 62" min="18" max="110" required>
+                    </div>
+                    <div class="form-field">
+                        <label for="new-condition" class="filter-label">Condición</label>
+                        <select id="new-condition" class="form-input-modal">
+                            <option value="ACV isquémico">ACV isquémico</option>
+                            <option value="Parálisis facial">Parálisis facial</option>
+                            <option value="Disartria leve">Disartria leve</option>
+                            <option value="Afasia motora">Afasia motora</option>
+                            <option value="Otro">Otro</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- Campo dinámico cuando selecciona "Otro" -->
+                <div id="other-condition-field" class="form-field hidden">
+                    <label for="new-condition-other" class="filter-label">Especificar condición</label>
+                    <input type="text" id="new-condition-other" class="form-input-modal" placeholder="Ej. ACV hemorrágico, Disfagia...">
+                </div>
+
+                <div class="form-field">
+                    <label for="new-caregiver" class="filter-label">Cuidador responsable</label>
+                    <input type="text" id="new-caregiver" class="form-input-modal" placeholder="Ej. Carla Mendoza" required>
+                </div>
+
+                <div class="modal-actions" style="margin-top: 8px;">
+                    <button type="button" id="btn-cancel-add" class="btn btn-outline w-full justify-center btn-interactive">
+                        Cancelar
+                    </button>
+                    <button type="submit" class="btn btn-primary w-full justify-center btn-interactive">
+                        Guardar
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- OVERLAY: CERRAR SESIÓN -->
+    <div id="logout-modal" class="modal-overlay hidden">
+        <div class="modal-card fade-in">
+            <div class="modal-icon-danger">
+                <i class="fa-solid fa-right-from-bracket"></i>
+            </div>
+            <h2 class="modal-title">¿Cerrar sesión?</h2>
+            <p class="modal-desc">¿Estás seguro de que quieres salir de tu cuenta?</p>
+            <div class="modal-actions">
+                <button type="button" id="btn-cancel-logout" class="btn btn-outline w-full justify-center btn-interactive">
+                    Continuar
+                </button>
+                <button type="button" id="btn-confirm-logout" class="btn btn-danger w-full justify-center btn-interactive">
+                    Cerrar sesión
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script src="../../js/data.js"></script>
+    <script src="../../js/paciente.js"></script>
+</body>
+</html>

@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>¿Cómo usarás QeroHealth? — QeroHealth</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="icon" href="../img/logo.ico" type="image/x-icon">
+    <link rel="stylesheet" href="../css/index.css">
+    <link rel="stylesheet" href="../css/perfiles.css">
+</head>
+<body class="perfiles-body">
+
+
+    <!-- HEADER SIMPLE -->
+    <header class="site-header">
+        <div class="container header-autores">
+            <a href="../index.html" class="btn btn-outline btn-interactive btn-volver" aria-label="Volver a iniciar sesión">
+                <i class="fa-solid fa-arrow-left"></i>
+                <span>Volver</span>
+            </a>
+
+            <a href="../index.html" class="header-center-brand">
+                <div class="logo-icon">
+                    <i class="fa-solid fa-handshake-angle"></i>
+                </div>
+                <span class="logo-title">QeroHealth</span>
+            </a>
+        </div>
+    </header>
+
+    <!-- CONTENIDO PRINCIPAL -->
+    <main class="perfiles-main">
+        <div class="container perfiles-container fade-in">
+            
+            <div class="perfiles-header">
+                <h1 class="perfiles-title">¿Cómo usarás QeroHealth?</h1>
+                <p class="perfiles-subtitle">Selecciona tu perfil. Siempre podrás cambiarlo desde tu cuenta.</p>
+            </div>
+
+            <div class="perfiles-layout">
+                
+                <!-- COLUMNA IZQUIERDA: TARJETAS DE PERFIL -->
+                <div class="perfiles-list-col">
+                    <div class="role-cards-stack" role="radiogroup" aria-label="Seleccionar perfil de usuario">
+                        
+                        <!-- Paciente -->
+                        <button type="button" id="card-paciente" class="role-card active-role btn-interactive" onclick="selectRole('Paciente')" aria-checked="true" role="radio">
+                            <div class="role-card-left">
+                                <div class="role-icon">
+                                    <i class="fa-solid fa-heart"></i>
+                                </div>
+                                <div class="role-text">
+                                    <h2>Paciente</h2>
+                                    <p>Realizar mi rutina y revisar mi progreso</p>
+                                </div>
+                            </div>
+                            <i class="fa-solid fa-chevron-right role-chevron"></i>
+                        </button>
+
+                        <!-- Cuidador -->
+                        <button type="button" id="card-cuidador" class="role-card btn-interactive" onclick="selectRole('Cuidador')" aria-checked="false" role="radio">
+                            <div class="role-card-left">
+                                <div class="role-icon">
+                                    <i class="fa-solid fa-users"></i>
+                                </div>
+                                <div class="role-text">
+                                    <h2>Cuidador</h2>
+                                    <p>Acompañar la rutina de una persona</p>
+                                </div>
+                            </div>
+                            <i class="fa-solid fa-chevron-right role-chevron"></i>
+                        </button>
+
+                        <!-- Especialista -->
+                        <button type="button" id="card-especialista" class="role-card btn-interactive" onclick="selectRole('Especialista')" aria-checked="false" role="radio">
+                            <div class="role-card-left">
+                                <div class="role-icon">
+                                    <i class="fa-solid fa-stethoscope"></i>
+                                </div>
+                                <div class="role-text">
+                                    <h2>Especialista</h2>
+                                    <p>Crear rutinas y seguir pacientes</p>
+                                </div>
+                            </div>
+                            <i class="fa-solid fa-chevron-right role-chevron"></i>
+                        </button>
+
+                    </div>
+
+                    <!-- CAJA INFORMATIVA DEL WIREFRAME -->
+                    <div class="info-diff-box">
+                        <div class="info-diff-icon">
+                            <i class="fa-solid fa-layer-group"></i>
+                        </div>
+                        <div>
+                            <p class="info-diff-title">Perfiles claramente diferenciados</p>
+                            <p class="info-diff-desc">Cada perfil muestra solo las herramientas necesarias.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- COLUMNA DERECHA: IMAGEN DINÁMICA + BOTÓN CONTINUAR -->
+                <div class="perfiles-preview-col">
+                    <div class="preview-card">
+                        <span id="preview-badge" class="preview-badge">Vista de Paciente</span>
+                        <div class="preview-img-box">
+                            <img id="preview-img" src="../img/ejercicio-paciente.webp" alt="Vista previa del perfil Paciente">
+                        </div>
+                        <p id="preview-caption" class="preview-caption">
+                            Accede a tu rutina diaria con videos guiados, temporizador y pausas seguras.
+                        </p>
+
+                        <button type="button" id="btn-continue-role" onclick="confirmRoleSelection()" class="btn btn-primary btn-large w-full justify-center btn-interactive">
+                            <span id="btn-continue-text">Continuar como Paciente</span>
+                            <i class="fa-solid fa-arrow-right"></i>
+                        </button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </main>
+
+    <script src="../js/perfiles.js"></script>
+</body>
+</html>

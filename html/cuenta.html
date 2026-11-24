@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mi cuenta — QeroHealth</title>
+    <link rel="icon" href="../img/logo.ico" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../css/index.css">
+    <link rel="stylesheet" href="../css/app.css">
+    <link rel="stylesheet" href="../css/cuenta.css">
+</head>
+<body class="app-body">
+
+    <!-- HEADER SUPERIOR (Se adapta dinámicamente según el rol activo) -->
+    <header class="app-header">
+        <div class="container app-header-inner">
+            <a id="cnt-brand-link" href="paciente/panel.html" class="logo-group">
+                <div class="logo-icon">
+                    <i class="fa-solid fa-handshake-angle"></i>
+                </div>
+                <span class="logo-title">QeroHealth</span>
+            </a>
+
+            <div class="app-header-right">
+                <nav id="cnt-dynamic-nav" class="app-nav" aria-label="Navegación principal">
+                    <!-- Se inyecta desde js/cuenta.js según el rol -->
+                </nav>
+
+                <a href="cuenta.html" class="app-nav-link app-nav-account active" aria-label="Mi cuenta" title="Mi cuenta">
+                    <i class="fa-regular fa-user"></i>
+                </a>
+
+                <button type="button" id="btn-open-logout" class="app-nav-link app-nav-exit" aria-label="Cerrar sesión">
+                    <i class="fa-solid fa-right-from-bracket"></i>
+                    <span>Salir</span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- CONTENIDO PRINCIPAL -->
+    <main class="app-main">
+        <div class="container fade-in">
+
+            <!-- CABECERA -->
+            <section class="cnt-header">
+                <div>
+                    <h1 class="page-title">Mi cuenta</h1>
+                    <p id="cnt-role-subtitle" class="cnt-subtitle">Vista de Paciente</p>
+                </div>
+
+                <span id="cnt-role-badge" class="cnt-role-pill">
+                    <i class="fa-solid fa-circle"></i>
+                    <span>Paciente</span>
+                </span>
+            </section>
+
+            <!-- BLOQUE DE CONTEXTO DEL PERFIL (SOLO LECTURA) -->
+            <section class="cnt-context-card">
+                <div class="cnt-context-left">
+                    <div id="cnt-context-avatar" class="cnt-avatar">MG</div>
+                    <div>
+                        <span id="cnt-context-kicker" class="cnt-context-kicker">Perfil asociado</span>
+                        <h2 id="cnt-context-title" class="cnt-context-title">Marta González</h2>
+                        <p id="cnt-context-meta" class="cnt-context-meta">ID QH-1048 · Lenguaje y rostro</p>
+                    </div>
+                </div>
+
+                <a href="perfiles.html?origen=cuenta" class="btn btn-outline btn-interactive cnt-switch-btn">
+                    <i class="fa-solid fa-repeat"></i>
+                    <span>Cambiar perfil</span>
+                </a>
+            </section>
+
+            <!-- LAYOUT 2 COLUMNAS EN PC -->
+            <div class="cnt-grid">
+
+                <!-- COLUMNA IZQUIERDA: INFORMACIÓN GENERAL EDITABLE -->
+                <section class="cnt-card">
+                    <div class="cnt-card-head">
+                        <div>
+                            <h2 class="block-title">Información general</h2>
+                            <p class="cnt-card-sub">Puedes actualizar tus datos personales y credenciales de acceso.</p>
+                        </div>
+
+                        <button type="button" id="btn-toggle-edit" class="btn btn-outline btn-interactive cnt-edit-btn">
+                            <i class="fa-solid fa-pen"></i>
+                            <span>Editar datos</span>
+                        </button>
+                    </div>
+
+                    <form id="cnt-form" class="cnt-form" novalidate>
+                        <div class="cnt-field-grid">
+                            <div class="cnt-field">
+                                <label for="cnt-nombre" class="cnt-label">Nombre completo</label>
+                                <input id="cnt-nombre" type="text" class="cnt-input" required disabled>
+                            </div>
+
+                            <div class="cnt-field">
+                                <label id="cnt-extra-label" for="cnt-extra" class="cnt-label">Vínculo / Rol</label>
+                                <input id="cnt-extra" type="text" class="cnt-input" disabled>
+                            </div>
+
+                            <div class="cnt-field">
+                                <label for="cnt-correo" class="cnt-label">Correo electrónico</label>
+                                <input id="cnt-correo" type="email" class="cnt-input" required disabled>
+                            </div>
+
+                            <div class="cnt-field">
+                                <label for="cnt-telefono" class="cnt-label">Teléfono de contacto</label>
+                                <input id="cnt-telefono" type="tel" class="cnt-input" disabled>
+                            </div>
+                        </div>
+
+                        <div class="cnt-divider"></div>
+
+                        <div class="cnt-field-grid">
+                            <div class="cnt-field">
+                                <label for="cnt-password" class="cnt-label">Contraseña asociada</label>
+                                <div class="cnt-pass-wrap">
+                                    <input id="cnt-password" type="password" class="cnt-input" required disabled>
+                                    <button type="button" id="btn-toggle-pass" class="cnt-pass-eye" aria-label="Mostrar u ocultar contraseña">
+                                        <i class="fa-regular fa-eye"></i>
+                                    </button>
+                                </div>
+                            </div>
+
+                            <div class="cnt-field">
+                                <label for="cnt-ciudad" class="cnt-label">Ubicación / Sede</label>
+                                <input id="cnt-ciudad" type="text" class="cnt-input" disabled>
+                            </div>
+                        </div>
+
+                        <div id="cnt-feedback" class="cnt-feedback hidden">
+                            <i class="fa-solid fa-circle-check"></i>
+                            <span>Cambios guardados correctamente en tu cuenta.</span>
+                        </div>
+
+                        <div id="cnt-form-actions" class="cnt-form-actions hidden">
+                            <button type="button" id="btn-cancel-edit" class="btn btn-outline btn-interactive">
+                                Cancelar
+                            </button>
+                            <button type="submit" class="btn btn-primary btn-interactive">
+                                <i class="fa-solid fa-floppy-disk"></i>
+                                <span>Guardar cambios</span>
+                            </button>
+                        </div>
+                    </form>
+                </section>
+
+                <!-- COLUMNA DERECHA: ACCESIBILIDAD Y SESIÓN -->
+                <aside class="cnt-side-col">
+                    <section class="cnt-card">
+                        <h2 class="block-title">Accesibilidad</h2>
+                        <p class="cnt-card-sub">Preferencias guardadas para este perfil.</p>
+
+                        <div class="cnt-toggles-list">
+                            <label class="cnt-toggle-row">
+                                <div>
+                                    <strong>Texto grande</strong>
+                                    <span>Aumenta el tamaño de lectura en la plataforma.</span>
+                                </div>
+                                <input type="checkbox" id="toggle-large-text" class="cnt-switch">
+                            </label>
+
+                            <label class="cnt-toggle-row">
+                                <div>
+                                    <strong>Lectura en voz alta</strong>
+                                    <span>Activa indicaciones guiadas por audio.</span>
+                                </div>
+                                <input type="checkbox" id="toggle-voice-read" class="cnt-switch">
+                            </label>
+                        </div>
+                    </section>
+
+                    <section class="cnt-card cnt-security-card">
+                        <div class="cnt-security-icon">
+                            <i class="fa-solid fa-shield-halved"></i>
+                        </div>
+                        <h3 class="cnt-security-title">Privacidad protegida</h3>
+                        <p class="cnt-security-desc">
+                            Solo puedes editar la información general de tu cuenta. Los datos clínicos y asignaciones se gestionan desde el módulo correspondiente.
+                        </p>
+                    </section>
+                </aside>
+
+            </div>
+        </div>
+    </main>
+
+    <!-- OVERLAY: CERRAR SESIÓN -->
+    <div id="logout-modal" class="modal-overlay hidden">
+        <div class="modal-card fade-in">
+            <div class="modal-icon-danger">
+                <i class="fa-solid fa-right-from-bracket"></i>
+            </div>
+            <h2 class="modal-title">¿Cerrar sesión?</h2>
+            <p class="modal-desc">¿Estás seguro de que quieres salir de tu cuenta?</p>
+            <div class="modal-actions">
+                <button type="button" id="btn-cancel-logout" class="btn btn-outline w-full justify-center btn-interactive">
+                    Continuar
+                </button>
+                <button type="button" id="btn-confirm-logout" class="btn btn-danger w-full justify-center btn-interactive">
+                    Cerrar sesión
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script src="../js/data.js"></script>
+    <script src="../js/cuenta.js"></script>
+</body>
+</html>

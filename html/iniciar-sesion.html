@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Iniciar sesión — QeroHealth</title>
+    <link rel="icon" href="../img/logo.ico" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../css/index.css">
+    <link rel="stylesheet" href="../css/auth.css">
+</head>
+<body class="auth-body">
+
+
+
+    <!-- HEADER SIMPLE CON VOLVER Y LOGO -->
+    <header class="site-header">
+        <div class="container header-autores">
+            <a href="perfiles.html" class="btn btn-outline btn-interactive btn-volver" aria-label="Volver al inicio">
+                <i class="fa-solid fa-arrow-left"></i>
+                <span>Volver</span>
+            </a>
+
+            <a href="../index.html" class="header-center-brand">
+                <div class="logo-icon">
+                    <i class="fa-solid fa-handshake-angle"></i>
+                </div>
+                <span class="logo-title">QeroHealth</span>
+            </a>
+        </div>
+    </header>
+
+    <!-- CONTENEDOR PRINCIPAL -->
+    <main class="auth-main">
+        <div class="auth-wrapper fade-in">
+
+            <!-- VISTA 1: INICIAR SESIÓN -->
+            <section id="view-login" class="auth-card">
+                <div class="auth-header">
+                    <span class="auth-badge">Acceso · Cuenta</span>
+                    <h1 class="auth-title">Iniciar sesión</h1>
+                    <p id="selected-role-badge" class="auth-role-pill hidden"></p>
+                </div>
+
+                <div class="secure-box">
+                    <i class="fa-solid fa-shield-halved"></i>
+                    <div>
+                        <p class="secure-title">Acceso seguro</p>
+                        <p class="secure-subtitle">Tus datos de salud están protegidos.</p>
+                    </div>
+                </div>
+
+                <form id="login-form" class="auth-form" novalidate>
+                    <div class="form-group">
+                        <label for="login-email" class="form-label">Correo electrónico</label>
+                        <div class="input-icon-wrapper">
+                            <i class="fa-regular fa-envelope input-icon"></i>
+                            <input id="login-email" type="email" required value="marta@correo.com" class="form-input input-with-icon" placeholder="ejemplo@correo.com">
+                        </div>
+                        <p id="email-error" class="error-text"></p>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="login-password" class="form-label">Contraseña</label>
+                        <div class="input-icon-wrapper">
+                            <i class="fa-solid fa-lock input-icon"></i>
+                            <input id="login-password" type="password" required value="••••••••" class="form-input input-with-icon" placeholder="Ingresa tu contraseña">
+                        </div>
+                    </div>
+
+                    <div class="form-options">
+                        <button type="button" onclick="switchAuthView('recover')" class="forgot-btn">
+                            ¿Olvidaste tu contraseña?
+                        </button>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary btn-large w-full justify-center btn-interactive">
+                        <span>Ingresar</span> <i class="fa-solid fa-arrow-right"></i>
+                    </button>
+
+                    <div class="auth-divider"><span>o</span></div>
+
+                    <button type="button" onclick="switchAuthView('recover')" class="btn btn-outline btn-large w-full justify-center btn-interactive">
+                        <i class="fa-solid fa-key"></i> <span>Ingresar con código de acceso</span>
+                    </button>
+                </form>
+
+                <div id="login-success-msg" class="feedback-msg hidden">
+                    ✓ ¡Acceso verificado! Redirigiendo a tu espacio...
+                </div>
+
+                <p class="auth-support-text">
+                    ¿Necesitas ayuda? <a href="../index.html#faq">Contacta a soporte.</a>
+                </p>
+            </section>
+
+            <!-- VISTA 2: RECUPERAR ACCESO -->
+            <section id="view-recover" class="auth-card hidden">
+                <div class="recover-hero-icon">
+                    <div class="recover-icon-circle">
+                        <i class="fa-solid fa-key"></i>
+                    </div>
+                </div>
+
+                <div class="auth-header">
+                    <span class="auth-badge">Acceso · Recuperación</span>
+                    <h1 class="auth-title">Recuperar acceso</h1>
+                    <p class="recover-desc">Ingresa el correo de tu cuenta. Te enviaremos un código de 6 dígitos.</p>
+                </div>
+
+                <form id="recover-form" class="auth-form">
+                    <div class="form-group">
+                        <label for="recover-email" class="form-label">Correo electrónico</label>
+                        <div class="input-icon-wrapper">
+                            <i class="fa-regular fa-envelope input-icon"></i>
+                            <input id="recover-email" type="email" required value="marta@correo.com" class="form-input input-with-icon">
+                        </div>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary btn-large w-full justify-center btn-interactive">
+                        <span>Enviar código</span> <i class="fa-solid fa-paper-plane"></i>
+                    </button>
+                </form>
+
+                <div id="recover-code-sent" class="feedback-box hidden">
+                    <p class="fb-title"><i class="fa-solid fa-circle-check"></i> Código enviado</p>
+                    <p class="fb-subtitle">Revisa tu bandeja de entrada y correo no deseado. Vence en 10 minutos.</p>
+                </div>
+
+                <button type="button" onclick="switchAuthView('login')" class="btn-back">
+                    <i class="fa-solid fa-arrow-left"></i> Volver a iniciar sesión
+                </button>
+            </section>
+
+        </div>
+    </main>
+
+    <script src="../js/auth.js"></script>
+</body>
+</html>

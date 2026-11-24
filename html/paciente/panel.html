@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mi Panel — QeroHealth</title>
+    <link rel="icon" href="../../img/logo.ico" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../../css/index.css">
+    <link rel="stylesheet" href="../../css/app.css">
+    <link rel="stylesheet" href="../../css/paciente-panel.css">
+</head>
+<body class="app-body">
+
+    <!-- HEADER SUPERIOR -->
+    <header class="app-header">
+        <div class="container app-header-inner">
+            <a href="panel.html" class="logo-group">
+                <div class="logo-icon">
+                    <i class="fa-solid fa-handshake-angle"></i>
+                </div>
+                <span class="logo-title">QeroHealth</span>
+            </a>
+
+            <div class="app-header-right">
+                <nav class="app-nav" aria-label="Navegación de paciente">
+                    <a href="panel.html" class="app-nav-link active">
+                        <i class="fa-solid fa-house"></i>
+                        <span>Inicio</span>
+                    </a>
+                    <a href="mi-rutina.html" class="app-nav-link">
+                        <i class="fa-solid fa-play"></i>
+                        <span>Mi rutina</span>
+                    </a>
+                    <a href="avance.html" class="app-nav-link">
+                        <i class="fa-solid fa-chart-line"></i>
+                        <span>Avance</span>
+                    </a>
+                    <a href="recursos.html" class="app-nav-link">
+                        <i class="fa-solid fa-book-open"></i>
+                        <span>Guias</span>
+                    </a>
+                    <a href="../ayuda.html" class="app-nav-link">
+                        <i class="fa-regular fa-circle-question"></i>
+                        <span>Ayuda</span>
+                    </a>
+                </nav>
+
+                <a href="../cuenta.html" class="app-nav-link app-nav-account" aria-label="Mi cuenta" title="Mi cuenta">
+                    <i class="fa-regular fa-user"></i>
+                </a>
+
+                <button type="button" id="btn-open-logout" class="app-nav-link app-nav-exit" aria-label="Cerrar sesión">
+                    <i class="fa-solid fa-right-from-bracket"></i>
+                    <span>Salir</span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- CONTENIDO PRINCIPAL -->
+    <main class="app-main">
+        <div class="container fade-in">
+
+            <!-- BIENVENIDA -->
+            <section class="pp-welcome">
+                <div class="pp-welcome-left">
+                    <div id="pp-avatar" class="pp-avatar">MG</div>
+                    <div>
+                        <p id="pp-date-label" class="pp-date-label">Hoy · Plan de rehabilitación</p>
+                        <h1 id="pp-greeting" class="pp-title">¡Hola, paciente!</h1>
+                        <p id="pp-subtitle" class="pp-subtitle">Cargando tu plan terapéutico...</p>
+                    </div>
+                </div>
+
+                <span id="pp-status-badge" class="pp-status-pill">
+                    <i class="fa-solid fa-circle"></i> Plan activo
+                </span>
+            </section>
+
+            <!-- TARJETAS RÁPIDAS (KPIs) -->
+            <section class="pp-stats-grid">
+                <article class="pp-stat-card">
+                    <div class="pp-stat-icon icon-green">
+                        <i class="fa-solid fa-chart-line"></i>
+                    </div>
+                    <div>
+                        <span class="pp-stat-label">Avance de la semana</span>
+                        <strong id="pp-stat-progress" class="pp-stat-value">0%</strong>
+                    </div>
+                </article>
+
+                <article class="pp-stat-card">
+                    <div class="pp-stat-icon icon-blue">
+                        <i class="fa-solid fa-dumbbell"></i>
+                    </div>
+                    <div>
+                        <span class="pp-stat-label">Ejercicios de hoy</span>
+                        <strong id="pp-stat-exercises" class="pp-stat-value">0 ejercicios</strong>
+                    </div>
+                </article>
+
+                <article class="pp-stat-card">
+                    <div class="pp-stat-icon icon-amber">
+                        <i class="fa-solid fa-calendar-check"></i>
+                    </div>
+                    <div>
+                        <span class="pp-stat-label">Sesiones completadas</span>
+                        <strong id="pp-stat-sessions" class="pp-stat-value">0 sesiones</strong>
+                    </div>
+                </article>
+            </section>
+
+            <!-- LAYOUT PRINCIPAL 2 COLUMNAS (Izquierda: Equipo + Últimas sesiones | Derecha: Rutina actual) -->
+            <div class="pp-layout">
+
+                <!-- COLUMNA IZQUIERDA: EQUIPO DE APOYO + ÚLTIMAS SESIONES -->
+                <aside class="pp-side-col">
+
+                    <!-- EQUIPO DE APOYO -->
+                    <article class="pp-card">
+                        <h3 class="pp-card-title">Tu equipo de apoyo</h3>
+                        <div class="pp-support-list">
+                            <div class="pp-support-item">
+                                <div class="pp-support-icon">
+                                    <i class="fa-solid fa-user-doctor"></i>
+                                </div>
+                                <div>
+                                    <span class="pp-support-role">Especialista a cargo</span>
+                                    <strong id="pp-specialist-name" class="pp-support-name">Lic. Elena Vargas</strong>
+                                </div>
+                            </div>
+
+                            <div class="pp-support-item">
+                                <div class="pp-support-icon">
+                                    <i class="fa-solid fa-hand-holding-heart"></i>
+                                </div>
+                                <div>
+                                    <span class="pp-support-role">Cuidador asignado</span>
+                                    <strong id="pp-caregiver-name" class="pp-support-name">—</strong>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- ÚLTIMAS SESIONES (Resaltada estilo banner especialista) -->
+                    <article class="pp-card pp-card-highlight">
+                        <div class="pp-card-head">
+                            <div>
+                                <h3 class="pp-card-title">Últimas sesiones</h3>
+                                <p class="pp-card-sub">Tus 2 rutinas anteriores completadas</p>
+                            </div>
+                        </div>
+
+                        <div id="pp-recent-history" class="pp-recent-list">
+                            <!-- Se llena desde paciente-panel.js -->
+                        </div>
+                    </article>
+
+                </aside>
+
+                <!-- COLUMNA DERECHA: RUTINA DE HOY -->
+                <section class="pp-main-col">
+                    <article class="pp-hero-routine">
+                        <div class="pp-hero-top">
+                            <div>
+                                <span class="pp-kicker">Tu rutina actual</span>
+                                <h2 id="pp-routine-name" class="pp-routine-title">Cargando rutina...</h2>
+                                <p id="pp-routine-meta" class="pp-routine-meta">0 ejercicios · Tiempo estimado</p>
+                            </div>
+                            <span id="pp-routine-pill" class="pp-routine-pill">0 ejercicios</span>
+                        </div>
+
+                        <!-- BARRA DE PROGRESO -->
+                        <div class="pp-progress-box">
+                            <div class="pp-progress-head">
+                                <span>Progreso semanal</span>
+                                <strong id="pp-progress-text">0%</strong>
+                            </div>
+                            <div class="pp-progress-track">
+                                <div id="pp-progress-fill" class="pp-progress-fill" style="width: 0%;"></div>
+                            </div>
+                        </div>
+
+                        <!-- LISTA PREVIA DE EJERCICIOS -->
+                        <div id="pp-exercises-preview" class="pp-exercises-preview">
+                            <!-- Se llena desde paciente-panel.js -->
+                        </div>
+
+                        <!-- BOTÓN PRINCIPAL GRANDE -->
+                        <div class="pp-hero-actions">
+                            <a href="mi-rutina.html" id="btn-start-routine" class="btn btn-primary btn-interactive pp-btn-start">
+                                <i class="fa-solid fa-play"></i>
+                                <span>Comenzar rutina de hoy</span>
+                            </a>
+                        </div>
+                    </article>
+                </section>
+
+            </div>
+
+            <!-- ADELANTO DE MÓDULOS: AVANCE + GUÍAS -->
+            <section class="pp-modules-grid" aria-label="Accesos rápidos a tu avance y guías">
+
+                <!-- MÓDULO 1: TU AVANCE -->
+                <article class="pp-card pp-module-card">
+                    <div class="pp-module-top">
+                        <div class="pp-card-head">
+                            <div>
+                                <h3 class="pp-card-title">Resumen de tu avance</h3>
+                                <p class="pp-card-sub">Seguimiento de tu progreso semanal e histórico</p>
+                            </div>
+                        </div>
+
+                        <div id="pp-avance-preview" class="pp-module-list">
+                            <!-- Se llena desde paciente-panel.js -->
+                        </div>
+                    </div>
+
+                    <a href="avance.html" class="btn btn-interactive pp-footer-btn pp-soft-btn w-full justify-center">
+                        <i class="fa-solid fa-chart-line"></i>
+                        <span>Ver mi avance completo</span>
+                    </a>
+                </article>
+
+                <!-- MÓDULO 2: GUÍAS DE APOYO (Mismo diseño de videos guía que Cuidador) -->
+                <article class="pp-card pp-module-card">
+                    <div class="pp-video-list">
+                            <a href="recursos.html" class="pp-video-item">
+                                <div class="pp-video-thumb">
+                                    <img src="../../img/logo-paciente.jpg" alt="Prepara tu espacio y postura antes de iniciar">
+                                    <span class="pp-video-play" aria-hidden="true">
+                                        <i class="fa-solid fa-play"></i>
+                                    </span>
+                                </div>
+                                <div class="pp-video-info">
+                                    <span class="pp-video-cat">Postura y entorno</span>
+                                    <p class="pp-video-title">Prepara tu espacio y postura antes de iniciar</p>
+                                </div>
+                            </a>
+
+                            <a href="recursos.html" class="pp-video-item">
+                                <div class="pp-video-thumb">
+                                    <img src="../../img/logo-paciente.jpg" alt="Respira con calma entre cada repetición">
+                                    <span class="pp-video-play" aria-hidden="true">
+                                        <i class="fa-solid fa-play"></i>
+                                    </span>
+                                </div>
+                                <div class="pp-video-info">
+                                    <span class="pp-video-cat">Respiración y ritmo</span>
+                                    <p class="pp-video-title">Respira con calma entre cada repetición</p>
+                                </div>
+                            </a>
+
+                            <a href="recursos.html" class="pp-video-item">
+                                <div class="pp-video-thumb">
+                                    <img src="../../img/logo-paciente.jpg" alt="Cuándo detenerte y avisar a tu especialista">
+                                    <span class="pp-video-play" aria-hidden="true">
+                                        <i class="fa-solid fa-play"></i>
+                                    </span>
+                                </div>
+                                <div class="pp-video-info">
+                                    <span class="pp-video-cat">Seguridad y constancia</span>
+                                    <p class="pp-video-title">Cuándo detenerte y avisar a tu especialista</p>
+                                </div>
+                            </a>
+                        </div>
+
+                    <a href="recursos.html" class="btn btn-interactive pp-footer-btn pp-soft-btn w-full justify-center">
+                        <i class="fa-solid fa-book-open"></i>
+                        <span>Explorar todas las guías</span>
+                    </a>
+                </article>
+
+            </section>
+
+        </div>
+    </main>
+
+    <!-- OVERLAY: CERRAR SESIÓN -->
+    <div id="logout-modal" class="modal-overlay hidden">
+        <div class="modal-card fade-in">
+            <div class="modal-icon-danger">
+                <i class="fa-solid fa-right-from-bracket"></i>
+            </div>
+            <h2 class="modal-title">¿Cerrar sesión?</h2>
+            <p class="modal-desc">¿Estás seguro de que quieres salir de tu cuenta?</p>
+            <div class="modal-actions">
+                <button type="button" id="btn-cancel-logout" class="btn btn-outline w-full justify-center btn-interactive">
+                    Continuar
+                </button>
+                <button type="button" id="btn-confirm-logout" class="btn btn-danger w-full justify-center btn-interactive">
+                    Cerrar sesión
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script src="../../js/data.js"></script>
+    <script src="../../js/paciente-panel.js"></script>
+</body>
+</html>

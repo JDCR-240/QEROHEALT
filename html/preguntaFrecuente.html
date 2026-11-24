@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Preguntas frecuentes — QeroHealth</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../css/index.css">
+    <link rel="icon" href="../img/logo.ico" type="image/x-icon">
+    <link rel="stylesheet" href="../css/app.css">
+    <link rel="stylesheet" href="../css/preguntaFrecuente.css">
+</head>
+<body class="app-body">
+
+    <!-- HEADER SUPERIOR (Se adapta automáticamente al rol activo) -->
+    <header class="app-header">
+        <div class="container app-header-inner">
+            <a id="faq-brand-link" href="paciente/panel.html" class="logo-group">
+                <div class="logo-icon">
+                    <i class="fa-solid fa-handshake-angle"></i>
+                </div>
+                <span class="logo-title">QeroHealth</span>
+            </a>
+
+            <div class="app-header-right">
+                <nav id="faq-dynamic-nav" class="app-nav" aria-label="Navegación principal">
+                    <!-- Se inyecta desde js/preguntaFrecuente.js según el rol -->
+                </nav>
+
+                <a href="cuenta.html" class="app-nav-link app-nav-account" aria-label="Mi cuenta" title="Mi cuenta">
+                    <i class="fa-regular fa-user"></i>
+                </a>
+
+                <button type="button" id="btn-open-logout" class="app-nav-link app-nav-exit" aria-label="Cerrar sesión">
+                    <i class="fa-solid fa-right-from-bracket"></i>
+                    <span>Salir</span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- CONTENIDO PRINCIPAL -->
+    <main class="app-main">
+        <div class="container fade-in">
+
+            <!-- BOTÓN VOLVER A AYUDA -->
+            <div class="faq-back-row">
+                <a href="ayuda.html" class="btn btn-outline btn-interactive faq-back-btn">
+                    <i class="fa-solid fa-arrow-left"></i>
+                    <span>Volver al Centro de ayuda</span>
+                </a>
+            </div>
+
+            <!-- CABECERA -->
+            <section class="faq-header">
+                <div>
+                    <h1 class="page-title">Preguntas frecuentes</h1>
+                    <p class="faq-subtitle">
+                        Respuestas claras sobre rutinas, acompañamiento en casa, cuenta y seguimiento en QeroHealth.
+                    </p>
+                </div>
+
+                <span id="faq-counter" class="faq-counter">5 preguntas</span>
+            </section>
+
+            <!-- FILTROS POR CATEGORÍA -->
+            <section class="faq-tabs" role="tablist" aria-label="Categorías de preguntas frecuentes">
+                <button type="button" role="tab" class="faq-tab-btn active" data-category="General" aria-selected="true">
+                    General
+                </button>
+                <button type="button" role="tab" class="faq-tab-btn" data-category="Rutinas" aria-selected="false">
+                    Rutinas
+                </button>
+                <button type="button" role="tab" class="faq-tab-btn" data-category="Cuenta" aria-selected="false">
+                    Cuenta
+                </button>
+                <button type="button" role="tab" class="faq-tab-btn" data-category="Progreso" aria-selected="false">
+                    Progreso
+                </button>
+            </section>
+
+            <!-- GRILLA DE ACORDEÓN EN 2 COLUMNAS -->
+            <section class="faq-grid" aria-live="polite">
+                <div class="faq-column" id="faqColLeft"></div>
+                <div class="faq-column" id="faqColRight"></div>
+            </section>
+
+        </div>
+    </main>
+
+    <!-- OVERLAY: SOPORTE -->
+    <div id="support-modal" class="modal-overlay hidden" role="dialog" aria-modal="true" aria-labelledby="support-modal-title">
+        <div class="modal-card fade-in">
+            <div class="modal-icon-info">
+                <i class="fa-solid fa-headset"></i>
+            </div>
+            <h2 id="support-modal-title" class="modal-title">Soporte de QeroHealth</h2>
+            <p class="modal-desc">
+                Si tienes dudas sobre el uso de la plataforma o el acompañamiento en casa, nuestro equipo puede orientarte. Recuerda que las pautas clínicas siempre son definidas por tu especialista.
+            </p>
+            <div class="modal-actions">
+                <button type="button" id="btn-close-support" class="btn btn-primary w-full justify-center btn-interactive">
+                    Entendido
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- OVERLAY: CERRAR SESIÓN -->
+    <div id="logout-modal" class="modal-overlay hidden">
+        <div class="modal-card fade-in">
+            <div class="modal-icon-danger">
+                <i class="fa-solid fa-right-from-bracket"></i>
+            </div>
+            <h2 class="modal-title">¿Cerrar sesión?</h2>
+            <p class="modal-desc">¿Estás seguro de que quieres salir de tu cuenta?</p>
+            <div class="modal-actions">
+                <button type="button" id="btn-cancel-logout" class="btn btn-outline w-full justify-center btn-interactive">
+                    Continuar
+                </button>
+                <button type="button" id="btn-confirm-logout" class="btn btn-danger w-full justify-center btn-interactive">
+                    Cerrar sesión
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script src="../js/preguntaFrecuente.js"></script>
+</body>
+</html>

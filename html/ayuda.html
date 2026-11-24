@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Centro de ayuda — QeroHealth</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="icon" href="../img/logo.ico" type="image/x-icon">
+    <link rel="stylesheet" href="../css/index.css">
+    <link rel="stylesheet" href="../css/app.css">
+    <link rel="stylesheet" href="../css/ayuda.css">
+</head>
+<body class="app-body">
+
+    <!-- HEADER SUPERIOR (Se adapta automáticamente al rol activo) -->
+    <header class="app-header">
+        <div class="container app-header-inner">
+            <a id="ay-brand-link" href="paciente/panel.html" class="logo-group">
+                <div class="logo-icon">
+                    <i class="fa-solid fa-handshake-angle"></i>
+                </div>
+                <span class="logo-title">QeroHealth</span>
+            </a>
+
+            <div class="app-header-right">
+                <nav id="ay-dynamic-nav" class="app-nav" aria-label="Navegación principal">
+                    <!-- Se inyecta desde js/ayuda.js según el rol -->
+                </nav>
+
+                <a href="cuenta.html" class="app-nav-link app-nav-account" aria-label="Mi cuenta" title="Mi cuenta">
+                    <i class="fa-regular fa-user"></i>
+                </a>
+
+                <button type="button" id="btn-open-logout" class="app-nav-link app-nav-exit" aria-label="Cerrar sesión">
+                    <i class="fa-solid fa-right-from-bracket"></i>
+                    <span>Salir</span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- CONTENIDO PRINCIPAL -->
+    <main class="app-main">
+        <div class="container fade-in">
+
+            <!-- CABECERA -->
+            <section class="ay-header">
+                <div>
+                    <h1 class="page-title">Centro de ayuda</h1>
+                    <p class="ay-subtitle">
+                        Encuentra respuestas rápidas, tutoriales paso a paso y canales de soporte para usar QeroHealth.
+                    </p>
+                </div>
+
+                <span id="ay-role-badge" class="ay-role-pill">
+                    <i class="fa-solid fa-circle"></i>
+                    <span>Paciente</span>
+                </span>
+            </section>
+
+            <!-- BANNER DE PAUSA SEGURA -->
+            <section class="ay-notice-banner" role="status">
+                <div class="ay-notice-icon">
+                    <i class="fa-solid fa-circle-pause"></i>
+                </div>
+                <div class="ay-notice-text">
+                    <strong>¿Necesitas ayuda durante una rutina?</strong>
+                    <span>Pausa el ejercicio en cualquier momento. Tu progreso quedará guardado automáticamente.</span>
+                </div>
+            </section>
+
+            <!-- EXPLORA LA AYUDA (GRILLA 2x2 EN PC) -->
+            <section class="ay-explore-section" aria-labelledby="explora-ayuda-title">
+                <div class="ay-section-head">
+                    <h2 id="explora-ayuda-title" class="block-title">Explora la ayuda</h2>
+                    <span class="ay-section-hint">4 secciones disponibles</span>
+                </div>
+
+                <div class="ay-grid-2x2">
+                    <a href="preguntaFrecuente.html" class="ay-tile">
+                        <span class="ay-tile-icon is-teal">
+                            <i class="fa-regular fa-circle-question"></i>
+                        </span>
+                        <span class="ay-tile-content">
+                            <span class="ay-tile-title">Preguntas frecuentes</span>
+                            <span class="ay-tile-desc">Respuestas rápidas sobre tu cuenta, rutinas y avance semanal.</span>
+                        </span>
+                        <i class="fa-solid fa-chevron-right ay-tile-chevron"></i>
+                    </a>
+
+                    <a href="tutoriales.html" class="ay-tile">
+                        <span class="ay-tile-icon is-blue">
+                            <i class="fa-solid fa-graduation-cap"></i>
+                        </span>
+                        <span class="ay-tile-content">
+                            <span class="ay-tile-title">Tutoriales paso a paso</span>
+                            <span class="ay-tile-desc">Aprende a usar QeroHealth según tu perfil de acceso.</span>
+                        </span>
+                        <i class="fa-solid fa-chevron-right ay-tile-chevron"></i>
+                    </a>
+
+                    <a href="soporte.html" class="ay-tile">
+                        <span class="ay-tile-icon is-amber">
+                            <i class="fa-regular fa-comment-dots"></i>
+                        </span>
+                        <span class="ay-tile-content">
+                            <span class="ay-tile-title">Contacto y soporte</span>
+                            <span class="ay-tile-desc">Escríbenos o revisa los horarios y canales disponibles.</span>
+                        </span>
+                        <i class="fa-solid fa-chevron-right ay-tile-chevron"></i>
+                    </a>
+
+                    <a href="sobre.html" class="ay-tile">
+                        <span class="ay-tile-icon is-green">
+                            <i class="fa-solid fa-shield-halved"></i>
+                        </span>
+                        <span class="ay-tile-content">
+                            <span class="ay-tile-title">Sobre QeroHealth</span>
+                            <span class="ay-tile-desc">Conoce nuestros principios, límites médicos y privacidad.</span>
+                        </span>
+                        <i class="fa-solid fa-chevron-right ay-tile-chevron"></i>
+                    </a>
+                </div>
+            </section>
+
+            <!-- FRANJA INFERIOR: HABLAR CON SOPORTE -->
+            <section class="ay-support-card">
+                <div class="ay-support-info">
+                    <div class="ay-support-icon">
+                        <i class="fa-solid fa-headset"></i>
+                    </div>
+                    <div>
+                        <h3 class="ay-support-title">¿Aún necesitas asistencia personalizada?</h3>
+                        <p class="ay-support-desc">Nuestro equipo responde consultas técnicas y de accesibilidad en menos de 24 horas hábiles.</p>
+                    </div>
+                </div>
+
+                <button type="button" id="btn-open-support" class="btn btn-primary btn-interactive ay-support-btn">
+                    <i class="fa-regular fa-comment-dots"></i>
+                    <span>Hablar con soporte</span>
+                </button>
+            </section>
+
+        </div>
+    </main>
+    <!-- OVERLAY: SOPORTE PRÓXIMAMENTE -->
+    <div id="support-modal" class="modal-overlay hidden" role="dialog" aria-modal="true" aria-labelledby="support-modal-title">
+        <div class="modal-card fade-in">
+            <div class="modal-icon-info">
+                <i class="fa-solid fa-headset"></i>
+            </div>
+            <h2 id="support-modal-title" class="modal-title">Chat de soporte en camino</h2>
+            <p class="modal-desc">
+                Gracias por comunicarte con nosotros. Esta funcionalidad estará habilitada muy pronto para atenderte en vivo.
+            </p>
+            <div class="modal-actions">
+                <button type="button" id="btn-close-support" class="btn btn-primary w-full justify-center btn-interactive">
+                    Entendido
+                </button>
+            </div>
+        </div>
+    </div>
+    <!-- OVERLAY: CERRAR SESIÓN -->
+    <div id="logout-modal" class="modal-overlay hidden">
+        <div class="modal-card fade-in">
+            <div class="modal-icon-danger">
+                <i class="fa-solid fa-right-from-bracket"></i>
+            </div>
+            <h2 class="modal-title">¿Cerrar sesión?</h2>
+            <p class="modal-desc">¿Estás seguro de que quieres salir de tu cuenta?</p>
+            <div class="modal-actions">
+                <button type="button" id="btn-cancel-logout" class="btn btn-outline w-full justify-center btn-interactive">
+                    Continuar
+                </button>
+                <button type="button" id="btn-confirm-logout" class="btn btn-danger w-full justify-center btn-interactive">
+                    Cerrar sesión
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script src="../js/ayuda.js"></script>
+</body>
+</html>

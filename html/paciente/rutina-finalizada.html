@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rutina finalizada — QeroHealth</title>
+    <link rel="icon" href="../../img/logo.ico" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../../css/index.css">
+    <link rel="stylesheet" href="../../css/app.css">
+    <link rel="stylesheet" href="../../css/rutina-finalizada.css">
+</head>
+<body class="app-body">
+
+    <!-- HEADER SUPERIOR -->
+    <header class="app-header">
+        <div class="container app-header-inner">
+            <a href="panel.html" class="logo-group">
+                <div class="logo-icon">
+                    <i class="fa-solid fa-handshake-angle"></i>
+                </div>
+                <span class="logo-title">QeroHealth</span>
+            </a>
+
+            <div class="app-header-right">
+                <nav class="app-nav" aria-label="Navegación de paciente">
+                    <a href="panel.html" class="app-nav-link">
+                        <i class="fa-solid fa-house"></i>
+                        <span>Inicio</span>
+                    </a>
+                    <a href="mi-rutina.html" class="app-nav-link active">
+                        <i class="fa-solid fa-play"></i>
+                        <span>Mi rutina</span>
+                    </a>
+                    <a href="avance.html" class="app-nav-link">
+                        <i class="fa-solid fa-chart-line"></i>
+                        <span>Avance</span>
+                    </a>
+                    <a href="recursos.html" class="app-nav-link">
+                        <i class="fa-solid fa-book-open"></i>
+                        <span>Guias</span>
+                    </a>
+                    <a href="../ayuda.html" class="app-nav-link">
+                        <i class="fa-regular fa-circle-question"></i>
+                        <span>Ayuda</span>
+                    </a>
+                </nav>
+
+                <a href="../cuenta.html" class="app-nav-link app-nav-account" aria-label="Mi cuenta" title="Mi cuenta">
+                    <i class="fa-regular fa-user"></i>
+                </a>
+
+                <button type="button" id="btn-open-logout" class="app-nav-link app-nav-exit" aria-label="Cerrar sesión">
+                    <i class="fa-solid fa-right-from-bracket"></i>
+                    <span>Salir</span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- CONTENIDO PRINCIPAL -->
+    <main class="app-main">
+        <div class="container fade-in">
+
+            <!-- BARRA SUPERIOR CON BOTÓN ATRÁS (MISMA RUTA QUE VER DETALLES) -->
+            <section class="rf-top-bar">
+                <a href="mi-rutina.html" class="back-btn" aria-label="Volver a mi rutina">
+                    <i class="fa-solid fa-arrow-left"></i>
+                </a>
+                <span class="rf-top-label">Resumen de sesión</span>
+            </section>
+
+            <section class="rf-wrapper">
+                <article class="rf-card">
+                    <div class="rf-hero-icon">
+                        <i class="fa-solid fa-trophy"></i>
+                    </div>
+
+                    <span class="rf-badge">
+                        <i class="fa-solid fa-circle-check"></i> Sesión completada
+                    </span>
+
+                    <h1 class="rf-title">¡Rutina finalizada!</h1>
+                    <p id="rf-subtitle" class="rf-subtitle">
+                        Excelente constancia. Completaste toda tu rutina de hoy.
+                    </p>
+
+                    <!-- MÉTRICAS DE LA RUTINA -->
+                    <div class="rf-stats-grid">
+                        <div class="rf-stat-item">
+                            <span class="rf-stat-label">Actividades</span>
+                            <strong id="rf-stat-activities" class="rf-stat-value">0 / 0</strong>
+                        </div>
+
+                        <div class="rf-stat-item">
+                            <span class="rf-stat-label">Tiempo total</span>
+                            <strong id="rf-stat-time" class="rf-stat-value">0 min</strong>
+                        </div>
+
+                        <div class="rf-stat-item">
+                            <span class="rf-stat-label">Avance</span>
+                            <strong id="rf-stat-pct" class="rf-stat-value rf-stat-green">100%</strong>
+                        </div>
+                    </div>
+
+                    <!-- BARRA DE AVANCE 100% -->
+                    <div class="rf-progress-box">
+                        <div class="rf-progress-head">
+                            <span id="rf-routine-name">Rutina actual</span>
+                            <strong>100%</strong>
+                        </div>
+                        <div class="rf-progress-track">
+                            <div class="rf-progress-fill" style="width: 100%;"></div>
+                        </div>
+                    </div>
+
+                    <!-- BOTONES DE ACCIÓN -->
+                    <div class="rf-actions">
+                        <button type="button" id="btn-ver-seguimiento" class="btn btn-primary btn-interactive rf-btn">
+                            <i class="fa-solid fa-chart-line"></i>
+                            <span>Ver mi seguimiento</span>
+                        </button>
+
+                        <div class="rf-actions-row">
+                            <a href="panel.html" class="btn btn-outline btn-interactive rf-btn">
+                                <i class="fa-solid fa-house"></i>
+                                <span>Volver al inicio</span>
+                            </a>
+
+                            <a href="mi-rutina.html" class="btn btn-outline btn-interactive rf-btn">
+                                <i class="fa-solid fa-list-check"></i>
+                                <span>Ver detalles</span>
+                            </a>
+                        </div>
+                    </div>
+                </article>
+            </section>
+
+        </div>
+    </main>
+
+    <!-- OVERLAY: CERRAR SESIÓN -->
+    <div id="logout-modal" class="modal-overlay hidden">
+        <div class="modal-card fade-in">
+            <div class="modal-icon-danger">
+                <i class="fa-solid fa-right-from-bracket"></i>
+            </div>
+            <h2 class="modal-title">¿Cerrar sesión?</h2>
+            <p class="modal-desc">¿Estás seguro de que quieres salir de tu cuenta?</p>
+            <div class="modal-actions">
+                <button type="button" id="btn-cancel-logout" class="btn btn-outline w-full justify-center btn-interactive">
+                    Continuar
+                </button>
+                <button type="button" id="btn-confirm-logout" class="btn btn-danger w-full justify-center btn-interactive">
+                    Cerrar sesión
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script src="../../js/data.js"></script>
+    <script src="../../js/rutina-finalizada.js"></script>
+</body>
+</html>

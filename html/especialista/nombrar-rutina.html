@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nombrar nueva rutina — QeroHealth</title>
+    <link rel="icon" href="../../img/logo.ico" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../../css/index.css">
+    <link rel="stylesheet" href="../../css/app.css">
+    <link rel="stylesheet" href="../../css/nombrar-rutina.css">
+</head>
+<body class="app-body">
+
+    <!-- HEADER SUPERIOR -->
+    <header class="app-header">
+        <div class="container app-header-inner">
+            <a href="panel.html" class="logo-group">
+                <div class="logo-icon">
+                    <i class="fa-solid fa-handshake-angle"></i>
+                </div>
+                <span class="logo-title">QeroHealth</span>
+            </a>
+
+            <div class="app-header-right">
+                <nav class="app-nav" aria-label="Navegación de especialista">
+                    <a href="panel.html" class="app-nav-link">
+                        <i class="fa-solid fa-house"></i>
+                        <span>Panel</span>
+                    </a>
+                    <a href="paciente.html" class="app-nav-link active">
+                        <i class="fa-solid fa-users"></i>
+                        <span>Pacientes</span>
+                    </a>
+                    <a href="catalogo.html" class="app-nav-link">
+                        <i class="fa-solid fa-clipboard-list"></i>
+                        <span>Rutinas</span>
+                    </a>
+                    <a href="seguimiento.html" class="app-nav-link">
+                        <i class="fa-solid fa-chart-line"></i>
+                        <span>Seguimiento</span>
+                    </a>
+                    <a href="../ayuda.html" class="app-nav-link">
+                        <i class="fa-regular fa-circle-question"></i>
+                        <span>Ayuda</span>
+                    </a>
+                </nav>
+
+                <a href="../cuenta.html" class="app-nav-link app-nav-account" aria-label="Mi cuenta" title="Mi cuenta">
+                    <i class="fa-regular fa-user"></i>
+                </a>
+
+                <button type="button" id="btn-open-logout" class="app-nav-link app-nav-exit" aria-label="Cerrar sesión">
+                    <i class="fa-solid fa-right-from-bracket"></i>
+                    <span>Salir</span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- CONTENIDO PRINCIPAL -->
+    <main class="app-main">
+        <div class="container fade-in">
+
+            <section class="nr-wrapper">
+                <div class="nr-top">
+                    <a href="paciente-detalle.html" id="btn-back-nr" class="back-btn" aria-label="Volver">
+                        <i class="fa-solid fa-arrow-left"></i>
+                    </a>
+                    <div>
+                        <h1 class="page-title">Nombrar nueva rutina</h1>
+                        <p id="nr-patient-sub" class="nr-sub">Cargando paciente...</p>
+                    </div>
+                </div>
+
+                <form id="nr-form" class="nr-card">
+                    <div class="nr-summary-banner">
+                        <i class="fa-solid fa-circle-info"></i>
+                        <span id="nr-summary-text">La rutina actual pasará al historial automáticamente.</span>
+                    </div>
+
+                    <div class="nr-field">
+                        <label for="nr-name-input" class="nr-label">Nombre de la nueva rutina</label>
+                        <input
+                            type="text"
+                            id="nr-name-input"
+                            class="nr-input"
+                            placeholder="Ej. Rutina de movilidad facial · Semana 5"
+                            required
+                            autofocus
+                        >
+                    </div>
+
+                    <div class="nr-actions">
+                        <a href="paciente-detalle.html" id="btn-cancel-nr" class="btn btn-outline btn-interactive">
+                            Cancelar
+                        </a>
+                        <button type="submit" class="btn btn-primary btn-interactive">
+                            <i class="fa-solid fa-check"></i>
+                            <span>Guardar y activar rutina</span>
+                        </button>
+                    </div>
+                </form>
+            </section>
+
+        </div>
+    </main>
+
+    <!-- OVERLAY: CERRAR SESIÓN -->
+    <div id="logout-modal" class="modal-overlay hidden">
+        <div class="modal-card fade-in">
+            <div class="modal-icon-danger">
+                <i class="fa-solid fa-right-from-bracket"></i>
+            </div>
+            <h2 class="modal-title">¿Cerrar sesión?</h2>
+            <p class="modal-desc">¿Estás seguro de que quieres salir de tu cuenta?</p>
+            <div class="modal-actions">
+                <button type="button" id="btn-cancel-logout" class="btn btn-outline w-full justify-center btn-interactive">
+                    Continuar
+                </button>
+                <button type="button" id="btn-confirm-logout" class="btn btn-danger w-full justify-center btn-interactive">
+                    Cerrar sesión
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script src="../../js/data.js"></script>
+    <script src="../../js/nombrar-rutina.js"></script>
+</body>
+</html>

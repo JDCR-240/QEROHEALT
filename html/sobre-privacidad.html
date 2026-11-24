@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Privacidad y límites médicos — QeroHealth</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../css/index.css">
+    <link rel="icon" href="../img/logo.ico" type="image/x-icon">
+    <link rel="stylesheet" href="../css/app.css">
+    <link rel="stylesheet" href="../css/sobre.css">
+</head>
+<body class="app-body">
+
+    <!-- HEADER SUPERIOR (Se adapta automáticamente al rol activo) -->
+    <header class="app-header">
+        <div class="container app-header-inner">
+            <a id="sob-brand-link" href="paciente/panel.html" class="logo-group">
+                <div class="logo-icon">
+                    <i class="fa-solid fa-handshake-angle"></i>
+                </div>
+                <span class="logo-title">QeroHealth</span>
+            </a>
+
+            <div class="app-header-right">
+                <nav id="sob-dynamic-nav" class="app-nav" aria-label="Navegación principal">
+                    <!-- Se inyecta desde js/sobre.js según el rol -->
+                </nav>
+
+                <a href="cuenta.html" class="app-nav-link app-nav-account" aria-label="Mi cuenta" title="Mi cuenta">
+                    <i class="fa-regular fa-user"></i>
+                </a>
+
+                <button type="button" id="btn-open-logout" class="app-nav-link app-nav-exit" aria-label="Cerrar sesión">
+                    <i class="fa-solid fa-right-from-bracket"></i>
+                    <span>Salir</span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- CONTENIDO PRINCIPAL -->
+    <main class="app-main">
+        <div class="container fade-in">
+
+            <!-- BOTÓN VOLVER A SOBRE QEROHEALTH -->
+            <div class="sob-back-row">
+                <a href="sobre.html" class="btn btn-outline btn-interactive sob-back-btn">
+                    <i class="fa-solid fa-arrow-left"></i>
+                    <span>Volver a Sobre QeroHealth</span>
+                </a>
+            </div>
+
+            <!-- CABECERA -->
+            <section class="sob-header">
+                <div>
+                    <h1 class="page-title">Privacidad y límites médicos</h1>
+                    <p class="sob-subtitle">
+                        Información transparente sobre el alcance de QeroHealth y cómo protegemos tus datos de salud.
+                    </p>
+                </div>
+
+                <span class="sob-version-pill">
+                    <i class="fa-solid fa-shield-halved"></i>
+                    <span>Uso seguro y transparente</span>
+                </span>
+            </section>
+
+            <!-- LAYOUT 2 COLUMNAS EN PC -->
+            <div class="sob-grid">
+
+                <!-- COLUMNA IZQUIERDA: LÍMITES MÉDICOS -->
+                <section class="sob-right-col" aria-label="Límites médicos">
+                    <div class="sob-notice-danger" role="note">
+                        <div class="sob-notice-icon is-danger">
+                            <i class="fa-solid fa-triangle-exclamation"></i>
+                        </div>
+                        <div class="sob-notice-text">
+                            <strong>Aviso médico importante</strong>
+                            <span>QeroHealth complementa el seguimiento profesional. No reemplaza la atención, el diagnóstico ni el tratamiento de un especialista.</span>
+                        </div>
+                    </div>
+
+                    <article class="sob-card">
+                        <h2 class="block-title">Qué hace QeroHealth</h2>
+                        <ul class="sob-scope-list">
+                            <li>
+                                <span class="sob-scope-icon is-check"><i class="fa-solid fa-check"></i></span>
+                                <span>Guía rutinas asignadas por tu especialista</span>
+                            </li>
+                            <li>
+                                <span class="sob-scope-icon is-check"><i class="fa-solid fa-check"></i></span>
+                                <span>Registra avance y sesiones en casa</span>
+                            </li>
+                            <li>
+                                <span class="sob-scope-icon is-check"><i class="fa-solid fa-check"></i></span>
+                                <span>Facilita el acompañamiento de cuidadores</span>
+                            </li>
+                        </ul>
+                    </article>
+
+                    <article class="sob-card sob-card-warn">
+                        <h2 class="block-title">Qué no hace</h2>
+                        <ul class="sob-scope-list">
+                            <li>
+                                <span class="sob-scope-icon is-no"><i class="fa-solid fa-xmark"></i></span>
+                                <span>No diagnostica condiciones médicas</span>
+                            </li>
+                            <li>
+                                <span class="sob-scope-icon is-no"><i class="fa-solid fa-xmark"></i></span>
+                                <span>No indica ni modifica tratamientos</span>
+                            </li>
+                            <li>
+                                <span class="sob-scope-icon is-no"><i class="fa-solid fa-xmark"></i></span>
+                                <span>No atiende emergencias médicas</span>
+                            </li>
+                        </ul>
+                    </article>
+
+                    <div class="sob-notice-danger" role="alert">
+                        <div class="sob-notice-icon is-danger">
+                            <i class="fa-solid fa-truck-medical"></i>
+                        </div>
+                        <div class="sob-notice-text">
+                            <strong>En una emergencia</strong>
+                            <span>Dolor intenso, dificultad repentina para hablar, debilidad de un lado del cuerpo o confusión: llama de inmediato al servicio de emergencias local.</span>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- COLUMNA DERECHA: TU PRIVACIDAD -->
+                <section class="sob-right-col" aria-labelledby="sobre-privacidad-titulo">
+                    <article class="sob-card">
+                        <div class="sob-priv-head">
+                            <div class="sob-tile-icon">
+                                <i class="fa-solid fa-lock"></i>
+                            </div>
+                            <div>
+                                <h2 id="sobre-privacidad-titulo" class="block-title">Tu privacidad</h2>
+                                <p class="sob-priv-sub">Control y resguardo de tu información</p>
+                            </div>
+                        </div>
+
+                        <p class="sob-text sob-priv-text">
+                            Usamos solo los datos necesarios para prestar el servicio. Puedes solicitar acceso, corrección o eliminación de tu información en cualquier momento. Los datos clínicos se muestran únicamente a personas autorizadas.
+                        </p>
+
+                        <div class="sob-priv-actions">
+                            <a href="../docs/politica-privacidad.pdf" class="btn btn-primary btn-interactive sob-priv-btn" target="_blank" rel="noopener">
+                                <i class="fa-regular fa-file-lines"></i>
+                                <span>Ver política de privacidad (PDF)</span>
+                            </a>
+
+                            <a href="mailto:privacidad@qerohealth.com" class="btn btn-outline btn-interactive sob-priv-btn">
+                                <i class="fa-regular fa-envelope"></i>
+                                <span>Contactar al responsable de datos</span>
+                            </a>
+                        </div>
+                    </article>
+                </section>
+
+            </div>
+        </div>
+    </main>
+
+    <!-- OVERLAY: CERRAR SESIÓN -->
+    <div id="logout-modal" class="modal-overlay hidden">
+        <div class="modal-card fade-in">
+            <div class="modal-icon-danger">
+                <i class="fa-solid fa-right-from-bracket"></i>
+            </div>
+            <h2 class="modal-title">¿Cerrar sesión?</h2>
+            <p class="modal-desc">¿Estás seguro de que quieres salir de tu cuenta?</p>
+            <div class="modal-actions">
+                <button type="button" id="btn-cancel-logout" class="btn btn-outline w-full justify-center btn-interactive">
+                    Continuar
+                </button>
+                <button type="button" id="btn-confirm-logout" class="btn btn-danger w-full justify-center btn-interactive">
+                    Cerrar sesión
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script src="../js/sobre.js"></script>
+</body>
+</html>

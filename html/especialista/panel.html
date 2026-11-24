@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lic. Elena Vargas — QeroHealth</title>
+    <link rel="icon" href="../../img/logo.ico" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../../css/index.css">
+    <link rel="stylesheet" href="../../css/app.css">
+    <link rel="stylesheet" href="../../css/panel.css">
+</head>
+<body class="app-body">
+
+    <!-- MENSAJE DE ESTADO (Accesibilidad) -->
+    <p id="app-status" role="status" class="toast hidden fade-in"></p>
+
+    <!-- HEADER SUPERIOR -->
+    <header class="app-header">
+        <div class="container app-header-inner">
+            <a href="panel.html" class="logo-group">
+                <div class="logo-icon">
+                    <i class="fa-solid fa-handshake-angle"></i>
+                </div>
+                <span class="logo-title">QeroHealth</span>
+            </a>
+
+            <div class="app-header-right">
+                <nav class="app-nav" aria-label="Navegación de especialista">
+                    <a href="panel.html" class="app-nav-link active">
+                        <i class="fa-solid fa-house"></i>
+                        <span>Panel</span>
+                    </a>
+                    <a href="paciente.html" class="app-nav-link">
+                        <i class="fa-solid fa-users"></i>
+                        <span>Pacientes</span>
+                    </a>
+                    <a href="catalogo.html" class="app-nav-link">
+                        <i class="fa-solid fa-clipboard-list"></i>
+                        <span>Rutinas</span>
+                    </a>
+                    <a href="seguimiento.html" class="app-nav-link">
+                        <i class="fa-solid fa-chart-line"></i>
+                        <span>Seguimiento</span>
+                    </a>
+                    <a href="../ayuda.html" class="app-nav-link">
+                        <i class="fa-regular fa-circle-question"></i>
+                        <span>Ayuda</span>
+                    </a>
+                </nav>
+
+                <a href="../cuenta.html" class="app-nav-link app-nav-account" aria-label="Mi cuenta" title="Mi cuenta">
+                    <i class="fa-regular fa-user"></i>
+                </a>
+
+                <button type="button" id="btn-open-logout" class="app-nav-link app-nav-exit" aria-label="Cerrar sesión">
+                    <i class="fa-solid fa-right-from-bracket"></i>
+                    <span>Salir</span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- CONTENIDO PRINCIPAL -->
+    <main class="app-main">
+        <div class="container fade-in">
+
+            <!-- BANNER DE BIENVENIDA (Fondo verde + Avatar circular) -->
+            <section class="panel-hero">
+                <div class="panel-hero-left">
+                    <div class="panel-avatar-lg">EV</div>
+                    <div class="panel-hero-info">
+                        <p id="panel-date" class="panel-date">Hoy</p>
+                        <h1 class="panel-title">Lic. Elena Vargas</h1>
+                        <div class="panel-badges">
+                            <span class="panel-role-pill">
+                                <span class="panel-dot"></span> Especialista en Rehabilitación
+                            </span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="panel-hero-actions">
+                    <a href="paciente.html?orden=az" class="btn btn-outline btn-interactive panel-btn-ghost">
+                        <i class="fa-solid fa-users"></i>
+                        <span>Ver pacientes</span>
+                    </a>
+                    <a href="catalogo.html?nueva=1" class="btn btn-primary btn-interactive panel-btn-cta">
+                        <i class="fa-solid fa-clipboard-list"></i>
+                        <span>Ver rutinas</span>
+                    </a>
+                </div>
+            </section>
+
+            <!-- TARJETAS KPI (Mismo estilo limpio de Paciente) -->
+            <section class="panel-kpi-grid" aria-label="Indicadores clínicos">
+                <article class="panel-kpi-card">
+                    <div class="panel-kpi-icon kpi-green">
+                        <i class="fa-solid fa-users"></i>
+                    </div>
+                    <div class="panel-kpi-body">
+                        <span class="panel-kpi-label">Pacientes activos</span>
+                        <strong id="kpi-activos" class="panel-kpi-value">0</strong>
+                    </div>
+                </article>
+
+                <article class="panel-kpi-card">
+                    <div class="panel-kpi-icon kpi-blue">
+                        <i class="fa-solid fa-chart-line"></i>
+                    </div>
+                    <div class="panel-kpi-body">
+                        <span class="panel-kpi-label">Continuidad semanal</span>
+                        <strong id="kpi-continuidad" class="panel-kpi-value">0%</strong>
+                        <div class="panel-kpi-bar">
+                            <div id="kpi-continuidad-bar" class="panel-kpi-bar-fill" style="width: 0%;"></div>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="panel-kpi-card">
+                    <div class="panel-kpi-icon kpi-amber">
+                        <i class="fa-solid fa-clipboard-check"></i>
+                    </div>
+                    <div class="panel-kpi-body">
+                        <span class="panel-kpi-label">Pendientes de revisión</span>
+                        <strong id="kpi-pendientes" class="panel-kpi-value">0</strong>
+                    </div>
+                </article>
+            </section>
+
+            <!-- CUERPO PRINCIPAL: RESUMEN IZQUIERDO + ACTIVIDAD RECIENTE -->
+            <div class="panel-grid">
+
+                <!-- COLUMNA IZQUIERDA -->
+                <aside class="panel-side">
+
+                    <!-- ALERTA PRIORITARIA -->
+                    <section class="panel-alert-card">
+                        <div class="panel-alert-head">
+                            <div class="panel-alert-title-wrap">
+                                <span class="panel-alert-icon">
+                                    <i class="fa-solid fa-triangle-exclamation"></i>
+                                </span>
+                                <h2>Atención requerida</h2>
+                            </div>
+                            <a href="paciente.html?filtro=alertas" class="panel-link">Ver todo</a>
+                        </div>
+                        <p id="alert-message" class="panel-alert-desc">Cargando alertas...</p>
+                        <a href="paciente.html?filtro=alertas" class="panel-alert-cta">
+                            <span>Revisar pacientes en alerta</span>
+                            <i class="fa-solid fa-arrow-right"></i>
+                        </a>
+                    </section>
+
+                    <!-- ESTADO DE PACIENTES -->
+                    <section class="panel-card">
+                        <div class="panel-card-head">
+                            <h2 class="panel-card-title">Estado de pacientes</h2>
+                            <span id="dist-total-badge" class="panel-mini-badge">0 total</span>
+                        </div>
+
+                        <div class="dist-list">
+                            <div class="dist-item">
+                                <div class="dist-row">
+                                    <span class="dist-label"><span class="dist-dot dot-green"></span> Al día</span>
+                                    <span id="dist-activo-count" class="dist-count">0</span>
+                                </div>
+                                <div class="dist-track">
+                                    <div id="dist-activo-bar" class="dist-fill fill-green" style="width: 0%;"></div>
+                                </div>
+                            </div>
+
+                            <div class="dist-item">
+                                <div class="dist-row">
+                                    <span class="dist-label"><span class="dist-dot dot-amber"></span> En seguimiento</span>
+                                    <span id="dist-seg-count" class="dist-count">0</span>
+                                </div>
+                                <div class="dist-track">
+                                    <div id="dist-seg-bar" class="dist-fill fill-amber" style="width: 0%;"></div>
+                                </div>
+                            </div>
+
+                            <div class="dist-item">
+                                <div class="dist-row">
+                                    <span class="dist-label"><span class="dist-dot dot-red"></span> En alerta (+5 días)</span>
+                                    <span id="dist-alerta-count" class="dist-count">0</span>
+                                </div>
+                                <div class="dist-track">
+                                    <div id="dist-alerta-bar" class="dist-fill fill-red" style="width: 0%;"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                </aside>
+
+                <!-- COLUMNA DERECHA: ACTIVIDAD RECIENTE -->
+                <section class="panel-card panel-activity-card">
+                    <div class="panel-card-head">
+                        <div>
+                            <h2 class="panel-card-title">Actividad reciente</h2>
+                            <p class="panel-card-sub">Últimos registros y avances de tus pacientes</p>
+                        </div>
+                    </div>
+
+                    <div id="recent-activity-list" class="panel-activity-list">
+                        <!-- Se llena dinámicamente desde js/panel.js -->
+                    </div>
+
+                    <a href="paciente.html?orden=az" id="btn-more-patients" class="btn btn-outline w-full justify-center btn-interactive hidden panel-more-btn panel-soft-btn">
+                        Ver más pacientes
+                    </a>
+                </section>
+
+            </div>
+
+            <!-- ADELANTO DE MÓDULOS: SEGUIMIENTO + RUTINAS -->
+            <section class="panel-modules-grid" aria-label="Resumen de seguimiento y catálogo de rutinas">
+
+                <!-- MÓDULO 1: SEGUIMIENTO GENERAL -->
+                <article class="panel-card panel-module-card">
+                    <div>
+                        <div class="panel-card-head">
+                            <div>
+                                <h2 class="panel-card-title">Seguimiento por área</h2>
+                                <p class="panel-card-sub">Adherencia promedio según el tipo de rehabilitación</p>
+                            </div>
+                        </div>
+
+                        <div id="panel-tracking-preview" class="pm-list">
+                            <!-- Se llena dinámicamente desde js/panel.js -->
+                        </div>
+                    </div>
+
+                    <a href="seguimiento.html" class="btn btn-outline w-full justify-center btn-interactive pm-footer-btn panel-soft-btn">
+                        <i class="fa-solid fa-chart-line"></i>
+                        <span>Ir a seguimiento general</span>
+                    </a>
+                </article>
+
+                <!-- MÓDULO 2: CATÁLOGO DE RUTINAS Y EJERCICIOS -->
+                <article class="panel-card panel-module-card">
+                    <div>
+                        <div class="panel-card-head">
+                            <div>
+                                <h2 class="panel-card-title">Catálogo de ejercicios</h2>
+                                <p class="panel-card-sub">Ejercicios base disponibles para armar rutinas</p>
+                            </div>
+                        </div>
+
+                        <div id="panel-routines-preview" class="pm-list">
+                            <!-- Se llena dinámicamente desde js/panel.js -->
+                        </div>
+                    </div>
+
+                    <a href="catalogo.html" class="btn btn-outline w-full justify-center btn-interactive pm-footer-btn panel-soft-btn">
+                        <i class="fa-solid fa-clipboard-list"></i>
+                        <span>Ver rutinas y ejercicios</span>
+                    </a>
+                </article>
+
+            </section>
+        </div>
+    </main>
+
+    <!-- OVERLAY: CERRAR SESIÓN -->
+    <div id="logout-modal" class="modal-overlay hidden">
+        <div class="modal-card fade-in">
+            <div class="modal-icon-danger">
+                <i class="fa-solid fa-right-from-bracket"></i>
+            </div>
+            <h2 class="modal-title">¿Cerrar sesión?</h2>
+            <p class="modal-desc">¿Estás seguro de que quieres salir de tu cuenta?</p>
+            <div class="modal-actions">
+                <button type="button" id="btn-cancel-logout" class="btn btn-outline w-full justify-center btn-interactive">
+                    Continuar
+                </button>
+                <button type="button" id="btn-confirm-logout" class="btn btn-danger w-full justify-center btn-interactive">
+                    Cerrar sesión
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script src="../../js/data.js"></script>
+    <script src="../../js/panel.js"></script>
+</body>
+</html>

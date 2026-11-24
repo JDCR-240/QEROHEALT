@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Actividad completada — QeroHealth</title>
+    <link rel="icon" href="../../img/logo.ico" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../../css/index.css">
+    <link rel="stylesheet" href="../../css/app.css">
+    <link rel="stylesheet" href="../../css/actividad-completada.css">
+</head>
+<body class="app-body">
+
+    <!-- HEADER SUPERIOR -->
+    <header class="app-header">
+        <div class="container app-header-inner">
+            <a href="panel.html" class="logo-group">
+                <div class="logo-icon">
+                    <i class="fa-solid fa-handshake-angle"></i>
+                </div>
+                <span class="logo-title">QeroHealth</span>
+            </a>
+
+            <div class="app-header-right">
+                <nav class="app-nav" aria-label="Navegación de paciente">
+                    <a href="panel.html" class="app-nav-link">
+                        <i class="fa-solid fa-house"></i>
+                        <span>Inicio</span>
+                    </a>
+                    <a href="mi-rutina.html" class="app-nav-link active">
+                        <i class="fa-solid fa-play"></i>
+                        <span>Mi rutina</span>
+                    </a>
+                    <a href="avance.html" class="app-nav-link">
+                        <i class="fa-solid fa-chart-line"></i>
+                        <span>Avances</span>
+                    </a>
+                    <a href="recursos.html" class="app-nav-link">
+                        <i class="fa-solid fa-book-open"></i>
+                        <span>Guias</span>
+                    </a>
+                    <a href="../ayuda.html" class="app-nav-link">
+                        <i class="fa-regular fa-circle-question"></i>
+                        <span>Ayuda</span>
+                    </a>
+                </nav>
+
+                <a href="../cuenta.html" class="app-nav-link app-nav-account" aria-label="Mi cuenta" title="Mi cuenta">
+                    <i class="fa-regular fa-user"></i>
+                </a>
+
+                <button type="button" id="btn-open-logout" class="app-nav-link app-nav-exit" aria-label="Cerrar sesión">
+                    <i class="fa-solid fa-right-from-bracket"></i>
+                    <span>Salir</span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- CONTENIDO PRINCIPAL -->
+    <main class="app-main">
+        <div class="container fade-in">
+
+            <section class="ac-wrapper">
+                <!-- TARJETA PRINCIPAL DE LOGRO -->
+                <article class="ac-card">
+                    <div class="ac-hero-icon">
+                        <i class="fa-solid fa-circle-check"></i>
+                    </div>
+
+                    <span id="ac-step-pill" class="ac-step-pill">Ejercicio 1 de 3 completado</span>
+                    <h1 class="ac-title">¡Actividad completada!</h1>
+                    <p id="ac-completed-name" class="ac-subtitle">
+                        Excelente trabajo completando tu ejercicio.
+                    </p>
+
+                    <!-- PROGRESO SEMANAL ACTUALIZADO -->
+                    <div class="ac-progress-box">
+                        <div class="ac-progress-head">
+                            <span id="ac-routine-name">Rutina actual</span>
+                            <strong id="ac-progress-pct">0%</strong>
+                        </div>
+                        <div class="ac-progress-track">
+                            <div id="ac-progress-fill" class="ac-progress-fill" style="width: 0%;"></div>
+                        </div>
+                        <p id="ac-progress-detail" class="ac-progress-detail">0 de 0 ejercicios completados</p>
+                    </div>
+
+                    <!-- SIGUIENTE ACTIVIDAD -->
+                    <div id="ac-next-box" class="ac-next-box">
+                        <div class="ac-next-head">
+                            <span class="ac-next-kicker">Siguiente actividad</span>
+                            <span id="ac-next-meta" class="ac-next-meta">3 min · 10 rep.</span>
+                        </div>
+                        <h2 id="ac-next-title" class="ac-next-title">Nombre del siguiente ejercicio</h2>
+                        <p id="ac-next-indication" class="ac-next-indication">
+                            Indicación breve del siguiente ejercicio...
+                        </p>
+                    </div>
+
+                    <!-- BOTONES DE ACCIÓN -->
+                    <div class="ac-actions">
+                        <a href="rutina-finalizada.html" id="btn-finish-routine" class="btn btn-primary btn-interactive ac-btn hidden">
+                            <i class="fa-solid fa-flag-checkered"></i>
+                            <span>Finalizar rutina</span>
+                        </a>
+
+                        <button type="button" id="btn-next-activity" class="btn btn-primary btn-interactive ac-btn">
+                            <i class="fa-solid fa-play"></i>
+                            <span>Iniciar siguiente actividad</span>
+                        </button>
+
+                        <a href="mi-rutina.html" id="btn-rest-later" class="btn btn-outline btn-interactive ac-btn">
+                            <i class="fa-solid fa-mug-hot"></i>
+                            <span>Descansar y continuar luego</span>
+                        </a>
+                    </div>
+                </article>
+            </section>
+
+        </div>
+    </main>
+
+    <!-- OVERLAY: CERRAR SESIÓN -->
+    <div id="logout-modal" class="modal-overlay hidden">
+        <div class="modal-card fade-in">
+            <div class="modal-icon-danger">
+                <i class="fa-solid fa-right-from-bracket"></i>
+            </div>
+            <h2 class="modal-title">¿Cerrar sesión?</h2>
+            <p class="modal-desc">¿Estás seguro de que quieres salir de tu cuenta?</p>
+            <div class="modal-actions">
+                <button type="button" id="btn-cancel-logout" class="btn btn-outline w-full justify-center btn-interactive">
+                    Continuar
+                </button>
+                <button type="button" id="btn-confirm-logout" class="btn btn-danger w-full justify-center btn-interactive">
+                    Cerrar sesión
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script src="../../js/data.js"></script>
+    <script src="../../js/actividad-completada.js"></script>
+</body>
+</html>

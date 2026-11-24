@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contacto y soporte — QeroHealth</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="icon" href="../img/logo.ico" type="image/x-icon">
+    <link rel="stylesheet" href="../css/index.css">
+    <link rel="stylesheet" href="../css/app.css">
+    <link rel="stylesheet" href="../css/soporte.css">
+</head>
+<body class="app-body">
+
+    <!-- HEADER SUPERIOR (Se adapta automáticamente al rol activo) -->
+    <header class="app-header">
+        <div class="container app-header-inner">
+            <a id="sop-brand-link" href="paciente/panel.html" class="logo-group">
+                <div class="logo-icon">
+                    <i class="fa-solid fa-handshake-angle"></i>
+                </div>
+                <span class="logo-title">QeroHealth</span>
+            </a>
+
+            <div class="app-header-right">
+                <nav id="sop-dynamic-nav" class="app-nav" aria-label="Navegación principal">
+                    <!-- Se inyecta desde js/soporte.js según el rol -->
+                </nav>
+
+                <a href="cuenta.html" class="app-nav-link app-nav-account" aria-label="Mi cuenta" title="Mi cuenta">
+                    <i class="fa-regular fa-user"></i>
+                </a>
+
+                <button type="button" id="btn-open-logout" class="app-nav-link app-nav-exit" aria-label="Cerrar sesión">
+                    <i class="fa-solid fa-right-from-bracket"></i>
+                    <span>Salir</span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- CONTENIDO PRINCIPAL -->
+    <main class="app-main">
+        <div class="container fade-in">
+
+            <!-- BOTÓN VOLVER A AYUDA -->
+            <div class="sop-back-row">
+                <a href="ayuda.html" class="btn btn-outline btn-interactive sop-back-btn">
+                    <i class="fa-solid fa-arrow-left"></i>
+                    <span>Volver al Centro de ayuda</span>
+                </a>
+            </div>
+
+            <!-- CABECERA -->
+            <section class="sop-header">
+                <div>
+                    <h1 class="page-title">Contacto y soporte</h1>
+                    <p class="sop-subtitle">
+                        Escríbenos o utiliza nuestros canales de atención si necesitas ayuda técnica o de accesibilidad.
+                    </p>
+                </div>
+
+                <span class="sop-time-pill">
+                    <i class="fa-regular fa-clock"></i>
+                    <span>Respuesta &lt; 24 h hábiles</span>
+                </span>
+            </section>
+
+            <!-- BANNER DE AVISO -->
+            <section class="sop-notice-banner" role="note">
+                <div class="sop-notice-icon">
+                    <i class="fa-solid fa-circle-info"></i>
+                </div>
+                <div class="sop-notice-text">
+                    <strong>Respondemos en menos de 24 horas hábiles</strong>
+                    <span>Si presentas una emergencia médica o dolor agudo, acude de inmediato a los servicios de emergencia de tu país.</span>
+                </div>
+            </section>
+
+            <!-- LAYOUT 2 COLUMNAS EN PC -->
+            <div class="sop-grid">
+
+                <!-- COLUMNA IZQUIERDA: CANALES DE CONTACTO -->
+                <section class="sop-card" aria-labelledby="soporte-canales-titulo">
+                    <h2 id="soporte-canales-titulo" class="block-title">Canales de contacto</h2>
+                    <p class="sop-card-sub">Elige el medio más cómodo para comunicarte con nosotros.</p>
+
+                    <div class="sop-channels-list">
+                        <button type="button" class="sop-tile" id="soporte-chat-btn" aria-expanded="false" aria-controls="soporte-chat-info">
+                            <span class="sop-tile-icon is-teal">
+                                <i class="fa-regular fa-comment-dots"></i>
+                            </span>
+                            <span class="sop-tile-content">
+                                <span class="sop-tile-title">Chat de soporte</span>
+                                <span class="sop-tile-desc">Lunes a viernes · 8:00 a 18:00</span>
+                            </span>
+                            <i class="fa-solid fa-chevron-right sop-tile-chevron"></i>
+                        </button>
+
+                        <div id="soporte-chat-info" class="sop-chat-info hidden" role="status">
+                            <i class="fa-solid fa-sparkles"></i>
+                            <span>El chat en vivo estará disponible muy pronto. Mientras tanto, escríbenos por correo o con el formulario.</span>
+                        </div>
+
+                        <a href="mailto:soporte@qerohealth.com" class="sop-tile">
+                            <span class="sop-tile-icon is-blue">
+                                <i class="fa-regular fa-envelope"></i>
+                            </span>
+                            <span class="sop-tile-content">
+                                <span class="sop-tile-title">soporte@qerohealth.com</span>
+                                <span class="sop-tile-desc">Consultas generales y técnicas</span>
+                            </span>
+                            <i class="fa-solid fa-chevron-right sop-tile-chevron"></i>
+                        </a>
+
+                        <a href="tel:+51944754618" class="sop-tile">
+                            <span class="sop-tile-icon is-amber">
+                                <i class="fa-solid fa-phone"></i>
+                            </span>
+                            <span class="sop-tile-content">
+                                <span class="sop-tile-title">+51 944 754 618</span>
+                                <span class="sop-tile-desc">Atención de accesibilidad</span>
+                            </span>
+                            <i class="fa-solid fa-chevron-right sop-tile-chevron"></i>
+                        </a>
+                    </div>
+                </section>
+
+                <!-- COLUMNA DERECHA: FORMULARIO DE MENSAJE -->
+                <section class="sop-card" aria-labelledby="soporte-form-titulo">
+                    <h2 id="soporte-form-titulo" class="block-title">Envíanos un mensaje</h2>
+                    <p class="sop-card-sub">Cuéntanos brevemente qué necesitas y te responderemos por correo.</p>
+
+                    <form id="soporte-form" class="sop-form" novalidate>
+                        <div class="sop-field">
+                            <label for="soporte-tema" class="sop-label">Tema</label>
+                            <input id="soporte-tema" name="tema" type="text" class="sop-input" value="Ayuda con mi rutina" placeholder="Ej: Ayuda con mi rutina o acceso..." required>
+                            <p class="sop-error hidden" id="soporte-tema-error">Escribe el tema de tu consulta.</p>
+                        </div>
+
+                        <div class="sop-field">
+                            <label for="soporte-mensaje" class="sop-label">Mensaje</label>
+                            <textarea id="soporte-mensaje" name="mensaje" class="sop-input sop-textarea" rows="4" placeholder="Cuéntanos brevemente qué necesitas…" required></textarea>
+                            <p class="sop-error hidden" id="soporte-mensaje-error">Cuéntanos brevemente qué necesitas.</p>
+                        </div>
+
+                        <label class="sop-switch-row" for="soporte-acepto">
+                            <span class="sop-switch-label">Acepto ser contactado por correo electrónico</span>
+                            <input id="soporte-acepto" name="acepto" type="checkbox" role="switch" class="sop-switch" checked>
+                        </label>
+
+                        <button type="submit" class="btn btn-primary btn-interactive sop-send-btn">
+                            <i class="fa-regular fa-paper-plane"></i>
+                            <span>Enviar mensaje</span>
+                        </button>
+
+                        <div id="soporte-ok" class="sop-ok hidden" role="status" tabindex="-1">
+                            <i class="fa-solid fa-circle-check"></i>
+                            <span>Mensaje enviado. Te responderemos en menos de 24 horas hábiles.</span>
+                        </div>
+                    </form>
+                </section>
+
+            </div>
+        </div>
+    </main>
+
+    <!-- OVERLAY: CERRAR SESIÓN -->
+    <div id="logout-modal" class="modal-overlay hidden">
+        <div class="modal-card fade-in">
+            <div class="modal-icon-danger">
+                <i class="fa-solid fa-right-from-bracket"></i>
+            </div>
+            <h2 class="modal-title">¿Cerrar sesión?</h2>
+            <p class="modal-desc">¿Estás seguro de que quieres salir de tu cuenta?</p>
+            <div class="modal-actions">
+                <button type="button" id="btn-cancel-logout" class="btn btn-outline w-full justify-center btn-interactive">
+                    Continuar
+                </button>
+                <button type="button" id="btn-confirm-logout" class="btn btn-danger w-full justify-center btn-interactive">
+                    Cerrar sesión
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script src="../js/soporte.js"></script>
+</body>
+</html>

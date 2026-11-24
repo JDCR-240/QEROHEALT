@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rutina del paciente — QeroHealth</title>
+    <link rel="icon" href="../../img/logo.ico" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../../css/index.css">
+    <link rel="stylesheet" href="../../css/app.css">
+    <link rel="stylesheet" href="../../css/ver-rutina.css">
+</head>
+<body class="app-body">
+
+    <!-- HEADER SUPERIOR -->
+    <header class="app-header">
+        <div class="container app-header-inner">
+            <a href="panel.html" class="logo-group">
+                <div class="logo-icon">
+                    <i class="fa-solid fa-handshake-angle"></i>
+                </div>
+                <span class="logo-title">QeroHealth</span>
+            </a>
+
+            <div class="app-header-right">
+                <nav class="app-nav" aria-label="Navegación de especialista">
+                    <a href="panel.html" class="app-nav-link">
+                        <i class="fa-solid fa-house"></i>
+                        <span>Panel</span>
+                    </a>
+                    <a href="paciente.html" class="app-nav-link active">
+                        <i class="fa-solid fa-users"></i>
+                        <span>Pacientes</span>
+                    </a>
+                    <a href="catalogo.html" class="app-nav-link">
+                        <i class="fa-solid fa-clipboard-list"></i>
+                        <span>Rutinas</span>
+                    </a>
+                    <a href="seguimiento.html" class="app-nav-link">
+                        <i class="fa-solid fa-chart-line"></i>
+                        <span>Seguimiento</span>
+                    </a>
+                    <a href="../ayuda.html" class="app-nav-link">
+                        <i class="fa-regular fa-circle-question"></i>
+                        <span>Ayuda</span>
+                    </a>
+                </nav>
+
+                <a href="../cuenta.html" class="app-nav-link app-nav-account" aria-label="Mi cuenta" title="Mi cuenta">
+                    <i class="fa-regular fa-user"></i>
+                </a>
+
+                <button type="button" id="btn-open-logout" class="app-nav-link app-nav-exit" aria-label="Cerrar sesión">
+                    <i class="fa-solid fa-right-from-bracket"></i>
+                    <span>Salir</span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- CONTENIDO PRINCIPAL -->
+    <main class="app-main">
+        <div class="container fade-in">
+
+            <!-- CABECERA DE LA RUTINA -->
+            <section class="vr-head">
+                <div class="vr-head-left">
+                    <a href="paciente-detalle.html" id="btn-back-patient" class="back-btn" aria-label="Volver al paciente">
+                        <i class="fa-solid fa-arrow-left"></i>
+                    </a>
+                    <div>
+                        <h1 class="page-title">Rutina asignada</h1>
+                        <p id="vr-patient-subtitle" class="vr-subtitle">Cargando paciente...</p>
+                    </div>
+                </div>
+
+                <!-- BOTÓN CAMBIADO A EDITAR RUTINA -->
+                <div class="vr-head-actions">
+                    <a href="#" id="btn-editar-rutina" class="btn btn-primary btn-interactive">
+                        <i class="fa-regular fa-pen-to-square"></i>
+                        <span>Editar rutina</span>
+                    </a>
+                </div>
+            </section>
+
+            
+
+            <!-- LISTA DETALLADA DE EJERCICIOS EN ORDEN -->
+            <section class="vr-list-card">
+                <div class="vr-list-head">
+                    <div>
+                        <h2 class="card-section-title">Secuencia de ejercicios</h2>
+                        <p class="vr-list-sub">Orden, repeticiones, frecuencia e indicaciones para el hogar.</p>
+                    </div>
+                    <span id="vr-count-pill" class="count-pill">0 ejercicios</span>
+                </div>
+
+                <div id="vr-exercises-list" class="vr-exercises-list">
+                    <!-- Se llena dinámicamente desde js/ver-rutina.js -->
+                </div>
+            </section>
+
+        </div>
+    </main>
+
+    <!-- OVERLAY: CERRAR SESIÓN -->
+    <div id="logout-modal" class="modal-overlay hidden">
+        <div class="modal-card fade-in">
+            <div class="modal-icon-danger">
+                <i class="fa-solid fa-right-from-bracket"></i>
+            </div>
+            <h2 class="modal-title">¿Cerrar sesión?</h2>
+            <p class="modal-desc">¿Estás seguro de que quieres salir de tu cuenta?</p>
+            <div class="modal-actions">
+                <button type="button" id="btn-cancel-logout" class="btn btn-outline w-full justify-center btn-interactive">
+                    Continuar
+                </button>
+                <button type="button" id="btn-confirm-logout" class="btn btn-danger w-full justify-center btn-interactive">
+                    Cerrar sesión
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script src="../../js/data.js"></script>
+    <script src="../../js/ver-rutina.js"></script>
+</body>
+</html>

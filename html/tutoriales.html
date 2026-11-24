@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tutoriales paso a paso — QeroHealth</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="icon" href="../img/logo.ico" type="image/x-icon">
+    <link rel="stylesheet" href="../css/index.css">
+    <link rel="stylesheet" href="../css/app.css">
+    <link rel="stylesheet" href="../css/ayuda.css">
+    <link rel="stylesheet" href="../css/tutoriales.css">
+</head>
+<body class="app-body">
+
+    <!-- HEADER SUPERIOR (Se adapta automáticamente al rol activo) -->
+    <header class="app-header">
+        <div class="container app-header-inner">
+            <a id="ay-brand-link" href="paciente/panel.html" class="logo-group">
+                <div class="logo-icon">
+                    <i class="fa-solid fa-handshake-angle"></i>
+                </div>
+                <span class="logo-title">QeroHealth</span>
+            </a>
+
+            <div class="app-header-right">
+                <nav id="ay-dynamic-nav" class="app-nav" aria-label="Navegación principal">
+                    <!-- Se inyecta desde js/ayuda.js o js/tutoriales.js según el rol -->
+                </nav>
+
+                <a href="cuenta.html" class="app-nav-link app-nav-account" aria-label="Mi cuenta" title="Mi cuenta">
+                    <i class="fa-regular fa-user"></i>
+                </a>
+
+                <button type="button" id="btn-open-logout" class="app-nav-link app-nav-exit" aria-label="Cerrar sesión">
+                    <i class="fa-solid fa-right-from-bracket"></i>
+                    <span>Salir</span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- CONTENIDO PRINCIPAL -->
+    <main class="app-main">
+        <div class="container fade-in">
+
+            <!-- CABECERA -->
+            <section class="tut-header">
+                <div>
+                    <div class="tut-back-row">
+                        <a href="ayuda.html" class="btn btn-outline btn-interactive tut-back-btn">
+                            <i class="fa-solid fa-arrow-left"></i>
+                            <span>Volver al centro de ayuda</span>
+                        </a>
+                    </div>
+                    <h1 class="page-title">Tutoriales paso a paso</h1>
+                    <p class="tut-subtitle">
+                        Recorridos guiados y claros para navegar por las funciones clave de QeroHealth según cada rol.
+                    </p>
+                </div>
+
+                <span id="ay-role-badge" class="ay-role-pill">
+                    <i class="fa-solid fa-circle"></i>
+                    <span>Paciente</span>
+                </span>
+            </section>
+
+            <!-- FILTROS POR PERFIL / ROL -->
+            <section class="tut-role-tabs" aria-label="Filtrar tutoriales por rol">
+                <button type="button" class="tut-tab-btn active" data-role="todos">
+                    Todos los roles
+                </button>
+                <button type="button" class="tut-tab-btn" data-role="paciente">
+                    Paciente
+                </button>
+                <button type="button" class="tut-tab-btn" data-role="cuidador">
+                    Cuidador
+                </button>
+                <button type="button" class="tut-tab-btn" data-role="especialista">
+                    Especialista
+                </button>
+            </section>
+
+            <!-- GRILLA DE TUTORIALES -->
+            <section id="tut-grid" class="tut-grid" aria-label="Lista de tutoriales disponibles">
+                <!-- Se genera desde js/tutoriales.js -->
+            </section>
+
+        </div>
+    </main>
+
+    <!-- MODAL: RECORRIDO INTERACTIVO PASO A PASO -->
+    <div id="tutorial-modal" class="modal-overlay hidden" role="dialog" aria-modal="true" aria-labelledby="tm-title">
+        <div class="tm-card fade-in">
+            <div class="tm-header">
+                <div>
+                    <span id="tm-role-tag" class="tut-role-tag">Rol</span>
+                    <h2 id="tm-title" class="tm-title">Título del tutorial</h2>
+                </div>
+                <button type="button" id="btn-close-tutorial" class="tm-close-btn" aria-label="Cerrar tutorial">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+            </div>
+
+            <div class="tm-progress-bar">
+                <span id="tm-step-indicator" class="tm-step-indicator">Paso 1 de 3</span>
+                <div class="tm-dots" id="tm-dots" aria-hidden="true"></div>
+            </div>
+
+            <div class="tm-step-box">
+                <div class="tm-step-icon-wrap">
+                    <i id="tm-step-icon" class="fa-solid fa-compass"></i>
+                </div>
+                <h3 id="tm-step-heading" class="tm-step-heading">Título del paso</h3>
+                <p id="tm-step-text" class="tm-step-text">Descripción detallada del paso.</p>
+                <p id="tm-step-tip" class="tm-step-tip">
+                    <i class="fa-regular fa-lightbulb"></i>
+                    <span id="tm-step-tip-text">Consejo práctico.</span>
+                </p>
+            </div>
+
+            <div class="tm-footer">
+                <button type="button" id="btn-prev-step" class="btn btn-outline btn-interactive">
+                    <i class="fa-solid fa-arrow-left"></i>
+                    <span>Anterior</span>
+                </button>
+                <button type="button" id="btn-next-step" class="btn btn-primary btn-interactive">
+                    <span>Siguiente paso</span>
+                    <i class="fa-solid fa-arrow-right"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- OVERLAY: CERRAR SESIÓN -->
+    <div id="logout-modal" class="modal-overlay hidden">
+        <div class="modal-card fade-in">
+            <div class="modal-icon-danger">
+                <i class="fa-solid fa-right-from-bracket"></i>
+            </div>
+            <h2 class="modal-title">¿Cerrar sesión?</h2>
+            <p class="modal-desc">¿Estás seguro de que quieres salir de tu cuenta?</p>
+            <div class="modal-actions">
+                <button type="button" id="btn-cancel-logout" class="btn btn-outline w-full justify-center btn-interactive">
+                    Continuar
+                </button>
+                <button type="button" id="btn-confirm-logout" class="btn btn-danger w-full justify-center btn-interactive">
+                    Cerrar sesión
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script src="../js/tutoriales.js"></script>
+</body>
+</html>

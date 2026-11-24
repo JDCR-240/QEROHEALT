@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vista previa de rutina — QeroHealth</title>
+    <link rel="icon" href="../../img/logo.ico" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../../css/index.css">
+    <link rel="stylesheet" href="../../css/app.css">
+    <link rel="stylesheet" href="../../css/vista-previa-rutina.css">
+</head>
+<body class="app-body">
+
+    <!-- HEADER SUPERIOR -->
+    <header class="app-header">
+        <div class="container app-header-inner">
+            <a href="panel.html" class="logo-group">
+                <div class="logo-icon">
+                    <i class="fa-solid fa-handshake-angle"></i>
+                </div>
+                <span class="logo-title">QeroHealth</span>
+            </a>
+
+            <div class="app-header-right">
+                <nav class="app-nav" aria-label="Navegación de especialista">
+                    <a href="panel.html" class="app-nav-link">
+                        <i class="fa-solid fa-house"></i>
+                        <span>Panel</span>
+                    </a>
+                    <a href="paciente.html" class="app-nav-link active">
+                        <i class="fa-solid fa-users"></i>
+                        <span>Pacientes</span>
+                    </a>
+                    <a href="catalogo.html" class="app-nav-link">
+                        <i class="fa-solid fa-clipboard-list"></i>
+                        <span>Rutinas</span>
+                    </a>
+                    <a href="seguimiento.html" class="app-nav-link">
+                        <i class="fa-solid fa-chart-line"></i>
+                        <span>Seguimiento</span>
+                    </a>
+                    <a href="../ayuda.html" class="app-nav-link">
+                        <i class="fa-regular fa-circle-question"></i>
+                        <span>Ayuda</span>
+                    </a>
+                </nav>
+
+                <a href="../cuenta.html" class="app-nav-link app-nav-account" aria-label="Mi cuenta" title="Mi cuenta">
+                    <i class="fa-regular fa-user"></i>
+                </a>
+
+                <button type="button" id="btn-open-logout" class="app-nav-link app-nav-exit" aria-label="Cerrar sesión">
+                    <i class="fa-solid fa-right-from-bracket"></i>
+                    <span>Salir</span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- CONTENIDO PRINCIPAL -->
+    <main class="app-main">
+        <div class="container fade-in">
+
+            <!-- BARRA SUPERIOR DE MODO VISTA PREVIA -->
+            <section class="vp-top-bar">
+                <div class="vp-top-left">
+                    <a href="editar-rutina.html" id="btn-back-er" class="back-btn" aria-label="Volver a editar rutina">
+                        <i class="fa-solid fa-arrow-left"></i>
+                    </a>
+                    <h1 id="vp-routine-title" class="vp-routine-title">Rutina del paciente</h1>
+                </div>
+
+                <div class="vp-title-row">
+                    <span class="vp-preview-badge">
+                        <i class="fa-regular fa-eye"></i> Vista del paciente
+                    </span>
+                    <span id="vp-step-badge" class="vp-step-badge">Ejercicio 1 de 1</span>
+                </div>
+            </section>
+
+            <!-- CONTENEDOR PRINCIPAL (Pág. 8: Video + Panel de ejecución) -->
+            <section class="vp-layout">
+                
+
+                <!-- COLUMNA IZQUIERDA: VIDEO DEL EJERCICIO -->
+                <div class="vp-video-col">
+                    <!-- INFORMACIÓN E INDICACIÓN PERSONALIZADA -->
+                    <article class="vp-info-card">
+                        <div class="vp-info-head">
+                            <span id="vp-ex-cat" class="vp-cat-tag">Categoría</span>
+                            <span id="vp-interval-hint" class="vp-interval-hint">1 rep cada 10s</span>
+                        </div>
+                        <h2 id="vp-ex-name" class="vp-ex-name">Nombre del ejercicio</h2>
+                        <p id="vp-ex-indication" class="vp-ex-indication">
+                            Indicaciones personalizadas para el paciente...
+                        </p>
+                    </article>
+
+                    <!-- SELECTOR: VIDEO O GUÍA -->
+                    <div class="vp-mode-switch" role="tablist" aria-label="Modo de visualización">
+                        <button type="button" id="btn-mode-video" class="vp-mode-btn active" role="tab" aria-selected="true">
+                            <i class="fa-solid fa-video"></i>
+                            <span>Ver video</span>
+                        </button>
+                        <button type="button" id="btn-mode-steps" class="vp-mode-btn" role="tab" aria-selected="false">
+                            <i class="fa-solid fa-list-ol"></i>
+                            <span>Guía paso a paso</span>
+                        </button>
+                    </div>
+
+                    <!-- VISTA 1: VIDEO -->
+                    <div id="vp-view-video" class="vp-video-wrapper">
+                        <div id="vp-media-container" class="vp-media-container">
+                            <!-- Se inserta iframe de YouTube o imagen de respaldo -->
+                        </div>
+                        
+                        <!-- Overlay visual cuando se pausa -->
+                        <div id="vp-paused-overlay" class="vp-paused-overlay hidden">
+                            <div class="vp-paused-box">
+                                <i class="fa-solid fa-pause"></i>
+                                <span>Ejercicio en pausa</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- VISTA 2: GUÍA PASO A PASO CON FOTOS -->
+                    <div id="vp-view-steps" class="vp-steps-wrapper hidden">
+                        <div class="vp-step-media">
+                            <img id="vp-step-img" src="../../img/catalogo.jpg" alt="Paso del ejercicio">
+                        </div>
+
+                        <div class="vp-step-info-bar">
+                            <p id="vp-step-desc" class="vp-step-desc">Descripción del paso...</p>
+                            <span id="vp-step-counter" class="vp-step-counter">Paso 1 de 3</span>
+                        </div>
+
+                        <div class="vp-step-nav">
+                            <button type="button" id="btn-step-prev" class="btn btn-outline btn-interactive">
+                                <i class="fa-solid fa-chevron-left"></i>
+                                <span>Paso anterior</span>
+                            </button>
+                            <button type="button" id="btn-step-next" class="btn btn-outline btn-interactive">
+                                <span>Siguiente paso</span>
+                                <i class="fa-solid fa-chevron-right"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    
+                    
+                    
+                </div>
+
+                <!-- COLUMNA DERECHA: TIEMPO, REPETICIONES, AVANCE Y CONTROLES -->
+                <aside class="vp-control-col">
+                    <div class="vp-control-card">
+    
+                        <!-- TEMPORIZADOR -->
+                        <div class="vp-timer-block">
+                            <span class="vp-metric-label">Tiempo restante</span>
+                            <div id="vp-timer-display" class="vp-timer-display">01:00</div>
+                            <span id="vp-status-text" class="vp-status-pill status-running">
+                                <i class="fa-solid fa-circle"></i> En curso
+                            </span>
+                        </div>
+    
+                        <!-- REPETICIONES -->
+                        <div class="vp-reps-block">
+                            <div class="vp-reps-head">
+                                <span class="vp-metric-label">Repeticiones completadas</span>
+                                <span id="vp-reps-count" class="vp-reps-count">0 / 6</span>
+                            </div>
+    
+                            <!-- BARRA DE AVANCE BASADA EN REPETICIONES -->
+                            <div class="vp-progress-track">
+                                <div id="vp-progress-fill" class="vp-progress-fill" style="width: 0%;"></div>
+                            </div>
+    
+                            <div class="vp-progress-meta">
+                                <span id="vp-progress-pct">0% completado</span>
+                            </div>
+                        </div>
+    
+                        <!-- BOTONES DE CONTROL -->
+                        <div class="vp-actions">
+                            <button type="button" id="btn-toggle-pause" class="btn btn-outline btn-interactive vp-btn-pause">
+                                <i id="icon-pause" class="fa-solid fa-pause"></i>
+                                <span id="label-pause">Pausar</span>
+                            </button>
+    
+                            <button type="button" id="btn-next-ex" class="btn btn-primary btn-interactive vp-btn-next">
+                                <span id="label-next">Siguiente ejercicio</span>
+                                <i id="icon-next" class="fa-solid fa-forward-step"></i>
+                            </button>
+                        </div>
+    
+                        <button type="button" id="btn-prev-ex" class="vp-btn-prev hidden">
+                            <i class="fa-solid fa-arrow-left"></i> Volver al ejercicio anterior
+                        </button>
+    
+                    </div>
+                </aside>
+            </section>
+
+        </div>
+    </main>
+
+    <!-- OVERLAY: CERRAR SESIÓN -->
+    <div id="logout-modal" class="modal-overlay hidden">
+        <div class="modal-card fade-in">
+            <div class="modal-icon-danger">
+                <i class="fa-solid fa-right-from-bracket"></i>
+            </div>
+            <h2 class="modal-title">¿Cerrar sesión?</h2>
+            <p class="modal-desc">¿Estás seguro de que quieres salir de tu cuenta?</p>
+            <div class="modal-actions">
+                <button type="button" id="btn-cancel-logout" class="btn btn-outline w-full justify-center btn-interactive">
+                    Continuar
+                </button>
+                <button type="button" id="btn-confirm-logout" class="btn btn-danger w-full justify-center btn-interactive">
+                    Cerrar sesión
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script src="../../js/data.js"></script>
+    <script src="../../js/vista-previa-rutina.js"></script>
+</body>
+</html>

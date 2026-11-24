@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inicio Cuidador — QeroHealth</title>
+    <link rel="icon" href="../../img/logo.ico" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../../css/index.css">
+    <link rel="stylesheet" href="../../css/app.css">
+    <link rel="stylesheet" href="../../css/cuidador-panel.css">
+</head>
+<body class="app-body">
+
+    <!-- HEADER SUPERIOR -->
+    <header class="app-header">
+        <div class="container app-header-inner">
+            <a href="panel.html" class="logo-group">
+                <div class="logo-icon">
+                    <i class="fa-solid fa-handshake-angle"></i>
+                </div>
+                <span class="logo-title">QeroHealth</span>
+            </a>
+
+            <div class="app-header-right">
+                <nav class="app-nav" aria-label="Navegación de cuidador">
+                    <a href="panel.html" class="app-nav-link active">
+                        <i class="fa-solid fa-house"></i>
+                        <span>Inicio</span>
+                    </a>
+                    <a href="seguimiento.html" class="app-nav-link">
+                        <i class="fa-solid fa-chart-line"></i>
+                        <span>Seguimiento</span>
+                    </a>
+                    <a href="especialista.html" class="app-nav-link">
+                        <i class="fa-solid fa-user-doctor"></i>
+                        <span>Especialista</span>
+                    </a>
+                    <a href="guias.html" class="app-nav-link">
+                        <i class="fa-solid fa-book-open"></i>
+                        <span>Guías</span>
+                    </a>
+                    <a href="../ayuda.html" class="app-nav-link">
+                        <i class="fa-regular fa-circle-question"></i>
+                        <span>Ayuda</span>
+                    </a>
+                </nav>
+
+                <a href="../cuenta.html" class="app-nav-link app-nav-account" aria-label="Mi cuenta" title="Mi cuenta">
+                    <i class="fa-regular fa-user"></i>
+                </a>
+
+                <button type="button" id="btn-open-logout" class="app-nav-link app-nav-exit" aria-label="Cerrar sesión">
+                    <i class="fa-solid fa-right-from-bracket"></i>
+                    <span>Salir</span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- CONTENIDO PRINCIPAL -->
+    <main class="app-main">
+        <div class="container fade-in">
+
+            <!-- CABECERA -->
+            <section class="cp-header">
+                <div>
+                    <p class="cp-date-label">Hoy · Acompañamiento en casa</p>
+                    <h1 id="cp-welcome-title" class="cp-title">Hola, Cuidador</h1>
+                    <p id="cp-welcome-sub" class="cp-subtitle">
+                        Revisa el estado semanal y acompaña la rehabilitación de tu paciente.
+                    </p>
+                </div>
+
+                <span class="cp-role-pill">
+                    <i class="fa-solid fa-circle"></i>
+                    <span>Vista de Cuidador</span>
+                </span>
+            </section>
+
+            <!-- 3 MÉTRICAS CLAVE (KPIs) -->
+            <section class="cp-stats-grid" aria-label="Resumen semanal del paciente">
+                <article class="cp-stat-card">
+                    <div class="cp-stat-icon icon-green">
+                        <i class="fa-solid fa-circle-check"></i>
+                    </div>
+                    <div>
+                        <span class="cp-stat-label">Ejercicios completados</span>
+                        <strong id="cp-completed-count" class="cp-stat-value">0</strong>
+                    </div>
+                </article>
+
+                <article class="cp-stat-card">
+                    <div class="cp-stat-icon icon-amber">
+                        <i class="fa-solid fa-hourglass-half"></i>
+                    </div>
+                    <div>
+                        <span class="cp-stat-label">Actividades pendientes</span>
+                        <strong id="cp-pending-count" class="cp-stat-value">0</strong>
+                    </div>
+                </article>
+
+                <article class="cp-stat-card">
+                    <div class="cp-stat-icon icon-blue">
+                        <i class="fa-regular fa-clock"></i>
+                    </div>
+                    <div>
+                        <span class="cp-stat-label">Duración del plan</span>
+                        <strong id="cp-total-time" class="cp-stat-value">0 min</strong>
+                    </div>
+                </article>
+            </section>
+
+            <!-- TARJETA PRINCIPAL DEL PACIENTE ASOCIADO (Ancho completo) -->
+            <section class="cp-hero-card" aria-label="Paciente asociado">
+                <div class="cp-hero-left">
+                    <div class="cp-patient-row">
+                        <div id="cp-patient-avatar" class="cp-avatar">MG</div>
+                        <div>
+                            <div class="cp-badges-row">
+                                <span class="cp-kicker">Paciente asociado</span>
+                                <div id="cp-status-badge" class="cp-status-badge is-amber">
+                                    <i class="fa-solid fa-circle"></i>
+                                    <span>En progreso</span>
+                                </div>
+                            </div>
+                            <h2 id="cp-patient-name" class="cp-patient-name">Marta González</h2>
+                            <p id="cp-patient-meta" class="cp-patient-meta">Rutina actual · Última actividad: Hoy</p>
+                        </div>
+                    </div>
+
+                    <div class="cp-routine-strip">
+                        <i class="fa-solid fa-clipboard-list"></i>
+                        <span id="cp-routine-name">Rutina facial · Semana actual</span>
+                    </div>
+                </div>
+
+                <div class="cp-hero-right">
+                    <div class="cp-progress-ring" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" id="cp-progress-ring">
+                        <div class="cp-ring-center">
+                            <strong id="cp-pct-value" class="cp-pct-value">0%</strong>
+                            <span class="cp-ring-sub">Semana actual</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- GRID DE 2 COLUMNAS INDEPENDIENTES -->
+            <section class="cp-modules-grid" aria-label="Panel de seguimiento, especialista y videos guía">
+
+                <!-- COLUMNA IZQUIERDA -->
+                <div class="cp-col">
+
+                    <!-- 1. Siguiente ejercicio del paciente -->
+                    <article class="cp-card cp-module-card">
+                        <div class="cp-card-top-group">
+                            <div class="cp-card-head">
+                                <div>
+                                    <h2 class="cp-card-title">Siguiente ejercicio del paciente</h2>
+                                    <p class="cp-card-sub">Próxima actividad pendiente de esta semana</p>
+                                </div>
+                                <span id="cp-next-badge" class="cp-next-badge">Pendiente</span>
+                            </div>
+
+                            <div id="cp-next-box" class="cp-next-box">
+                                <!-- Se llena desde js/cuidador-panel.js -->
+                            </div>
+                        </div>
+
+                        <a href="seguimiento.html" class="btn btn-primary btn-interactive cp-footer-btn w-full justify-center">
+                            <i class="fa-solid fa-chart-line"></i>
+                            <span>Ver seguimiento completo</span>
+                        </a>
+                    </article>
+
+                    <!-- 3. Especialista a cargo -->
+                    <article class="cp-card cp-module-card">
+                        <div class="cp-card-top-group">
+                            <div class="cp-card-head">
+                                <div>
+                                    <h2 class="cp-card-title">Especialista a cargo</h2>
+                                    <p class="cp-card-sub">Canal directo para consultas sobre la rehabilitación</p>
+                                </div>
+                            </div>
+
+                            <!-- Banner verde estilo Especialista -->
+                            <div class="cp-specialist-hero">
+                                <div id="cp-specialist-avatar" class="cp-specialist-avatar">EV</div>
+                                <div class="cp-specialist-info">
+                                    <strong id="cp-specialist-name" class="cp-specialist-name">Lic. Elena Vargas</strong>
+                                    <span class="cp-specialist-pill">
+                                        <span class="cp-specialist-dot"></span>
+                                        Especialista en Rehabilitación
+                                    </span>
+                                </div>
+                            </div>
+
+                            <!-- Bloque rápido: ¿Quieres consultar algo? -->
+                            <div class="cp-quick-consult">
+                                <p class="cp-consult-title">
+                                    <i class="fa-regular fa-comment-dots"></i>
+                                    <span>¿Quieres consultar algo?</span>
+                                </p>
+                                <p class="cp-consult-sub">Selecciona un motivo para escribirle directamente:</p>
+
+                                <div class="cp-consult-chips">
+                                    <a href="especialista.html" class="cp-consult-chip">
+                                        <i class="fa-solid fa-battery-quarter"></i>
+                                        <span>Fatiga o cansancio</span>
+                                    </a>
+                                    <a href="especialista.html" class="cp-consult-chip">
+                                        <i class="fa-solid fa-circle-question"></i>
+                                        <span>Duda en un ejercicio</span>
+                                    </a>
+                                    <a href="especialista.html" class="cp-consult-chip">
+                                        <i class="fa-solid fa-triangle-exclamation"></i>
+                                        <span>Dolor o molestia</span>
+                                    </a>
+                                    <a href="especialista.html" class="cp-consult-chip">
+                                        <i class="fa-solid fa-sliders"></i>
+                                        <span>Ajuste de rutina</span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <a href="especialista.html" class="btn btn-interactive cp-footer-btn cp-soft-btn w-full justify-center">
+                            <i class="fa-solid fa-user-doctor"></i>
+                            <span>Ir a Especialista</span>
+                        </a>
+                    </article>
+
+                </div>
+
+                <!-- COLUMNA DERECHA -->
+                <div class="cp-col">
+
+                    <!-- 2. Actividad reciente -->
+                    <article class="cp-card cp-module-card">
+                        <div class="cp-card-top-group">
+                            <div class="cp-card-head">
+                                <div>
+                                    <h2 class="cp-card-title">Actividad reciente</h2>
+                                    <p class="cp-card-sub">Estado de los ejercicios de la rutina vigente</p>
+                                </div>
+                                <span id="cp-recent-count" class="cp-recent-count">0 realizados</span>
+                            </div>
+
+                            <div id="cp-recent-list" class="cp-recent-list">
+                                <!-- Se llena desde js/cuidador-panel.js -->
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- 4. Videos guía de apoyo en casa -->
+                    <article class="cp-card cp-module-card">
+                        <div class="cp-card-top-group">
+                            <div class="cp-card-head">
+                                <div>
+                                    <h2 class="cp-card-title">Videos guía de apoyo en casa</h2>
+                                    <p class="cp-card-sub">Demostraciones prácticas para acompañar con seguridad</p>
+                                </div>
+                            </div>
+
+                            <div id="cp-guides-preview" class="cp-video-list">
+                                <!-- Se llena desde js/cuidador-panel.js con las miniaturas reales -->
+                            </div>
+                        </div>
+
+                        <a href="guias.html" class="btn btn-interactive cp-footer-btn cp-soft-btn w-full justify-center">
+                            <i class="fa-solid fa-circle-play"></i>
+                            <span>Ver todos los videos guía</span>
+                        </a>
+                    </article>
+
+                </div>
+
+            </section>
+
+        </div>
+    </main>
+
+    <!-- OVERLAY: CERRAR SESIÓN -->
+    <div id="logout-modal" class="modal-overlay hidden">
+        <div class="modal-card fade-in">
+            <div class="modal-icon-danger">
+                <i class="fa-solid fa-right-from-bracket"></i>
+            </div>
+            <h2 class="modal-title">¿Cerrar sesión?</h2>
+            <p class="modal-desc">¿Estás seguro de que quieres salir de tu cuenta?</p>
+            <div class="modal-actions">
+                <button type="button" id="btn-cancel-logout" class="btn btn-outline w-full justify-center btn-interactive">
+                    Continuar
+                </button>
+                <button type="button" id="btn-confirm-logout" class="btn btn-danger w-full justify-center btn-interactive">
+                    Cerrar sesión
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script src="../../js/data.js"></script>
+    <script src="../../js/cuidador-panel.js"></script>
+</body>
+</html>

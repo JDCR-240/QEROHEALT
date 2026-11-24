@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Seguimiento — QeroHealth</title>
+    <link rel="icon" href="../../img/logo.ico" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../../css/index.css">
+    <link rel="stylesheet" href="../../css/app.css">
+    <link rel="stylesheet" href="../../css/especialista-seguimiento.css">
+</head>
+<body class="app-body">
+
+    <!-- HEADER SUPERIOR -->
+    <header class="app-header">
+        <div class="container app-header-inner">
+            <a href="panel.html" class="logo-group">
+                <div class="logo-icon">
+                    <i class="fa-solid fa-handshake-angle"></i>
+                </div>
+                <span class="logo-title">QeroHealth</span>
+            </a>
+
+            <div class="app-header-right">
+                <nav class="app-nav" aria-label="Navegación de especialista">
+                    <a href="panel.html" class="app-nav-link">
+                        <i class="fa-solid fa-house"></i>
+                        <span>Panel</span>
+                    </a>
+                    <a href="paciente.html" class="app-nav-link">
+                        <i class="fa-solid fa-users"></i>
+                        <span>Pacientes</span>
+                    </a>
+                    <a href="catalogo.html" class="app-nav-link">
+                        <i class="fa-solid fa-clipboard-list"></i>
+                        <span>Rutinas</span>
+                    </a>
+                    <a href="seguimiento.html" class="app-nav-link active">
+                        <i class="fa-solid fa-chart-line"></i>
+                        <span>Seguimiento</span>
+                    </a>
+                    <a href="../ayuda.html" class="app-nav-link">
+                        <i class="fa-regular fa-circle-question"></i>
+                        <span>Ayuda</span>
+                    </a>
+                </nav>
+
+                <a href="../cuenta.html" class="app-nav-link app-nav-account" aria-label="Mi cuenta" title="Mi cuenta">
+                    <i class="fa-regular fa-user"></i>
+                </a>
+
+                <button type="button" id="btn-open-logout" class="app-nav-link app-nav-exit" aria-label="Cerrar sesión">
+                    <i class="fa-solid fa-right-from-bracket"></i>
+                    <span>Salir</span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- CONTENIDO PRINCIPAL -->
+    <main class="app-main">
+        <div class="container fade-in">
+
+            <!-- CABECERA -->
+            <section class="es-topbar">
+                <div>
+                    <span class="es-kicker">Monitoreo clínico general</span>
+                    <h1 class="page-title">Seguimiento de pacientes</h1>
+                    <p id="es-subtitle" class="es-subtitle">
+                        Resumen global de adherencia y avance de toda tu cartera activa.
+                    </p>
+                </div>
+
+                <span id="es-global-pill" class="es-status-pill is-amber">
+                    <i class="fa-solid fa-circle"></i>
+                    <span>Cargando...</span>
+                </span>
+            </section>
+            <!-- AVISO DE PACIENTE SELECCIONADO (Oculto en vista general) -->
+            <div id="es-patient-mode-banner" class="es-mode-banner hidden" role="status">
+                <div class="es-mode-banner-left">
+                    <i class="fa-solid fa-user-check"></i>
+                    <span id="es-mode-banner-text">Viendo seguimiento individual.</span>
+                </div>
+                <button type="button" id="btn-back-global" class="btn btn-outline btn-interactive es-mode-back-btn">
+                    <i class="fa-solid fa-rotate-left"></i>
+                    <span>Volver al resumen general</span>
+                </button>
+            </div>
+            <!-- WORKSPACE ASIMÉTRICO (2 COLUMNAS) -->
+            <!-- WORKSPACE ASIMÉTRICO (2 COLUMNAS) -->
+            <div class="es-workspace">
+
+                <!-- COLUMNA IZQUIERDA: BARRA DE AVANCE + REGISTRO DE EJERCICIOS -->
+                <section class="es-main-col">
+
+                    <!-- BARRA DE ADHERENCIA / AVANCE -->
+                    <article class="es-card">
+                        <div class="es-progress-head">
+                            <div>
+                                <span class="es-progress-label">Adherencia promedio de la cartera</span>
+                                <div class="es-progress-numbers">
+                                    <strong id="es-avg-pct">0%</strong>
+                                    <span id="es-total-patients">0 pacientes monitoreados</span>
+                                </div>
+                            </div>
+
+                            <div class="es-chips-row">
+                                <span class="es-mini-chip is-green">
+                                    <i class="fa-solid fa-check"></i>
+                                    <span id="es-cnt-green">0 buen ritmo</span>
+                                </span>
+                                <span class="es-mini-chip is-amber">
+                                    <i class="fa-solid fa-clock"></i>
+                                    <span id="es-cnt-amber">0 seguimiento</span>
+                                </span>
+                                <span class="es-mini-chip is-red">
+                                    <i class="fa-solid fa-triangle-exclamation"></i>
+                                    <span id="es-cnt-red">0 alerta</span>
+                                </span>
+                            </div>
+                        </div>
+
+                        <div class="es-bar-track" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" id="es-bar-track">
+                            <div id="es-bar-fill" class="es-bar-fill" style="width: 0%;"></div>
+                        </div>
+                    </article>
+
+                    <!-- LÍNEA DE TIEMPO DE EJERCICIOS (Solo visible al elegir un paciente) -->
+                    <article id="es-timeline-card" class="es-card hidden">
+                        <div class="es-timeline-head">
+                            <h2 class="block-title">Registro de ejercicios</h2>
+
+                            <div class="es-filter-group" role="tablist" aria-label="Filtrar ejercicios">
+                                <button type="button" class="es-filter-btn active" data-filter="todos">
+                                    Todos <span id="es-cnt-all">0</span>
+                                </button>
+                                <button type="button" class="es-filter-btn" data-filter="completados">
+                                    Completados <span id="es-cnt-done">0</span>
+                                </button>
+                                <button type="button" class="es-filter-btn" data-filter="pendientes">
+                                    Pendientes <span id="es-cnt-pending">0</span>
+                                </button>
+                            </div>
+                        </div>
+
+                        <div id="es-timeline-list" class="es-timeline-list">
+                            <!-- Se llena desde js/especialista-seguimiento.js -->
+                        </div>
+
+                        <div id="es-more-wrap" class="es-more-wrap hidden">
+                            <button type="button" id="btn-toggle-more-ex" class="btn btn-outline btn-interactive es-more-btn">
+                                <i class="fa-solid fa-chevron-down"></i>
+                                <span>Mostrar más ejercicios</span>
+                            </button>
+                        </div>
+                    </article>
+
+                    <!-- SOLO VISTA GENERAL: ATENCIÓN PRIORITARIA -->
+                    <article id="es-priority-card" class="es-card">
+                        <div class="es-card-head">
+                            <div>
+                                <h2 class="block-title">Atención prioritaria</h2>
+                                <p class="es-card-sub">Pacientes en alerta o con menor adherencia esta semana.</p>
+                            </div>
+                            <span class="es-tag-pill is-red-tag">Requieren seguimiento</span>
+                        </div>
+
+                        <div id="es-priority-list" class="es-mini-patients-list">
+                            <!-- Se llena desde js/especialista-seguimiento.js -->
+                        </div>
+                    </article>
+
+                </section>
+
+                <!-- COLUMNA DERECHA: SELECTOR + DISTRIBUCIÓN DE EJERCICIOS + ALERTA -->
+                <aside class="es-side-col">
+
+                    <!-- TARJETA DESTACADA: ABRIR MODAL DE PACIENTES -->
+                    <article class="es-selector-card">
+                        <div class="es-selector-icon">
+                            <i class="fa-solid fa-users-viewfinder"></i>
+                        </div>
+                        <h2 class="es-selector-title">Revisar un paciente</h2>
+                        <p class="es-selector-desc">
+                            Elige cualquiera de tus pacientes para consultar su rutina vigente y sus semanas anteriores.
+                        </p>
+                        <button type="button" id="btn-open-patients-modal" class="btn btn-primary btn-interactive es-selector-btn">
+                            <i class="fa-solid fa-user-check"></i>
+                            <span>Seleccionar paciente</span>
+                        </button>
+                    </article>
+
+                    <!-- DISTRIBUCIÓN DE EJERCICIOS / ÁREAS -->
+                    <article id="es-areas-card" class="es-card">
+                        <div class="es-card-head" style="margin-bottom: 14px;">
+                            <span class="es-tag-pill">Distribución de ejercicios</span>
+                        </div>
+
+                        <div id="es-areas-list" class="es-areas-list">
+                            <!-- Se genera desde js/especialista-seguimiento.js -->
+                        </div>
+                    </article>
+
+                    <!-- RESUMEN DE ATENCIÓN / CUIDADOR -->
+                    <article class="es-alert-box">
+                        <div class="es-alert-icon">
+                            <i class="fa-solid fa-bell"></i>
+                        </div>
+                        <div>
+                            <strong id="es-alert-title">Pacientes en alerta</strong>
+                            <p id="es-alert-desc">Revisa los casos con baja adherencia o varios días sin actividad.</p>
+                        </div>
+                    </article>
+
+
+                    <!-- SOLO VISTA GENERAL: DESTACADOS DE LA SEMANA -->
+                    <article id="es-top-card" class="es-card">
+                        <div class="es-card-head" style="margin-bottom: 14px;">
+                            <div>
+                                <h2 class="block-title" style="font-size: 1.05rem;">Mejor adherencia</h2>
+                                <p class="es-card-sub">Pacientes con mayor constancia semanal.</p>
+                            </div>
+                        </div>
+
+                        <div id="es-top-list" class="es-mini-patients-list">
+                            <!-- Se llena desde js/especialista-seguimiento.js -->
+                        </div>
+                    </article>
+
+                </aside>
+
+            </div>
+        </div>
+    </main>
+
+    <!-- MODAL: SELECCIONAR PACIENTE -->
+    <div id="patients-modal" class="modal-overlay hidden" role="dialog" aria-modal="true" aria-labelledby="pm-title">
+        <div class="pm-card fade-in">
+            <div class="pm-header">
+                <div class="pm-header-left">
+                    <button type="button" id="btn-pm-back" class="pm-back-btn hidden" aria-label="Volver a la lista de pacientes" title="Volver a pacientes">
+                        <i class="fa-solid fa-arrow-left"></i>
+                    </button>
+                    <div>
+                        <span id="pm-kicker" class="pm-kicker">Cartera de pacientes</span>
+                        <h2 id="pm-title" class="pm-title">Seleccionar paciente</h2>
+                        <p id="pm-subtitle" class="pm-subtitle">Elige un paciente para revisar su seguimiento y rutinas.</p>
+                    </div>
+                </div>
+                <button type="button" id="btn-close-patients-modal" class="pm-close-btn" aria-label="Cerrar selector">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+            </div>
+
+            <!-- BUSCADOR + BOTÓN DE FILTROS -->
+            <div class="pm-controls">
+                <div class="pm-search-row">
+                    <div class="pm-search-wrap">
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                        <input
+                            type="search"
+                            id="pm-search"
+                            class="pm-search-input"
+                            placeholder="Buscar paciente por nombre o ID..."
+                            autocomplete="off"
+                        >
+                    </div>
+
+                    <button type="button" id="btn-toggle-pm-filters" class="pm-filter-toggle" aria-expanded="false" aria-controls="pm-filter-panel" title="Ordenar pacientes">
+                        <i class="fa-solid fa-sliders"></i>
+                    </button>
+                </div>
+
+                <div id="pm-filter-panel" class="pm-filter-panel hidden" role="group" aria-label="Ordenar pacientes">
+                    <button type="button" class="pm-chip active" data-sort="desc">100% a Alerta</button>
+                    <button type="button" class="pm-chip" data-sort="asc">Alerta a 100%</button>
+                    <button type="button" class="pm-chip" data-sort="az">A - Z</button>
+                    <button type="button" class="pm-chip" data-sort="za">Z - A</button>
+                </div>
+            </div>
+
+            <!-- LISTA DE PACIENTES -->
+            <div id="pm-list" class="pm-list">
+                <!-- Se genera desde js/especialista-seguimiento.js -->
+            </div>
+        </div>
+    </div>
+
+    <!-- OVERLAY: CERRAR SESIÓN -->
+    <div id="logout-modal" class="modal-overlay hidden">
+        <div class="modal-card fade-in">
+            <div class="modal-icon-danger">
+                <i class="fa-solid fa-right-from-bracket"></i>
+            </div>
+            <h2 class="modal-title">¿Cerrar sesión?</h2>
+            <p class="modal-desc">¿Estás seguro de que quieres salir de tu cuenta?</p>
+            <div class="modal-actions">
+                <button type="button" id="btn-cancel-logout" class="btn btn-outline w-full justify-center btn-interactive">
+                    Continuar
+                </button>
+                <button type="button" id="btn-confirm-logout" class="btn btn-danger w-full justify-center btn-interactive">
+                    Cerrar sesión
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script src="../../js/data.js"></script>
+    <script src="../../js/especialista-seguimiento.js"></script>
+</body>
+</html>

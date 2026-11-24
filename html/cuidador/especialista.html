@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Especialista — QeroHealth</title>
+    <link rel="icon" href="../../img/logo.ico" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../../css/index.css">
+    <link rel="stylesheet" href="../../css/app.css">
+    <link rel="stylesheet" href="../../css/cuidador-especialista.css">
+</head>
+<body class="app-body">
+
+    <!-- HEADER SUPERIOR -->
+    <header class="app-header">
+        <div class="container app-header-inner">
+            <a href="panel.html" class="logo-group">
+                <div class="logo-icon">
+                    <i class="fa-solid fa-handshake-angle"></i>
+                </div>
+                <span class="logo-title">QeroHealth</span>
+            </a>
+
+            <div class="app-header-right">
+                <nav class="app-nav" aria-label="Navegación de cuidador">
+                    <a href="panel.html" class="app-nav-link">
+                        <i class="fa-solid fa-house"></i>
+                        <span>Inicio</span>
+                    </a>
+                    <a href="seguimiento.html" class="app-nav-link">
+                        <i class="fa-solid fa-chart-line"></i>
+                        <span>Seguimiento</span>
+                    </a>
+                    <a href="especialista.html" class="app-nav-link active">
+                        <i class="fa-solid fa-user-doctor"></i>
+                        <span>Especialista</span>
+                    </a>
+                    <a href="guias.html" class="app-nav-link">
+                        <i class="fa-solid fa-book-open"></i>
+                        <span>Guías</span>
+                    </a>
+                    <a href="../ayuda.html" class="app-nav-link">
+                        <i class="fa-regular fa-circle-question"></i>
+                        <span>Ayuda</span>
+                    </a>
+                </nav>
+
+                <a href="../cuenta.html" class="app-nav-link app-nav-account" aria-label="Mi cuenta" title="Mi cuenta">
+                    <i class="fa-regular fa-user"></i>
+                </a>
+
+                <button type="button" id="btn-open-logout" class="app-nav-link app-nav-exit" aria-label="Cerrar sesión">
+                    <i class="fa-solid fa-right-from-bracket"></i>
+                    <span>Salir</span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- CONTENIDO PRINCIPAL -->
+    <main class="app-main">
+        <div class="container fade-in">
+
+            <!-- CABECERA -->
+            <section class="ce-header">
+                <div>
+                    <span class="ce-kicker">Canal de acompañamiento</span>
+                    <h1 class="page-title">Consultas al especialista</h1>
+                    <p id="ce-subtitle" class="ce-subtitle">
+                        Envía dudas sobre la rutina actual y etiqueta ejercicios específicos para recibir orientación.
+                    </p>
+                </div>
+
+                <span class="ce-response-pill">
+                    <i class="fa-regular fa-clock"></i>
+                    <span>Respuesta habitual: &lt; 24 h</span>
+                </span>
+            </section>
+
+            <!-- LAYOUT 2 COLUMNAS -->
+            <div class="ce-grid">
+
+                <!-- COLUMNA IZQUIERDA: TARJETA DEL ESPECIALISTA + FORMULARIO -->
+                <section class="ce-left-col">
+
+                    <!-- PERFIL DEL ESPECIALISTA -->
+                    <article class="ce-doc-card">
+                        <div class="ce-doc-top">
+                            <div id="ce-doc-avatar" class="ce-doc-avatar">EV</div>
+                            <div class="ce-doc-info">
+                                <span class="ce-doc-badge">Especialista asignado</span>
+                                <h2 id="ce-doc-name" class="ce-doc-name">Lic. Elena Vargas</h2>
+                                <p class="ce-doc-role">Fonoaudiología y rehabilitación orofacial</p>
+                            </div>
+                        </div>
+
+                        <div class="ce-doc-meta">
+                            <span><i class="fa-regular fa-calendar"></i> Lun a Vie · 09:00 a 18:00</span>
+                            <span><i class="fa-solid fa-user-check"></i> Paciente: <strong id="ce-patient-name">Marta González</strong></span>
+                        </div>
+                    </article>
+
+                    <!-- FORMULARIO PARA ENVIAR CONSULTA -->
+                    <article class="ce-compose-card">
+                        <h2 class="block-title">Nueva consulta</h2>
+                        <p class="ce-compose-sub">Elige el motivo y, si deseas, etiqueta un ejercicio de la rutina vigente.</p>
+
+                        <form id="ce-form" class="ce-form" novalidate>
+                            <!-- Motivo rápido -->
+                            <div class="ce-field">
+                                <label class="ce-label">Motivo de la consulta</label>
+                                <div class="ce-topic-chips" role="radiogroup" aria-label="Motivo de la consulta">
+                                    <button type="button" class="ce-chip active" data-topic="Duda de ejercicio">
+                                        <i class="fa-regular fa-circle-question"></i> Duda de ejercicio
+                                    </button>
+                                    <button type="button" class="ce-chip" data-topic="Molestia o fatiga">
+                                        <i class="fa-solid fa-heart-pulse"></i> Molestia o fatiga
+                                    </button>
+                                    <button type="button" class="ce-chip" data-topic="Ritmo y pausas">
+                                        <i class="fa-regular fa-clock"></i> Ritmo y pausas
+                                    </button>
+                                    <button type="button" class="ce-chip" data-topic="Consulta general">
+                                        <i class="fa-regular fa-comment-dots"></i> General
+                                    </button>
+                                </div>
+                            </div>
+
+                            <!-- Etiquetar ejercicio de la rutina actual -->
+                            <div class="ce-field">
+                                <label for="ce-exercise-select" class="ce-label">
+                                    Etiquetar ejercicio de la rutina actual <span class="ce-optional">(opcional)</span>
+                                </label>
+                                <select id="ce-exercise-select" class="ce-select">
+                                    <option value="">Ningún ejercicio en específico</option>
+                                    <!-- Se llena dinámicamente desde js/cuidador-especialista.js -->
+                                </select>
+                            </div>
+
+                            <!-- Mensaje -->
+                            <div class="ce-field">
+                                <label for="ce-message" class="ce-label">Tu mensaje</label>
+                                <textarea
+                                    id="ce-message"
+                                    class="ce-textarea"
+                                    rows="4"
+                                    placeholder="Ej: Noté un poco de cansancio al final de las repeticiones, ¿conviene dividirlo en dos bloques?"
+                                    required
+                                ></textarea>
+                                <p id="ce-msg-error" class="ce-error hidden">Escribe un mensaje antes de enviar tu consulta.</p>
+                            </div>
+
+                            <button type="submit" class="btn btn-primary btn-interactive ce-send-btn">
+                                <i class="fa-regular fa-paper-plane"></i>
+                                <span>Enviar consulta al especialista</span>
+                            </button>
+
+                            <div id="ce-toast" class="ce-toast hidden" role="status">
+                                <i class="fa-solid fa-circle-check"></i>
+                                <span>Consulta enviada correctamente. Aparece en tu historial.</span>
+                            </div>
+                        </form>
+                    </article>
+
+                </section>
+
+                <!-- COLUMNA DERECHA: HISTORIAL DE CONSULTAS ENVIADAS -->
+                <section class="ce-inbox-card" aria-labelledby="ce-inbox-title">
+                    <div class="ce-inbox-head">
+                        <div>
+                            <h2 id="ce-inbox-title" class="block-title">Consultas enviadas</h2>
+                            <p class="ce-inbox-sub">Registro de mensajes y respuestas de seguimiento.</p>
+                        </div>
+                        <span id="ce-inbox-count" class="ce-count-pill">0 mensajes</span>
+                    </div>
+
+                    <div id="ce-messages-list" class="ce-messages-list">
+                        <!-- Se renderiza desde js/cuidador-especialista.js -->
+                    </div>
+
+                    <div id="ce-more-wrap" class="ce-more-wrap hidden">
+                        <button type="button" id="btn-toggle-more-msgs" class="btn btn-outline btn-interactive ce-more-btn">
+                            <i class="fa-solid fa-chevron-down"></i>
+                            <span>Mostrar consultas anteriores</span>
+                        </button>
+                    </div>
+
+                    <div class="ce-emergency-note" role="note">
+                        <i class="fa-solid fa-triangle-exclamation"></i>
+                        <span>Este canal es para consultas de seguimiento. Ante dolor agudo o emergencia médica, acude de inmediato a urgencias.</span>
+                    </div>
+                </section>
+
+            </div>
+        </div>
+    </main>
+
+    <!-- OVERLAY: CERRAR SESIÓN -->
+    <div id="logout-modal" class="modal-overlay hidden">
+        <div class="modal-card fade-in">
+            <div class="modal-icon-danger">
+                <i class="fa-solid fa-right-from-bracket"></i>
+            </div>
+            <h2 class="modal-title">¿Cerrar sesión?</h2>
+            <p class="modal-desc">¿Estás seguro de que quieres salir de tu cuenta?</p>
+            <div class="modal-actions">
+                <button type="button" id="btn-cancel-logout" class="btn btn-outline w-full justify-center btn-interactive">
+                    Continuar
+                </button>
+                <button type="button" id="btn-confirm-logout" class="btn btn-danger w-full justify-center btn-interactive">
+                    Cerrar sesión
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script src="../../js/data.js"></script>
+    <script src="../../js/cuidador-especialista.js"></script>
+</body>
+</html>

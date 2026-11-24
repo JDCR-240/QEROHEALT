@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rutinas — QeroHealth</title>
+    <link rel="icon" href="../../img/logo.ico" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../../css/index.css">
+    <link rel="stylesheet" href="../../css/app.css">
+    <link rel="stylesheet" href="../../css/catalogo.css">
+</head>
+<body class="app-body">
+
+    <!-- HEADER SUPERIOR -->
+    <header class="app-header">
+        <div class="container app-header-inner">
+            <a href="panel.html" class="logo-group">
+                <div class="logo-icon">
+                    <i class="fa-solid fa-handshake-angle"></i>
+                </div>
+                <span class="logo-title">QeroHealth</span>
+            </a>
+
+            <div class="app-header-right">
+                <nav class="app-nav" aria-label="Navegación de especialista">
+                    <a href="panel.html" class="app-nav-link">
+                        <i class="fa-solid fa-house"></i>
+                        <span>Panel</span>
+                    </a>
+                    <a href="paciente.html" class="app-nav-link">
+                        <i class="fa-solid fa-users"></i>
+                        <span>Pacientes</span>
+                    </a>
+                    <a href="catalogo.html" class="app-nav-link active">
+                        <i class="fa-solid fa-clipboard-list"></i>
+                        <span>Rutinas</span>
+                    </a>
+                    <a href="seguimiento.html" class="app-nav-link">
+                        <i class="fa-solid fa-chart-line"></i>
+                        <span>Seguimiento</span>
+                    </a>
+                    <a href="../ayuda.html" class="app-nav-link">
+                        <i class="fa-regular fa-circle-question"></i>
+                        <span>Ayuda</span>
+                    </a>
+                </nav>
+
+                <a href="../cuenta.html" class="app-nav-link app-nav-account" aria-label="Mi cuenta" title="Mi cuenta">
+                    <i class="fa-regular fa-user"></i>
+                </a>
+
+                <button type="button" id="btn-open-logout" class="app-nav-link app-nav-exit" aria-label="Cerrar sesión">
+                    <i class="fa-solid fa-right-from-bracket"></i>
+                    <span>Salir</span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- CONTENIDO PRINCIPAL -->
+    <main class="app-main">
+        <div class="container fade-in">
+
+            <section class="page-head">
+                <h1 class="page-title">Rutinas</h1>
+                <p class="catalog-subtitle">Catálogo clínico de ejercicios terapéuticos disponibles para asignar.</p>
+            </section>
+
+            <!-- BUSCADOR -->
+            <section class="catalog-search-bar">
+                <div class="search-input-wrap">
+                    <i class="fa-solid fa-magnifying-glass search-icon"></i>
+                    <input
+                        type="search"
+                        id="search-exercise"
+                        class="search-input"
+                        placeholder="Buscar ejercicio..."
+                        autocomplete="off"
+                    >
+                </div>
+            </section>
+
+            <!-- FILTROS + BOTÓN AGREGAR RUTINA -->
+            <section class="catalog-toolbar">
+                <div class="catalog-filters" role="group" aria-label="Filtrar por categoría">
+                    <button type="button" class="catalog-chip active" data-category="Todos">Todos</button>
+                    <button type="button" class="catalog-chip" data-category="Lenguaje">Lenguaje</button>
+                    <button type="button" class="catalog-chip" data-category="Rostro">Rostro</button>
+                    <button type="button" class="catalog-chip" data-category="Respiración">Respiración</button>
+                </div>
+
+                <a href="agregar-rutina.html" class="btn btn-primary btn-interactive">
+                    <i class="fa-solid fa-plus"></i>
+                    <span>Agregar rutina</span>
+                </a>
+            </section>
+
+            <!-- CONTADOR -->
+            <div class="section-row-head" style="margin-bottom: 16px;">
+                <h2 id="exercises-count" class="block-title">12 ejercicios</h2>
+            </div>
+
+            <!-- GRID DE EJERCICIOS -->
+            <section id="catalog-grid" class="catalog-grid">
+                <!-- Se llena dinámicamente desde js/catalogo.js -->
+            </section>
+
+        </div>
+    </main>
+
+    
+
+    <!-- OVERLAY: CERRAR SESIÓN -->
+    <div id="logout-modal" class="modal-overlay hidden">
+        <div class="modal-card fade-in">
+            <div class="modal-icon-danger">
+                <i class="fa-solid fa-right-from-bracket"></i>
+            </div>
+            <h2 class="modal-title">¿Cerrar sesión?</h2>
+            <p class="modal-desc">¿Estás seguro de que quieres salir de tu cuenta?</p>
+            <div class="modal-actions">
+                <button type="button" id="btn-cancel-logout" class="btn btn-outline w-full justify-center btn-interactive">
+                    Continuar
+                </button>
+                <button type="button" id="btn-confirm-logout" class="btn btn-danger w-full justify-center btn-interactive">
+                    Cerrar sesión
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script src="../../js/catalogo.js"></script>
+</body>
+</html>

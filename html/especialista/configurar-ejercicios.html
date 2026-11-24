@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Configurar ejercicios — QeroHealth</title>
+    <link rel="icon" href="../../img/logo.ico" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../../css/index.css">
+    <link rel="stylesheet" href="../../css/app.css">
+    <link rel="stylesheet" href="../../css/configurar-ejercicios.css">
+</head>
+<body class="app-body">
+
+    <!-- HEADER SUPERIOR -->
+    <header class="app-header">
+        <div class="container app-header-inner">
+            <a href="panel.html" class="logo-group">
+                <div class="logo-icon">
+                    <i class="fa-solid fa-handshake-angle"></i>
+                </div>
+                <span class="logo-title">QeroHealth</span>
+            </a>
+
+            <div class="app-header-right">
+                <nav class="app-nav" aria-label="Navegación de especialista">
+                    <a href="panel.html" class="app-nav-link">
+                        <i class="fa-solid fa-house"></i>
+                        <span>Panel</span>
+                    </a>
+                    <a href="paciente.html" class="app-nav-link active">
+                        <i class="fa-solid fa-users"></i>
+                        <span>Pacientes</span>
+                    </a>
+                    <a href="catalogo.html" class="app-nav-link">
+                        <i class="fa-solid fa-clipboard-list"></i>
+                        <span>Rutinas</span>
+                    </a>
+                    <a href="seguimiento.html" class="app-nav-link">
+                        <i class="fa-solid fa-chart-line"></i>
+                        <span>Seguimiento</span>
+                    </a>
+                    <a href="../ayuda.html" class="app-nav-link">
+                        <i class="fa-regular fa-circle-question"></i>
+                        <span>Ayuda</span>
+                    </a>
+                </nav>
+
+                <a href="../cuenta.html" class="app-nav-link app-nav-account" aria-label="Mi cuenta" title="Mi cuenta">
+                    <i class="fa-regular fa-user"></i>
+                </a>
+
+                <button type="button" id="btn-open-logout" class="app-nav-link app-nav-exit" aria-label="Cerrar sesión">
+                    <i class="fa-solid fa-right-from-bracket"></i>
+                    <span>Salir</span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- CONTENIDO PRINCIPAL -->
+    <main class="app-main">
+        <div class="container fade-in">
+
+            <!-- CABECERA -->
+            <section class="ce-head">
+                <div class="ce-head-left">
+                    <a href="agregar-ejercicio-rutina.html" id="btn-back-aer" class="back-btn" aria-label="Volver a seleccionar ejercicios">
+                        <i class="fa-solid fa-arrow-left"></i>
+                    </a>
+                    <div>
+                        <h1 class="page-title">Configurar ejercicios</h1>
+                        <p id="ce-subtitle" class="ce-subtitle">Define el tiempo, repeticiones e indicaciones personalizadas.</p>
+                    </div>
+                </div>
+                <span id="ce-step-counter" class="ce-step-counter">Ejercicio 1 de 1</span>
+            </section>
+
+            <!-- BARRA DE PASOS (1er ejercicio, 2do ejercicio, 3er ejercicio...) -->
+            <nav id="ce-stepper" class="ce-stepper" aria-label="Progreso de ejercicios">
+                <!-- Se llena dinámicamente desde js/configurar-ejercicios.js -->
+            </nav>
+
+            <!-- CONTENEDOR PRINCIPAL DE CONFIGURACIÓN (Pág. 20) -->
+            <section class="ce-card">
+
+                <!-- CAJITA DEL EJERCICIO ACTUAL -->
+                <article class="ce-exercise-preview">
+                    <div class="ce-preview-thumb">
+                        <img id="ce-ex-img" src="../../img/catalogo.jpg" alt="Miniatura del ejercicio">
+                    </div>
+                    <div class="ce-preview-info">
+                        <span id="ce-ex-cat" class="ce-cat-badge">Categoría</span>
+                        <h2 id="ce-ex-name" class="ce-ex-name">Nombre del ejercicio</h2>
+                        <p id="ce-ex-desc" class="ce-ex-desc">Descripción del ejercicio...</p>
+                    </div>
+                </article>
+
+                <!-- FORMULARIO DE PARÁMETROS -->
+                <form id="ce-form" class="ce-form" novalidate>
+                    <div class="ce-inputs-grid">
+                        <div class="ce-field">
+                            <label for="ce-time" class="ce-label">
+                                <i class="fa-regular fa-clock"></i> Tiempo estimado (minutos)
+                            </label>
+                            <input
+                                type="number"
+                                id="ce-time"
+                                class="ce-input"
+                                min="1"
+                                max="60"
+                                placeholder="Ej. 5"
+                                required
+                            >
+                        </div>
+
+                        <div class="ce-field">
+                            <label for="ce-reps" class="ce-label">
+                                <i class="fa-solid fa-repeat"></i> Repeticiones
+                            </label>
+                            <input
+                                type="number"
+                                id="ce-reps"
+                                class="ce-input"
+                                min="1"
+                                max="100"
+                                placeholder="Ej. 10"
+                                required
+                            >
+                        </div>
+                    </div>
+
+                    <div class="ce-field">
+                        <label for="ce-notes" class="ce-label">
+                            <i class="fa-regular fa-note-sticky"></i> Indicaciones personalizadas (opcional)
+                        </label>
+                        <textarea
+                            id="ce-notes"
+                            class="ce-input ce-textarea"
+                            placeholder="Ej. Realizarlo despacio sin forzar, usar un espejo pequeño o una cuchara en casa como apoyo..."
+                        ></textarea>
+                        <small class="ce-hint">Agrega recomendaciones adaptadas a la realidad o sensibilidad de este paciente.</small>
+                    </div>
+
+                    <!-- ACCIONES DE NAVEGACIÓN -->
+                    <div class="ce-actions">
+                        <button type="button" id="btn-prev-step" class="btn btn-outline btn-interactive hidden">
+                            <i class="fa-solid fa-arrow-left"></i>
+                            <span>Anterior</span>
+                        </button>
+
+                        <button type="submit" id="btn-next-step" class="btn btn-primary btn-interactive ce-btn-next">
+                            <span id="btn-next-label">Siguiente</span>
+                            <i id="btn-next-icon" class="fa-solid fa-arrow-right"></i>
+                        </button>
+                    </div>
+                    <p id="ce-error-msg" class="ce-error-msg hidden" role="alert">
+                        <i class="fa-solid fa-circle-exclamation"></i>
+                        <span>Rellena todos los campos de los ejercicios</span>
+                    </p>
+                </form>
+
+            </section>
+
+        </div>
+    </main>
+
+    <!-- OVERLAY: CERRAR SESIÓN -->
+    <div id="logout-modal" class="modal-overlay hidden">
+        <div class="modal-card fade-in">
+            <div class="modal-icon-danger">
+                <i class="fa-solid fa-right-from-bracket"></i>
+            </div>
+            <h2 class="modal-title">¿Cerrar sesión?</h2>
+            <p class="modal-desc">¿Estás seguro de que quieres salir de tu cuenta?</p>
+            <div class="modal-actions">
+                <button type="button" id="btn-cancel-logout" class="btn btn-outline w-full justify-center btn-interactive">
+                    Continuar
+                </button>
+                <button type="button" id="btn-confirm-logout" class="btn btn-danger w-full justify-center btn-interactive">
+                    Cerrar sesión
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script src="../../js/data.js"></script>
+    <script src="../../js/configurar-ejercicios.js"></script>
+</body>
+</html>

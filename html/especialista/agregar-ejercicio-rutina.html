@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agregar ejercicios — QeroHealth</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="icon" href="../../img/logo.ico" type="image/x-icon">
+    <link rel="stylesheet" href="../../css/index.css">
+    <link rel="stylesheet" href="../../css/app.css">
+    <link rel="stylesheet" href="../../css/agregar-ejercicio-rutina.css">
+</head>
+<body class="app-body">
+
+    <!-- HEADER SUPERIOR -->
+    <header class="app-header">
+        <div class="container app-header-inner">
+            <a href="panel.html" class="logo-group">
+                <div class="logo-icon">
+                    <i class="fa-solid fa-handshake-angle"></i>
+                </div>
+                <span class="logo-title">QeroHealth</span>
+            </a>
+
+            <div class="app-header-right">
+                <nav class="app-nav" aria-label="Navegación de especialista">
+                    <a href="panel.html" class="app-nav-link">
+                        <i class="fa-solid fa-house"></i>
+                        <span>Panel</span>
+                    </a>
+                    <a href="paciente.html" class="app-nav-link active">
+                        <i class="fa-solid fa-users"></i>
+                        <span>Pacientes</span>
+                    </a>
+                    <a href="catalogo.html" class="app-nav-link">
+                        <i class="fa-solid fa-clipboard-list"></i>
+                        <span>Rutinas</span>
+                    </a>
+                    <a href="seguimiento.html" class="app-nav-link">
+                        <i class="fa-solid fa-chart-line"></i>
+                        <span>Seguimiento</span>
+                    </a>
+                    <a href="../ayuda.html" class="app-nav-link">
+                        <i class="fa-regular fa-circle-question"></i>
+                        <span>Ayuda</span>
+                    </a>
+                </nav>
+
+                <a href="../cuenta.html" class="app-nav-link app-nav-account" aria-label="Mi cuenta" title="Mi cuenta">
+                    <i class="fa-regular fa-user"></i>
+                </a>
+
+                <button type="button" id="btn-open-logout" class="app-nav-link app-nav-exit" aria-label="Cerrar sesión">
+                    <i class="fa-solid fa-right-from-bracket"></i>
+                    <span>Salir</span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- CONTENIDO PRINCIPAL -->
+    <main class="app-main aer-main">
+        <div class="container fade-in">
+
+            <!-- CABECERA -->
+            <section class="aer-head">
+                <div class="aer-head-left">
+                    <a href="editar-rutina.html" id="btn-back-er" class="back-btn" aria-label="Volver a editar rutina">
+                        <i class="fa-solid fa-arrow-left"></i>
+                    </a>
+                    <div>
+                        <h1 class="page-title">Seleccionar ejercicios</h1>
+                        <p id="aer-subtitle" class="aer-subtitle">Elige los ejercicios que deseas añadir a la rutina del paciente.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- FILTROS (BUSCADOR + CATEGORÍA) -->
+            <section class="aer-filters-bar">
+                <div class="aer-search-box">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                    <input type="text" id="aer-search-input" placeholder="Buscar ejercicio por nombre...">
+                </div>
+
+                <div class="aer-category-pills" id="aer-category-pills">
+                    <button type="button" class="aer-cat-pill active" data-cat="Todas">Todas</button>
+                    <button type="button" class="aer-cat-pill" data-cat="Lenguaje">Lenguaje</button>
+                    <button type="button" class="aer-cat-pill" data-cat="Rostro">Rostro</button>
+                    <button type="button" class="aer-cat-pill" data-cat="Respiración">Respiración</button>
+                </div>
+            </section>
+
+            <!-- GRILLA DE EJERCICIOS -->
+            <section id="aer-grid" class="aer-grid">
+                <!-- Se llena dinámicamente desde js/agregar-ejercicio-rutina.js -->
+            </section>
+
+        </div>
+    </main>
+
+    <!-- BLOQUE FLOTANTE INFERIOR: CONTADOR Y BOTÓN "AGREGAR X RUTINA(S)" -->
+    <div id="aer-selection-bar" class="aer-selection-bar hidden">
+        <div class="container aer-selection-inner">
+            <div class="aer-selection-info">
+                <span id="aer-selection-badge" class="aer-selection-badge">0</span>
+                <p id="aer-selection-text" class="aer-selection-text">0 ejercicios seleccionados</p>
+            </div>
+
+            <div class="aer-selection-actions">
+                <button type="button" id="btn-clear-selection" class="btn btn-outline btn-interactive">
+                    Limpiar
+                </button>
+                <button type="button" id="btn-confirm-selection" class="btn btn-primary btn-interactive">
+                    <i class="fa-solid fa-plus"></i>
+                    <span id="btn-confirm-label">Agregar 1 rutina</span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- OVERLAY: CERRAR SESIÓN -->
+    <div id="logout-modal" class="modal-overlay hidden">
+        <div class="modal-card fade-in">
+            <div class="modal-icon-danger">
+                <i class="fa-solid fa-right-from-bracket"></i>
+            </div>
+            <h2 class="modal-title">¿Cerrar sesión?</h2>
+            <p class="modal-desc">¿Estás seguro de que quieres salir de tu cuenta?</p>
+            <div class="modal-actions">
+                <button type="button" id="btn-cancel-logout" class="btn btn-outline w-full justify-center btn-interactive">
+                    Continuar
+                </button>
+                <button type="button" id="btn-confirm-logout" class="btn btn-danger w-full justify-center btn-interactive">
+                    Cerrar sesión
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script src="../../js/data.js"></script>
+    <script src="../../js/agregar-ejercicio-rutina.js"></script>
+</body>
+</html>

@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agregar rutina — QeroHealth</title>
+    <link rel="icon" href="../../img/logo.ico" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../../css/index.css">
+    <link rel="stylesheet" href="../../css/app.css">
+    <link rel="stylesheet" href="../../css/agregar-rutina.css">
+</head>
+<body class="app-body">
+
+    <!-- HEADER SUPERIOR -->
+    <header class="app-header">
+        <div class="container app-header-inner">
+            <a href="panel.html" class="logo-group">
+                <div class="logo-icon">
+                    <i class="fa-solid fa-handshake-angle"></i>
+                </div>
+                <span class="logo-title">QeroHealth</span>
+            </a>
+
+            <div class="app-header-right">
+                <nav class="app-nav" aria-label="Navegación de especialista">
+                    <a href="panel.html" class="app-nav-link">
+                        <i class="fa-solid fa-house"></i>
+                        <span>Panel</span>
+                    </a>
+                    <a href="paciente.html" class="app-nav-link">
+                        <i class="fa-solid fa-users"></i>
+                        <span>Pacientes</span>
+                    </a>
+                    <a href="catalogo.html" class="app-nav-link active">
+                        <i class="fa-solid fa-clipboard-list"></i>
+                        <span>Rutinas</span>
+                    </a>
+                    <a href="seguimiento.html" class="app-nav-link">
+                        <i class="fa-solid fa-chart-line"></i>
+                        <span>Seguimiento</span>
+                    </a>
+                    <a href="../ayuda.html" class="app-nav-link">
+                        <i class="fa-regular fa-circle-question"></i>
+                        <span>Ayuda</span>
+                    </a>
+                </nav>
+
+                <a href="../cuenta.html" class="app-nav-link app-nav-account" aria-label="Mi cuenta" title="Mi cuenta">
+                    <i class="fa-regular fa-user"></i>
+                </a>
+
+                <button type="button" id="btn-open-logout" class="app-nav-link app-nav-exit" aria-label="Cerrar sesión">
+                    <i class="fa-solid fa-right-from-bracket"></i>
+                    <span>Salir</span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- CONTENIDO PRINCIPAL -->
+    <main class="app-main">
+        <div class="container fade-in">
+
+            <!-- CABECERA -->
+            <section class="add-head">
+                <div class="add-head-left">
+                    <a href="catalogo.html" class="back-btn" aria-label="Volver al catálogo">
+                        <i class="fa-solid fa-arrow-left"></i>
+                    </a>
+                    <div>
+                        <h1 class="page-title">Agregar nueva rutina</h1>
+                        <p class="add-subtitle">Completa los datos del ejercicio para añadirlo al catálogo clínico.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- FORMULARIO EN 2 COLUMNAS -->
+            <form id="add-routine-form" class="add-routine-layout">
+
+                <!-- COLUMNA IZQUIERDA: DATOS GENERALES Y VIDEO -->
+                <section class="form-card">
+                    <h2 class="card-section-title">Información general</h2>
+
+                    <div class="form-field">
+                        <label for="routine-name" class="filter-label">Nombre del ejercicio</label>
+                        <input type="text" id="routine-name" class="form-input-page" placeholder="Ej. Movilidad labial alternada" required>
+                    </div>
+
+                    <div class="form-field">
+                        <label for="routine-category" class="filter-label">Categoría</label>
+                        <select id="routine-category" class="form-input-page" required>
+                            <option value="Lenguaje">Lenguaje</option>
+                            <option value="Rostro">Rostro</option>
+                            <option value="Respiración">Respiración</option>
+                        </select>
+                    </div>
+
+                    <div class="form-field">
+                        <label for="routine-desc" class="filter-label">Descripción breve</label>
+                        <textarea id="routine-desc" class="form-input-page" placeholder="Objetivo terapéutico del ejercicio..." required></textarea>
+                    </div>
+
+                    <div class="form-field">
+                        <label for="routine-youtube" class="filter-label">Enlace del video (YouTube)</label>
+                        <input type="url" id="routine-youtube" class="form-input-page" placeholder="https://www.youtube.com/watch?v=..." required>
+                    </div>
+
+                    <div class="form-field">
+                        <label for="routine-thumb" class="filter-label">Miniatura de portada (opcional)</label>
+                        <input type="file" id="routine-thumb" class="form-input-page file-input-page" accept="image/*">
+                        <small class="form-hint">Si no subes una foto, se usará automáticamente la miniatura del video de YouTube.</small>
+                    </div>
+                </section>
+
+                <!-- COLUMNA DERECHA: SECUENCIA DE PASOS Y GUÍA -->
+                <section class="form-card">
+                    <div class="steps-builder-head">
+                        <div>
+                            <h2 class="card-section-title" style="margin-bottom: 2px;">Secuencia de pasos y guía</h2>
+                            <p class="form-hint" style="margin-top: 0;">Cada paso se mostrará en el visor de imágenes y en la pestaña Guías.</p>
+                        </div>
+                        <button type="button" id="btn-add-step" class="btn-add-step">
+                            <i class="fa-solid fa-plus"></i> Agregar paso
+                        </button>
+                    </div>
+
+                    <div id="routine-steps-list" class="steps-builder-list">
+                        <!-- Se llena dinámicamente desde js/agregar-rutina.js -->
+                    </div>
+
+                    <div class="form-footer-actions">
+                        <a href="catalogo.html" class="btn btn-outline justify-center btn-interactive">
+                            Cancelar
+                        </a>
+                        <button type="submit" id="btn-save-routine" class="btn btn-primary justify-center btn-interactive">
+                            <i class="fa-solid fa-floppy-disk"></i> Guardar rutina
+                        </button>
+                    </div>
+                </section>
+
+            </form>
+        </div>
+    </main>
+
+    <!-- OVERLAY: CERRAR SESIÓN -->
+    <div id="logout-modal" class="modal-overlay hidden">
+        <div class="modal-card fade-in">
+            <div class="modal-icon-danger">
+                <i class="fa-solid fa-right-from-bracket"></i>
+            </div>
+            <h2 class="modal-title">¿Cerrar sesión?</h2>
+            <p class="modal-desc">¿Estás seguro de que quieres salir de tu cuenta?</p>
+            <div class="modal-actions">
+                <button type="button" id="btn-cancel-logout" class="btn btn-outline w-full justify-center btn-interactive">
+                    Continuar
+                </button>
+                <button type="button" id="btn-confirm-logout" class="btn btn-danger w-full justify-center btn-interactive">
+                    Cerrar sesión
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script src="../../js/agregar-rutina.js"></script>
+</body>
+</html>

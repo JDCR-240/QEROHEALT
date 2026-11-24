@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Editar rutina — QeroHealth</title>
+    <link rel="icon" href="../../img/logo.ico" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../../css/index.css">
+    <link rel="stylesheet" href="../../css/app.css">
+    <link rel="stylesheet" href="../../css/editar-rutina.css">
+</head>
+<body class="app-body">
+
+    <!-- HEADER SUPERIOR -->
+    <header class="app-header">
+        <div class="container app-header-inner">
+            <a href="panel.html" class="logo-group">
+                <div class="logo-icon">
+                    <i class="fa-solid fa-handshake-angle"></i>
+                </div>
+                <span class="logo-title">QeroHealth</span>
+            </a>
+
+            <div class="app-header-right">
+                <nav class="app-nav" aria-label="Navegación de especialista">
+                    <a href="panel.html" class="app-nav-link">
+                        <i class="fa-solid fa-house"></i>
+                        <span>Panel</span>
+                    </a>
+                    <a href="paciente.html" class="app-nav-link active">
+                        <i class="fa-solid fa-users"></i>
+                        <span>Pacientes</span>
+                    </a>
+                    <a href="catalogo.html" class="app-nav-link">
+                        <i class="fa-solid fa-clipboard-list"></i>
+                        <span>Rutinas</span>
+                    </a>
+                    <a href="seguimiento.html" class="app-nav-link">
+                        <i class="fa-solid fa-chart-line"></i>
+                        <span>Seguimiento</span>
+                    </a>
+                    <a href="../ayuda.html" class="app-nav-link">
+                        <i class="fa-regular fa-circle-question"></i>
+                        <span>Ayuda</span>
+                    </a>
+                </nav>
+
+                <a href="../cuenta.html" class="app-nav-link app-nav-account" aria-label="Mi cuenta" title="Mi cuenta">
+                    <i class="fa-regular fa-user"></i>
+                </a>
+
+                <button type="button" id="btn-open-logout" class="app-nav-link app-nav-exit" aria-label="Cerrar sesión">
+                    <i class="fa-solid fa-right-from-bracket"></i>
+                    <span>Salir</span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- CONTENIDO PRINCIPAL -->
+    <main class="app-main">
+        <div class="container fade-in">
+
+            <!-- CABECERA -->
+            <section class="er-head">
+                <div class="er-head-left">
+                    <a href="ver-rutina.html" id="btn-back-vr" class="back-btn" aria-label="Volver a ver rutina">
+                        <i class="fa-solid fa-arrow-left"></i>
+                    </a>
+                    <div>
+                        <h1 id="er-page-title" class="page-title">Editar rutina</h1>
+                        <p id="er-page-subtitle" class="er-subtitle">Ajusta el nombre y los ejercicios asignados a este paciente.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- DATOS PRINCIPALES DE LA RUTINA -->
+            <section class="er-card">
+                <div class="er-fields-grid">
+                    <div class="er-field">
+                        <label for="er-routine-name" class="er-label">Nombre de la rutina</label>
+                        <input
+                            type="text"
+                            id="er-routine-name"
+                            class="er-input"
+                            placeholder="Ej. Rutina facial · Semana 3"
+                            required
+                        >
+                    </div>
+
+                    <div class="er-field">
+                        <label for="er-patient-locked" class="er-label">
+                            Paciente asignado <i class="fa-solid fa-lock er-lock-icon" title="No editable"></i>
+                        </label>
+                        <input
+                            type="text"
+                            id="er-patient-locked"
+                            class="er-input er-input-locked"
+                            readonly
+                            tabindex="-1"
+                        >
+                    </div>
+                </div>
+            </section>
+            <!-- BARRA DE ACCIONES INFERIOR -->
+            <section id="er-actions-bar" class="er-actions-bar">
+                <div id="er-actions-secondary" class="er-actions-secondary">
+                    <a href="#" id="btn-vista-previa" class="btn btn-outline btn-interactive">
+                        <i class="fa-regular fa-eye"></i>
+                        <span>Vista previa</span>
+                    </a>
+                    <button type="button" id="btn-revisar" class="btn btn-outline btn-interactive">
+                        <i class="fa-solid fa-list-ol"></i>
+                        <span>Ordenar</span>
+                    </button>
+                </div>
+
+                <button type="button" id="btn-guardar-rutina" class="btn btn-primary btn-interactive er-btn-save">
+                    <i class="fa-solid fa-check"></i>
+                    <span>Guardar y asignar rutina</span>
+                </button>
+
+                <button type="button" id="btn-confirmar-orden" class="btn btn-primary btn-interactive er-btn-save hidden">
+                    <i class="fa-solid fa-check"></i>
+                    <span>Confirmar orden</span>
+                </button>
+            </section>
+            <!-- LISTA DE EJERCICIOS ASIGNADOS -->
+            <section class="er-card">
+                <div class="er-list-head">
+                    <div>
+                        <h2 class="card-section-title">Ejercicios de la rutina</h2>
+                        <p id="er-count-sub" class="er-list-sub">0 ejercicios asignados</p>
+                    </div>
+
+                    <div class="er-list-head-right">
+                        <!-- Aviso al confirmar orden -->
+                        <span id="er-order-saved-msg" class="er-order-saved hidden" role="status">
+                            <i class="fa-solid fa-circle-check"></i> Orden guardado correctamente
+                        </span>
+
+                        <!-- Cuadrito celeste/azul (solo visible en modo ordenar - Pág. 21) -->
+                        <div id="er-order-hint" class="er-order-hint hidden">
+                            <i class="fa-solid fa-grip-vertical"></i>
+                            <span><strong>Orden accesible:</strong> arrastra el control o usa subir y bajar</span>
+                        </div>
+
+                        <!-- BOTÓN AGREGAR (Listo para conectar a la página 19) -->
+                        <a href="#" id="btn-agregar-ejercicio" class="btn btn-outline btn-interactive er-btn-add">
+                            <i class="fa-solid fa-plus"></i>
+                            <span>Agregar</span>
+                        </a>
+                    </div>
+                </div>
+
+                <div id="er-exercises-list" class="er-exercises-list">
+                    <!-- Se llena dinámicamente desde js/editar-rutina.js -->
+                </div>
+            </section>
+
+
+        </div>
+    </main>
+
+    <!-- OVERLAY: ELIMINAR EJERCICIO (Wireframe Pág. 22) -->
+    <div id="delete-exercise-modal" class="modal-overlay hidden">
+        <div class="modal-card fade-in">
+            <div class="modal-icon-danger">
+                <i class="fa-solid fa-trash-can"></i>
+            </div>
+            <h2 class="modal-title">¿Eliminar ejercicio?</h2>
+            <p id="delete-exercise-desc" class="modal-desc">
+                ¿Seguro que deseas quitar este ejercicio de la rutina del paciente?
+            </p>
+            <div class="modal-actions">
+                <button type="button" id="btn-cancel-delete" class="btn btn-outline w-full justify-center btn-interactive">
+                    Cancelar
+                </button>
+                <button type="button" id="btn-confirm-delete" class="btn btn-danger w-full justify-center btn-interactive">
+                    Eliminar
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- OVERLAY: CERRAR SESIÓN -->
+    <div id="logout-modal" class="modal-overlay hidden">
+        <div class="modal-card fade-in">
+            <div class="modal-icon-danger">
+                <i class="fa-solid fa-right-from-bracket"></i>
+            </div>
+            <h2 class="modal-title">¿Cerrar sesión?</h2>
+            <p class="modal-desc">¿Estás seguro de que quieres salir de tu cuenta?</p>
+            <div class="modal-actions">
+                <button type="button" id="btn-cancel-logout" class="btn btn-outline w-full justify-center btn-interactive">
+                    Continuar
+                </button>
+                <button type="button" id="btn-confirm-logout" class="btn btn-danger w-full justify-center btn-interactive">
+                    Cerrar sesión
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script src="../../js/data.js"></script>
+    <script src="../../js/editar-rutina.js"></script>
+</body>
+</html>

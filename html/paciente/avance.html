@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mi avance — QeroHealth</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="icon" href="../../img/logo.ico" type="image/x-icon">
+    <link rel="stylesheet" href="../../css/index.css">
+    <link rel="stylesheet" href="../../css/app.css">
+    <link rel="stylesheet" href="../../css/avance.css">
+</head>
+<body class="app-body">
+
+    <!-- HEADER SUPERIOR -->
+    <header class="app-header">
+        <div class="container app-header-inner">
+            <a href="panel.html" class="logo-group">
+                <div class="logo-icon">
+                    <i class="fa-solid fa-handshake-angle"></i>
+                </div>
+                <span class="logo-title">QeroHealth</span>
+            </a>
+
+            <div class="app-header-right">
+                <nav class="app-nav" aria-label="Navegación de paciente">
+                    <a href="panel.html" class="app-nav-link">
+                        <i class="fa-solid fa-house"></i>
+                        <span>Inicio</span>
+                    </a>
+                    <a href="mi-rutina.html" class="app-nav-link">
+                        <i class="fa-solid fa-play"></i>
+                        <span>Mi rutina</span>
+                    </a>
+                    <a href="avance.html" class="app-nav-link active">
+                        <i class="fa-solid fa-chart-line"></i>
+                        <span>Avance</span>
+                    </a>
+                    <a href="recursos.html" class="app-nav-link">
+                        <i class="fa-solid fa-book-open"></i>
+                        <span>Guias</span>
+                    </a>
+                    <a href="../ayuda.html" class="app-nav-link">
+                        <i class="fa-regular fa-circle-question"></i>
+                        <span>Ayuda</span>
+                    </a>
+                </nav>
+
+                <a href="../cuenta.html" class="app-nav-link app-nav-account" aria-label="Mi cuenta" title="Mi cuenta">
+                    <i class="fa-regular fa-user"></i>
+                </a>
+
+                <button type="button" id="btn-open-logout" class="app-nav-link app-nav-exit" aria-label="Cerrar sesión">
+                    <i class="fa-solid fa-right-from-bracket"></i>
+                    <span>Salir</span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- CONTENIDO PRINCIPAL -->
+    <main class="app-main">
+        <div class="container fade-in">
+
+            <!-- CABECERA UNIFICADA -->
+            <section class="av-header">
+                <div>
+                    <p class="av-kicker">MI PROGRESO SEMANAL</p>
+                    <h1 id="av-routine-name" class="av-title">Rutina actual · Semana vigente</h1>
+                    <p id="av-subtitle" class="av-subtitle">
+                        Cargando tu actividad reciente...
+                    </p>
+                </div>
+
+                <div id="av-status-badge" class="av-status-badge is-amber">
+                    <i class="fa-solid fa-circle"></i>
+                    <span>En progreso</span>
+                </div>
+            </section>
+
+            <!-- LAYOUT PRINCIPAL 2 COLUMNAS (Estilo Seguimiento) -->
+            <div class="av-layout">
+
+                <!-- COLUMNA IZQUIERDA -->
+                <div class="av-main-col">
+
+                    <!-- TARJETA DE PROGRESO CON BARRA HORIZONTAL -->
+                    <section class="av-card av-progress-card">
+                        <span class="av-progress-label">Avance de tu rutina vigente</span>
+
+                        <div class="av-progress-top">
+                            <div class="av-progress-num-wrap">
+                                <strong id="av-pct-value" class="av-pct-big">0%</strong>
+                                <span id="av-completed-text" class="av-completed-text">0 de 0 ejercicios completados</span>
+                            </div>
+
+                            <div class="av-time-pills">
+                                <span class="av-pill is-done">
+                                    <i class="fa-solid fa-check"></i>
+                                    <span id="av-min-done">0 min hechos</span>
+                                </span>
+                                <span class="av-pill is-rest">
+                                    <i class="fa-regular fa-clock"></i>
+                                    <span id="av-min-left">0 min restantes</span>
+                                </span>
+                            </div>
+                        </div>
+
+                        <div class="av-bar-track" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" id="av-progress-bar">
+                            <div id="av-bar-fill" class="av-bar-fill" style="width: 0%;"></div>
+                        </div>
+                    </section>
+
+                    <!-- REGISTRO DE EJERCICIOS CON FILTROS -->
+                    <section class="av-card">
+                        <div class="av-list-head">
+                            <h2 class="av-card-title">Registro de ejercicios</h2>
+
+                            <div class="av-filter-group" role="tablist" aria-label="Filtrar ejercicios">
+                                <button type="button" class="av-filter-btn active" data-filter="todos">
+                                    Todos <span id="av-count-all" class="av-filter-count">0</span>
+                                </button>
+                                <button type="button" class="av-filter-btn" data-filter="completados">
+                                    Completados <span id="av-count-done" class="av-filter-count">0</span>
+                                </button>
+                                <button type="button" class="av-filter-btn" data-filter="pendientes">
+                                    Pendientes <span id="av-count-pending" class="av-filter-count">0</span>
+                                </button>
+                            </div>
+                        </div>
+
+                        <div id="av-exercises-list" class="av-exercises-list">
+                            <!-- Se llena desde avance.js -->
+                        </div>
+                    </section>
+
+                </div>
+
+                <!-- COLUMNA DERECHA (SIDEBAR) -->
+                <aside class="av-side-col">
+
+                    <!-- AVANCE POR ÁREA -->
+                    <section class="av-card">
+                        <div class="av-side-head">
+                            <div>
+                                <h2 class="av-card-title">Avance por área</h2>
+                                <p class="av-card-sub">Distribución de ejercicios según tu enfoque.</p>
+                            </div>
+                            <span class="av-mini-pill">Esta semana</span>
+                        </div>
+
+                        <div id="av-area-list" class="av-area-list">
+                            <!-- Se llena desde avance.js -->
+                        </div>
+                    </section>
+
+                    <!-- TARJETA VERDE OSCURA DESTACADA (CTA A MI RUTINA) -->
+                    <section class="av-cta-card">
+                        <div class="av-cta-icon">
+                            <i class="fa-solid fa-play"></i>
+                        </div>
+                        <h2 id="av-cta-title" class="av-cta-title">Continúa tu rutina</h2>
+                        <p id="av-cta-desc" class="av-cta-desc">
+                            Avanza a tu ritmo y completa los ejercicios pendientes de esta semana.
+                        </p>
+                        <a href="mi-rutina.html" class="av-cta-btn">
+                            <i class="fa-solid fa-circle-play"></i>
+                            <span id="av-cta-btn-text">Ir a mi rutina</span>
+                        </a>
+                    </section>
+
+                    <!-- SEMANAS ANTERIORES (Compacto) -->
+                    <section class="av-card">
+                        <div class="av-side-head">
+                            <div>
+                                <h2 class="av-card-title">Semanas anteriores</h2>
+                                <p class="av-card-sub">Tu constancia en sesiones previas.</p>
+                            </div>
+                        </div>
+
+                        <div id="av-history-list" class="av-history-list">
+                            <!-- Se llena desde avance.js -->
+                        </div>
+                    </section>
+
+                </aside>
+
+            </div>
+
+        </div>
+    </main>
+
+    <!-- OVERLAY: CERRAR SESIÓN -->
+    <div id="logout-modal" class="modal-overlay hidden">
+        <div class="modal-card fade-in">
+            <div class="modal-icon-danger">
+                <i class="fa-solid fa-right-from-bracket"></i>
+            </div>
+            <h2 class="modal-title">¿Cerrar sesión?</h2>
+            <p class="modal-desc">¿Estás seguro de que quieres salir de tu cuenta?</p>
+            <div class="modal-actions">
+                <button type="button" id="btn-cancel-logout" class="btn btn-outline w-full justify-center btn-interactive">
+                    Continuar
+                </button>
+                <button type="button" id="btn-confirm-logout" class="btn btn-danger w-full justify-center btn-interactive">
+                    Cerrar sesión
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script src="../../js/data.js"></script>
+    <script src="../../js/avance.js"></script>
+</body>
+</html>

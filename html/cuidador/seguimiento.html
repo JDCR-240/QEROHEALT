@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Seguimiento — QeroHealth</title>
+    <link rel="icon" href="../../img/logo.ico" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../../css/index.css">
+    <link rel="stylesheet" href="../../css/app.css">
+    <link rel="stylesheet" href="../../css/cuidador-seguimiento.css">
+</head>
+<body class="app-body">
+
+    <!-- HEADER SUPERIOR -->
+    <header class="app-header">
+        <div class="container app-header-inner">
+            <a href="panel.html" class="logo-group">
+                <div class="logo-icon">
+                    <i class="fa-solid fa-handshake-angle"></i>
+                </div>
+                <span class="logo-title">QeroHealth</span>
+            </a>
+
+            <div class="app-header-right">
+                <nav class="app-nav" aria-label="Navegación de cuidador">
+                    <a href="panel.html" class="app-nav-link">
+                        <i class="fa-solid fa-house"></i>
+                        <span>Inicio</span>
+                    </a>
+                    <a href="seguimiento.html" class="app-nav-link active">
+                        <i class="fa-solid fa-chart-line"></i>
+                        <span>Seguimiento</span>
+                    </a>
+                    <a href="especialista.html" class="app-nav-link">
+                        <i class="fa-solid fa-user-doctor"></i>
+                        <span>Especialista</span>
+                    </a>
+                    <a href="guias.html" class="app-nav-link">
+                        <i class="fa-solid fa-book-open"></i>
+                        <span>Guías</span>
+                    </a>
+                    <a href="../ayuda.html" class="app-nav-link">
+                        <i class="fa-regular fa-circle-question"></i>
+                        <span>Ayuda</span>
+                    </a>
+                </nav>
+
+                <a href="../cuenta.html" class="app-nav-link app-nav-account" aria-label="Mi cuenta" title="Mi cuenta">
+                    <i class="fa-regular fa-user"></i>
+                </a>
+
+                <button type="button" id="btn-open-logout" class="app-nav-link app-nav-exit" aria-label="Cerrar sesión">
+                    <i class="fa-solid fa-right-from-bracket"></i>
+                    <span>Salir</span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- CONTENIDO PRINCIPAL -->
+    <main class="app-main">
+        <div class="container fade-in">
+
+            <!-- CABECERA DE MONITOREO -->
+            <section class="cs-topbar">
+                <div>
+                    <span class="cs-kicker">Seguimiento terapéutico</span>
+                    <h1 id="cs-routine-name" class="page-title">Rutina terapéutica actual</h1>
+                    <p id="cs-subtitle" class="cs-subtitle">
+                        Paciente: Marta González · Última actividad: Hoy
+                    </p>
+                </div>
+
+                <span id="cs-status-pill" class="cs-status-pill is-amber">
+                    <i class="fa-solid fa-circle"></i>
+                    <span>En progreso</span>
+                </span>
+            </section>
+
+            <!-- AVISO DE MODO HISTORIAL (Solo aparece al ver una semana pasada) -->
+            <div id="cs-history-mode-banner" class="cs-history-mode-banner hidden" role="status">
+                <div class="cs-hm-banner-left">
+                    <i class="fa-solid fa-clock-rotate-left"></i>
+                    <span id="cs-hm-banner-text">Estás viendo una rutina anterior.</span>
+                </div>
+                <button type="button" id="btn-back-current" class="btn btn-outline btn-interactive cs-hm-back-btn">
+                    <i class="fa-solid fa-rotate-left"></i>
+                    <span>Volver a la rutina actual</span>
+                </button>
+            </div>
+
+
+            <!-- WORKSPACE ASIMÉTRICO (2 COLUMNAS) -->
+            <div class="cs-workspace">
+
+                <!-- COLUMNA IZQUIERDA: BARRA DE AVANCE + LÍNEA DE TIEMPO DE EJERCICIOS -->
+                <section class="cs-main-col">
+
+                    <!-- BARRA LINEAL DE PROGRESO SEMANAL -->
+                    <article class="cs-progress-panel">
+                        <div class="cs-progress-head">
+                            <div>
+                                <span class="cs-progress-label">Avance de la rutina vigente</span>
+                                <div class="cs-progress-numbers">
+                                    <strong id="cs-pct-text">0%</strong>
+                                    <span id="cs-fraction-text">0 de 0 ejercicios completados</span>
+                                </div>
+                            </div>
+
+                            <div class="cs-time-chips">
+                                <span class="cs-time-chip is-done">
+                                    <i class="fa-solid fa-check"></i>
+                                    <span id="cs-min-done">0 min hechos</span>
+                                </span>
+                                <span class="cs-time-chip is-left">
+                                    <i class="fa-regular fa-clock"></i>
+                                    <span id="cs-min-left">0 min restantes</span>
+                                </span>
+                            </div>
+                        </div>
+
+                        <div class="cs-bar-track" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" id="cs-bar-track">
+                            <div id="cs-bar-fill" class="cs-bar-fill" style="width: 0%;"></div>
+                        </div>
+                    </article>
+
+                    <!-- LÍNEA DE TIEMPO DE ACTIVIDADES CON FILTROS -->
+                    <article class="cs-timeline-card">
+                        <div class="cs-timeline-head">
+                            <h2 class="block-title">Registro de ejercicios</h2>
+
+                            <div class="cs-filter-group" role="tablist" aria-label="Filtrar ejercicios">
+                                <button type="button" class="cs-filter-btn active" data-filter="todos">
+                                    Todos <span id="cnt-all">0</span>
+                                </button>
+                                <button type="button" class="cs-filter-btn" data-filter="completados">
+                                    Completados <span id="cnt-done">0</span>
+                                </button>
+                                <button type="button" class="cs-filter-btn" data-filter="pendientes">
+                                    Pendientes <span id="cnt-pending">0</span>
+                                </button>
+                            </div>
+                        </div>
+
+                        <div id="cs-timeline-list" class="cs-timeline-list">
+                            <!-- Se genera desde js/cuidador-seguimiento.js -->
+                        </div>
+
+                        <div id="cs-more-wrap" class="cs-more-wrap hidden">
+                            <button type="button" id="btn-toggle-more" class="btn btn-outline btn-interactive cs-more-btn">
+                                <i class="fa-solid fa-chevron-down"></i>
+                                <span>Mostrar más ejercicios</span>
+                            </button>
+                        </div>
+                    </article>
+
+                </section>
+
+                <!-- COLUMNA DERECHA: ANÁLISIS POR ÁREA + HISTORIAL -->
+                <aside class="cs-side-col">
+
+                    <!-- DESGLOSE POR ÁREA TERAPÉUTICA -->
+                    <article class="cs-side-card">
+                        <div class="cs-side-head">
+                            <h2 class="cs-side-title">Avance por área</h2>
+                            <span class="cs-side-tag">Esta semana</span>
+                        </div>
+                        <p class="cs-side-desc">Distribución de ejercicios según el enfoque asignado.</p>
+
+                        <div id="cs-areas-list" class="cs-areas-list">
+                            <!-- Se calcula automáticamente desde js/cuidador-seguimiento.js -->
+                        </div>
+                    </article>
+
+                    <!-- CAJITA DE HISTORIAL DE SEMANAS ANTERIORES -->
+                    <article class="cs-history-card">
+                        <div class="cs-history-icon">
+                            <i class="fa-solid fa-folder-open"></i>
+                        </div>
+                        <h3 class="cs-history-title">Historial de semanas previas</h3>
+                        <p class="cs-history-desc">
+                            Revisa rutinas anteriores para comparar la evolución y constancia del paciente.
+                        </p>
+                        <button type="button" id="btn-open-history" class="btn btn-primary btn-interactive cs-history-cta">
+                            <i class="fa-solid fa-clock-rotate-left"></i>
+                            <span>Explorar historial</span>
+                        </button>
+                    </article>
+
+                    <!-- RECORDATORIO BREVE DE ACOMPAÑAMIENTO -->
+                    <article class="cs-tip-card">
+                        <i class="fa-solid fa-heart-pulse"></i>
+                        <div>
+                            <strong>Acompañamiento sin prisa</strong>
+                            <p>Si notas fatiga o molestia en tu paciente con algún ejercicio, pausa la sesión y consúltalo con el especialista.</p>
+                        </div>
+                    </article>
+
+                </aside>
+
+            </div>
+        </div>
+    </main>
+
+
+    <!-- MODAL: HISTORIAL DE RUTINAS ANTERIORES -->
+    <div id="history-modal" class="modal-overlay hidden" role="dialog" aria-modal="true" aria-labelledby="hm-title">
+        <div class="hm-card fade-in">
+            <div class="hm-header">
+                <div>
+                    <span class="hm-kicker">Historial terapéutico</span>
+                    <h2 id="hm-title" class="hm-title">Rutinas anteriores</h2>
+                    <p id="hm-subtitle" class="hm-subtitle">Semanas previas registradas del paciente.</p>
+                </div>
+                <button type="button" id="btn-close-history" class="hm-close-btn" aria-label="Cerrar historial">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+            </div>
+
+            <div id="hm-list" class="hm-list">
+                <!-- Se genera desde js/cuidador-seguimiento.js -->
+            </div>
+        </div>
+    </div>
+
+    <!-- OVERLAY: CERRAR SESIÓN -->
+    <div id="logout-modal" class="modal-overlay hidden">
+        <div class="modal-card fade-in">
+            <div class="modal-icon-danger">
+                <i class="fa-solid fa-right-from-bracket"></i>
+            </div>
+            <h2 class="modal-title">¿Cerrar sesión?</h2>
+            <p class="modal-desc">¿Estás seguro de que quieres salir de tu cuenta?</p>
+            <div class="modal-actions">
+                <button type="button" id="btn-cancel-logout" class="btn btn-outline w-full justify-center btn-interactive">
+                    Continuar
+                </button>
+                <button type="button" id="btn-confirm-logout" class="btn btn-danger w-full justify-center btn-interactive">
+                    Cerrar sesión
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script src="../../js/data.js"></script>
+    <script src="../../js/cuidador-seguimiento.js"></script>
+</body>
+</html>

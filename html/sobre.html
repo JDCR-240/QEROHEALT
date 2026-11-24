@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sobre QeroHealth — QeroHealth</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../css/index.css">
+    <link rel="stylesheet" href="../css/app.css">
+    <link rel="icon" href="../img/logo.ico" type="image/x-icon">
+    <link rel="stylesheet" href="../css/sobre.css">
+</head>
+<body class="app-body">
+
+    <!-- HEADER SUPERIOR (Se adapta automáticamente al rol activo) -->
+    <header class="app-header">
+        <div class="container app-header-inner">
+            <a id="sob-brand-link" href="paciente/panel.html" class="logo-group">
+                <div class="logo-icon">
+                    <i class="fa-solid fa-handshake-angle"></i>
+                </div>
+                <span class="logo-title">QeroHealth</span>
+            </a>
+
+            <div class="app-header-right">
+                <nav id="sob-dynamic-nav" class="app-nav" aria-label="Navegación principal">
+                    <!-- Se inyecta desde js/sobre.js según el rol -->
+                </nav>
+
+                <a href="cuenta.html" class="app-nav-link app-nav-account" aria-label="Mi cuenta" title="Mi cuenta">
+                    <i class="fa-regular fa-user"></i>
+                </a>
+
+                <button type="button" id="btn-open-logout" class="app-nav-link app-nav-exit" aria-label="Cerrar sesión">
+                    <i class="fa-solid fa-right-from-bracket"></i>
+                    <span>Salir</span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- CONTENIDO PRINCIPAL -->
+    <main class="app-main">
+        <div class="container fade-in">
+
+            <!-- BOTÓN VOLVER A AYUDA -->
+            <div class="sob-back-row">
+                <a href="ayuda.html" class="btn btn-outline btn-interactive sob-back-btn">
+                    <i class="fa-solid fa-arrow-left"></i>
+                    <span>Volver al Centro de ayuda</span>
+                </a>
+            </div>
+
+            <!-- CABECERA -->
+            <section class="sob-header">
+                <div>
+                    <h1 class="page-title">Sobre QeroHealth</h1>
+                    <p class="sob-subtitle">
+                        Conoce nuestra misión, principios de accesibilidad y alcance dentro del proceso terapéutico.
+                    </p>
+                </div>
+
+                <span class="sob-version-pill">
+                    <i class="fa-solid fa-code-branch"></i>
+                    <span>v2.4 · Octubre 2026</span>
+                </span>
+            </section>
+
+            <!-- LAYOUT 2 COLUMNAS EN PC -->
+            <div class="sob-grid">
+
+                <!-- COLUMNA IZQUIERDA: TARJETA INSTITUCIONAL -->
+                <section class="sob-brand-card" aria-labelledby="sobre-lema">
+                    <div class="sob-brand-hero">
+                        <div class="sob-brand-icon">
+                            <i class="fa-solid fa-handshake-angle"></i>
+                        </div>
+                        <span class="sob-brand-name">QeroHealth</span>
+                        <span class="sob-brand-tag">Rehabilitación acompañada</span>
+                    </div>
+
+                    <div class="sob-brand-body">
+                        <h2 id="sobre-lema" class="sob-lema">
+                            Tecnología humana para acompañar la rehabilitación
+                        </h2>
+                        <p class="sob-text">
+                            QeroHealth ayuda a pacientes, cuidadores y especialistas a organizar rutinas de lenguaje y movilidad facial desde casa, con instrucciones simples, recursos visuales y seguimiento comprensible.
+                        </p>
+                    </div>
+                </section>
+
+                <!-- COLUMNA DERECHA: PRINCIPIOS, AVISO MÉDICO Y PRIVACIDAD -->
+                <section class="sob-right-col" aria-label="Principios y privacidad">
+                    <article class="sob-card">
+                        <h2 class="block-title">Nuestros principios</h2>
+                        <ul class="sob-principles-list">
+                            <li>
+                                <span class="sob-p-icon is-teal"><i class="fa-solid fa-universal-access"></i></span>
+                                <span>Accesibilidad desde el diseño</span>
+                            </li>
+                            <li>
+                                <span class="sob-p-icon is-blue"><i class="fa-solid fa-users"></i></span>
+                                <span>Acompañamiento humano</span>
+                            </li>
+                            <li>
+                                <span class="sob-p-icon is-green"><i class="fa-solid fa-shield-halved"></i></span>
+                                <span>Privacidad y transparencia</span>
+                            </li>
+                            <li>
+                                <span class="sob-p-icon is-amber"><i class="fa-solid fa-book-open"></i></span>
+                                <span>Información clara y comprensible</span>
+                            </li>
+                        </ul>
+                    </article>
+
+                    <div class="sob-notice-warn" role="note">
+                        <div class="sob-notice-icon">
+                            <i class="fa-solid fa-stethoscope"></i>
+                        </div>
+                        <div class="sob-notice-text">
+                            <strong>Complementa el seguimiento profesional</strong>
+                            <span>QeroHealth no reemplaza la atención, el diagnóstico ni el tratamiento de un especialista.</span>
+                        </div>
+                    </div>
+
+                    <a href="sobre-privacidad.html" class="sob-tile">
+                        <span class="sob-tile-icon">
+                            <i class="fa-solid fa-shield-halved"></i>
+                        </span>
+                        <span class="sob-tile-content">
+                            <span class="sob-tile-title">Privacidad y datos</span>
+                            <span class="sob-tile-desc">Conoce cómo usamos y protegemos tu información</span>
+                        </span>
+                        <i class="fa-solid fa-chevron-right sob-tile-chevron"></i>
+                    </a>
+                </section>
+
+            </div>
+        </div>
+    </main>
+
+    <!-- OVERLAY: CERRAR SESIÓN -->
+    <div id="logout-modal" class="modal-overlay hidden">
+        <div class="modal-card fade-in">
+            <div class="modal-icon-danger">
+                <i class="fa-solid fa-right-from-bracket"></i>
+            </div>
+            <h2 class="modal-title">¿Cerrar sesión?</h2>
+            <p class="modal-desc">¿Estás seguro de que quieres salir de tu cuenta?</p>
+            <div class="modal-actions">
+                <button type="button" id="btn-cancel-logout" class="btn btn-outline w-full justify-center btn-interactive">
+                    Continuar
+                </button>
+                <button type="button" id="btn-confirm-logout" class="btn btn-danger w-full justify-center btn-interactive">
+                    Cerrar sesión
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script src="../js/sobre.js"></script>
+</body>
+</html>

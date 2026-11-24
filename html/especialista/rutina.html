@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detalle del video — QeroHealth</title>
+    <link rel="icon" href="../../img/logo.ico" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../../css/index.css">
+    <link rel="stylesheet" href="../../css/app.css">
+    <link rel="stylesheet" href="../../css/rutina.css">
+</head>
+<body class="app-body">
+
+    <!-- HEADER SUPERIOR -->
+    <header class="app-header">
+        <div class="container app-header-inner">
+            <a href="panel.html" class="logo-group">
+                <div class="logo-icon">
+                    <i class="fa-solid fa-handshake-angle"></i>
+                </div>
+                <span class="logo-title">QeroHealth</span>
+            </a>
+
+            <div class="app-header-right">
+                <nav class="app-nav" aria-label="Navegación de especialista">
+                    <a href="panel.html" class="app-nav-link">
+                        <i class="fa-solid fa-house"></i>
+                        <span>Panel</span>
+                    </a>
+                    <a href="paciente.html" class="app-nav-link">
+                        <i class="fa-solid fa-users"></i>
+                        <span>Pacientes</span>
+                    </a>
+                    <a href="catalogo.html" class="app-nav-link active">
+                        <i class="fa-solid fa-clipboard-list"></i>
+                        <span>Rutinas</span>
+                    </a>
+                    <a href="seguimiento.html" class="app-nav-link">
+                        <i class="fa-solid fa-chart-line"></i>
+                        <span>Seguimiento</span>
+                    </a>
+                    <a href="../ayuda.html" class="app-nav-link">
+                        <i class="fa-regular fa-circle-question"></i>
+                        <span>Ayuda</span>
+                    </a>
+                </nav>
+
+                <a href="../cuenta.html" class="app-nav-link app-nav-account" aria-label="Mi cuenta" title="Mi cuenta">
+                    <i class="fa-regular fa-user"></i>
+                </a>
+
+                <button type="button" id="btn-open-logout" class="app-nav-link app-nav-exit" aria-label="Cerrar sesión">
+                    <i class="fa-solid fa-right-from-bracket"></i>
+                    <span>Salir</span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- CONTENIDO PRINCIPAL -->
+    <main class="app-main">
+        <div class="container fade-in">
+
+            <!-- ENCABEZADO CON FLECHA DE REGRESO -->
+            <section class="detail-head">
+                <a href="catalogo.html" class="back-btn" aria-label="Volver al catálogo">
+                    <i class="fa-solid fa-arrow-left"></i>
+                </a>
+                <div>
+                    <h1 class="page-title">Detalle del video</h1>
+                    <p id="exercise-meta-line" class="detail-subtitle">Cargando ejercicio...</p>
+                </div>
+            </section>
+
+            <!-- PESTAÑAS: SOLO VIDEOS Y GUÍAS -->
+            <div class="detail-tabs" role="tablist" aria-label="Tipo de contenido">
+                <button type="button" class="detail-tab active" role="tab" aria-selected="true" data-tab="videos">
+                    <i class="fa-solid fa-circle-play"></i>
+                    <span>Videos</span>
+                </button>
+                <button type="button" class="detail-tab" role="tab" aria-selected="false" data-tab="imagenes">
+                    <i class="fa-regular fa-images"></i>
+                    <span>Imágenes</span>
+                </button>
+                <button type="button" class="detail-tab" role="tab" aria-selected="false" data-tab="guias">
+                    <i class="fa-solid fa-book-open"></i>
+                    <span>Guías</span>
+                </button>
+            </div>
+
+            <!-- LAYOUT 2 COLUMNAS (Video/Guía + Secuencia y Accesibilidad) -->
+            <div class="detail-layout">
+
+                <!-- COLUMNA PRINCIPAL -->
+                <section class="detail-main-col">
+
+                    <!-- PANEL TAB: VIDEOS -->
+                    <div id="tab-videos" class="tab-panel">
+                        <article class="video-card">
+                            <div id="video-player-box" class="video-facade" role="button" tabindex="0" aria-label="Reproducir video del ejercicio">
+                                <img id="video-thumb" src="" alt="Miniatura del ejercicio">
+                                <div class="video-facade-overlay">
+                                    <span class="custom-play-btn">
+                                        <i class="fa-solid fa-play"></i>
+                                    </span>
+                                </div>
+                            </div>
+                            
+                            <div class="video-caption">
+                                <div class="video-caption-top">
+                                    <h2 id="video-title" class="video-title">Título del ejercicio</h2>
+                                    <span id="video-category-badge" class="exercise-cat-pill">Lenguaje</span>
+                                </div>
+                                <p id="video-desc" class="video-desc"></p>
+                            </div>
+                        </article>
+                    </div>
+                    <!-- PANEL TAB: IMÁGENES (CARRUSEL DE PASOS) -->
+                    <div id="tab-imagenes" class="tab-panel hidden">
+                        <article class="image-viewer-card">
+                            <div class="image-stage">
+                                <button type="button" id="btn-prev-step" class="stage-nav-btn stage-prev" aria-label="Paso anterior">
+                                    <i class="fa-solid fa-chevron-left"></i>
+                                </button>
+
+                                <div id="stage-media-box" class="stage-media-box">
+                                    <img id="stage-step-img" src="" alt="Paso del ejercicio">
+                                    <div class="stage-img-fallback">
+                                        <i class="fa-regular fa-image"></i>
+                                        <span>Imagen del paso</span>
+                                    </div>
+                                </div>
+
+                                <button type="button" id="btn-next-step" class="stage-nav-btn stage-next" aria-label="Paso siguiente">
+                                    <i class="fa-solid fa-chevron-right"></i>
+                                </button>
+                            </div>
+
+                            <div class="image-stage-footer">
+                                <div>
+                                    <h2 id="stage-step-title" class="video-title">Paso 1</h2>
+                                    <p id="stage-step-desc" class="video-desc">Descripción del paso actual.</p>
+                                </div>
+                                <span id="stage-step-counter" class="steps-pill">Paso 1 de 5</span>
+                            </div>
+                        </article>
+                    </div>
+                    <!-- PANEL TAB: GUÍAS -->
+                    <div id="tab-guias" class="tab-panel hidden">
+                        <article class="guide-card">
+                            <div class="guide-card-head">
+                                <h2 class="block-title">Guía clínica de ejecución</h2>
+                                <span class="guide-tag">Indicaciones del especialista</span>
+                            </div>
+                            <ol id="guide-steps-list" class="guide-steps-list">
+                                <!-- Se llena desde js/rutina.js -->
+                            </ol>
+                            <div class="guide-tip">
+                                <i class="fa-solid fa-circle-info"></i>
+                                <p id="guide-precaution">Mantener un ritmo pausado y detener el ejercicio ante cualquier molestia o fatiga.</p>
+                            </div>
+                        </article>
+                    </div>
+
+                </section>
+
+                <!-- COLUMNA LATERAL: SECUENCIA DE PASOS + ACCESIBILIDAD + ASIGNAR -->
+                <aside class="detail-side-col">
+
+                    <!-- SECUENCIA DE IMÁGENES -->
+                    <article class="side-card">
+                        <div class="side-card-head">
+                            <div>
+                                <h2 class="side-card-title">Imágenes de apoyo</h2>
+                                <p id="steps-count-label" class="side-card-sub">Secuencia de 3 pasos</p>
+                            </div>
+                            <span id="steps-count-pill" class="steps-pill">3 fotos</span>
+                        </div>
+
+                        <div id="steps-grid" class="steps-grid">
+                            <!-- Se llena dinámicamente según la cantidad de imágenes del ejercicio -->
+                        </div>
+                    </article>
+
+                    <!-- ACCESIBILIDAD DEL RECURSO -->
+                    <article class="side-card">
+                        <h2 class="side-card-title">Accesibilidad del recurso</h2>
+                        <p class="side-card-sub">Configura cómo verá este ejercicio el paciente.</p>
+
+                        <div class="access-list">
+                            <label class="access-row" for="toggle-slow">
+                                <span>
+                                    <strong>Ritmo reducido (0.75x)</strong>
+                                    <small>Recomendado para inicio de terapia</small>
+                                </span>
+                                <input type="checkbox" id="toggle-slow" class="qero-switch">
+                            </label>
+                        </div>
+                    </article>
+
+                    <!-- BOTÓN PRINCIPAL (Reemplazo funcional de "Asociar recurso") -->
+                    <button type="button" id="btn-open-assign" class="btn btn-primary btn-large w-full justify-center btn-interactive">
+                        <i class="fa-solid fa-user-check"></i>
+                        <span>Asignar a paciente</span>
+                    </button>
+
+                    <p id="assign-status-inline" class="assign-status-inline hidden"></p>
+
+                </aside>
+
+            </div>
+
+        </div>
+    </main>
+
+    <!-- OVERLAY: ASIGNAR EJERCICIO A PACIENTE -->
+    <div id="assign-modal" class="modal-overlay hidden">
+        <div class="modal-card modal-card-form fade-in">
+            <h2 class="modal-title">Asignar a paciente</h2>
+            <p id="assign-modal-desc" class="modal-desc">Agrega este ejercicio a la rutina activa de un paciente.</p>
+
+            <form id="assign-form" class="modal-form">
+                <div class="form-field">
+                    <label for="assign-patient-select" class="filter-label">Seleccionar paciente</label>
+                    <select id="assign-patient-select" class="form-input-modal" required>
+                        <!-- Se llena desde js/data.js -->
+                    </select>
+                </div>
+
+                <div class="form-row-2">
+                    <div class="form-field">
+                        <label for="assign-reps" class="filter-label">Repeticiones</label>
+                        <input type="number" id="assign-reps" class="form-input-modal" value="10" min="3" max="30" required>
+                    </div>
+                    <div class="form-field">
+                        <label for="assign-freq" class="filter-label">Frecuencia</label>
+                        <select id="assign-freq" class="form-input-modal">
+                            <option value="Diaria">Diaria</option>
+                            <option value="3 veces por semana">3 veces por semana</option>
+                            <option value="Lunes a viernes">Lunes a viernes</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="modal-actions" style="margin-top: 8px;">
+                    <button type="button" id="btn-cancel-assign" class="btn btn-outline w-full justify-center btn-interactive">
+                        Cancelar
+                    </button>
+                    <button type="submit" class="btn btn-primary w-full justify-center btn-interactive">
+                        Confirmar asignación
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- OVERLAY: CERRAR SESIÓN -->
+    <div id="logout-modal" class="modal-overlay hidden">
+        <div class="modal-card fade-in">
+            <div class="modal-icon-danger">
+                <i class="fa-solid fa-right-from-bracket"></i>
+            </div>
+            <h2 class="modal-title">¿Cerrar sesión?</h2>
+            <p class="modal-desc">¿Estás seguro de que quieres salir de tu cuenta?</p>
+            <div class="modal-actions">
+                <button type="button" id="btn-cancel-logout" class="btn btn-outline w-full justify-center btn-interactive">
+                    Continuar
+                </button>
+                <button type="button" id="btn-confirm-logout" class="btn btn-danger w-full justify-center btn-interactive">
+                    Cerrar sesión
+                </button>
+            </div>
+        </div>
+    </div>
+    <script src="https://www.youtube.com/iframe_api"></script>
+    <script src="../../js/data.js"></script>
+    <script src="../../js/rutina.js"></script>
+</body>
+</html>

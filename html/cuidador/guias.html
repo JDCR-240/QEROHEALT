@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guías para cuidadores — QeroHealth</title>
+    <link rel="icon" href="../../img/logo.ico" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../../css/index.css">
+    <link rel="stylesheet" href="../../css/app.css">
+    <link rel="stylesheet" href="../../css/recursos.css">
+</head>
+<body class="app-body">
+
+    <!-- HEADER SUPERIOR -->
+    <header class="app-header">
+        <div class="container app-header-inner">
+            <a href="panel.html" class="logo-group">
+                <div class="logo-icon">
+                    <i class="fa-solid fa-handshake-angle"></i>
+                </div>
+                <span class="logo-title">QeroHealth</span>
+            </a>
+
+            <div class="app-header-right">
+                <nav class="app-nav" aria-label="Navegación de cuidador">
+                    <a href="panel.html" class="app-nav-link">
+                        <i class="fa-solid fa-house"></i>
+                        <span>Inicio</span>
+                    </a>
+                    <a href="seguimiento.html" class="app-nav-link">
+                        <i class="fa-solid fa-chart-line"></i>
+                        <span>Seguimiento</span>
+                    </a>
+                    <a href="especialista.html" class="app-nav-link">
+                        <i class="fa-solid fa-user-doctor"></i>
+                        <span>Especialista</span>
+                    </a>
+                    <a href="guias.html" class="app-nav-link active">
+                        <i class="fa-solid fa-book-open"></i>
+                        <span>Guías</span>
+                    </a>
+                    <a href="../ayuda.html" class="app-nav-link">
+                        <i class="fa-regular fa-circle-question"></i>
+                        <span>Ayuda</span>
+                    </a>
+                </nav>
+
+                <a href="../cuenta.html" class="app-nav-link app-nav-account" aria-label="Mi cuenta" title="Mi cuenta">
+                    <i class="fa-regular fa-user"></i>
+                </a>
+
+                <button type="button" id="btn-open-logout" class="app-nav-link app-nav-exit" aria-label="Cerrar sesión">
+                    <i class="fa-solid fa-right-from-bracket"></i>
+                    <span>Salir</span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- CONTENIDO PRINCIPAL -->
+    <main class="app-main">
+        <div class="container fade-in">
+
+            <!-- CABECERA -->
+            <section class="rec-header">
+                <div>
+                    <h1 class="page-title">Guías para cuidadores</h1>
+                    <p class="rec-subtitle">
+                        Recursos breves en video para acompañar las rutinas en casa con empatía, seguridad y sin sobrecarga.
+                    </p>
+                </div>
+
+                <span id="rec-counter" class="rec-counter">6 guías disponibles</span>
+            </section>
+
+            <!-- FILTROS POR CATEGORÍA -->
+            <section class="rec-filters" aria-label="Filtrar guías por categoría">
+                <button type="button" class="rec-filter-btn active" data-filter="todos">
+                    Todos
+                </button>
+                <button type="button" class="rec-filter-btn" data-filter="Acompañamiento diario">
+                    Acompañamiento diario
+                </button>
+                <button type="button" class="rec-filter-btn" data-filter="Apoyo en los ejercicios">
+                    Apoyo en los ejercicios
+                </button>
+                <button type="button" class="rec-filter-btn" data-filter="Bienestar del cuidador">
+                    Bienestar del cuidador
+                </button>
+            </section>
+
+            <!-- GRILLA DE 6 GUÍAS EN VIDEO -->
+            <section id="rec-grid" class="rec-grid" aria-label="Biblioteca de guías en video para cuidadores">
+                <!-- Se genera desde js/cuidador-guias.js -->
+            </section>
+
+        </div>
+    </main>
+
+    <!-- MODAL: VER GUÍA EN VIDEO -->
+    <div id="video-modal" class="modal-overlay hidden" role="dialog" aria-modal="true" aria-labelledby="vm-title">
+        <div class="vm-card fade-in">
+            <div class="vm-header">
+                <div>
+                    <span id="vm-cat" class="rec-cat-tag">Categoría</span>
+                    <h2 id="vm-title" class="vm-title">Título de la guía</h2>
+                </div>
+                <button type="button" id="btn-close-video" class="vm-close-btn" aria-label="Cerrar video">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+            </div>
+
+            <div class="vm-player-wrap">
+                <iframe
+                    id="vm-iframe"
+                    src=""
+                    title="Guía en video para cuidadores QeroHealth"
+                    frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen>
+                </iframe>
+            </div>
+
+            <div class="vm-guide-box">
+                <h3 class="vm-guide-title">
+                    <i class="fa-solid fa-list-check"></i>
+                    <span>Puntos clave para acompañar</span>
+                </h3>
+                <p id="vm-desc" class="vm-desc"></p>
+                <ul id="vm-steps" class="vm-steps">
+                    <!-- Se llena desde js/cuidador-guias.js -->
+                </ul>
+            </div>
+
+            <div class="vm-footer">
+                <button type="button" id="btn-done-video" class="btn btn-primary btn-interactive vm-btn-done">
+                    <i class="fa-solid fa-check"></i>
+                    <span>Entendido, cerrar guía</span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- OVERLAY: CERRAR SESIÓN -->
+    <div id="logout-modal" class="modal-overlay hidden">
+        <div class="modal-card fade-in">
+            <div class="modal-icon-danger">
+                <i class="fa-solid fa-right-from-bracket"></i>
+            </div>
+            <h2 class="modal-title">¿Cerrar sesión?</h2>
+            <p class="modal-desc">¿Estás seguro de que quieres salir de tu cuenta?</p>
+            <div class="modal-actions">
+                <button type="button" id="btn-cancel-logout" class="btn btn-outline w-full justify-center btn-interactive">
+                    Continuar
+                </button>
+                <button type="button" id="btn-confirm-logout" class="btn btn-danger w-full justify-center btn-interactive">
+                    Cerrar sesión
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script src="../../js/data.js"></script>
+    <script src="../../js/cuidador-guias.js"></script>
+</body>
+</html>
