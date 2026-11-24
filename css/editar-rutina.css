@@ -1,0 +1,471 @@
+/* ==============================================================
+    EDITAR RUTINA (editar-rutina.html - Pág. 18 + Modal Pág. 22)
+============================================================== */
+.er-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 22px;
+}
+
+.er-head-left {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
+
+.back-btn {
+    width: 42px;
+    height: 42px;
+    border-radius: 12px;
+    border: 1px solid var(--color-slate-200);
+    background-color: white;
+    color: var(--color-qero-800);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1rem;
+    text-decoration: none;
+    flex-shrink: 0;
+    transition: var(--transition-fast);
+}
+
+.back-btn:hover {
+    background-color: var(--color-qero-50);
+    border-color: var(--color-qero-300);
+}
+
+.er-subtitle {
+    margin-top: 2px;
+    font-size: 0.9rem;
+    color: var(--color-slate-600);
+}
+
+/* Tarjetas principales */
+.er-card {
+    background: white;
+    border: 1px solid var(--color-slate-200);
+    border-radius: 20px;
+    padding: 24px;
+    box-shadow: var(--shadow-sm);
+    margin: 20px 0;
+}
+
+.er-fields-grid {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: 18px;
+}
+
+.er-field {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.er-label {
+    font-size: 0.85rem;
+    font-weight: bold;
+    color: var(--color-slate-700);
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.er-lock-icon {
+    font-size: 0.75rem;
+    color: var(--color-slate-400);
+}
+
+.er-input {
+    width: 100%;
+    padding: 11px 14px;
+    border-radius: 12px;
+    border: 1px solid var(--color-slate-200);
+    font-family: inherit;
+    font-size: 0.94rem;
+    color: var(--color-slate-900);
+    background-color: white;
+    transition: var(--transition-fast);
+}
+
+.er-input:focus {
+    outline: none;
+    border-color: var(--color-qero-600);
+    box-shadow: 0 0 0 3px rgba(21, 128, 61, 0.12);
+}
+
+.er-input-locked {
+    background-color: #F1F5F9;
+    color: var(--color-slate-600);
+    font-weight: 600;
+    cursor: not-allowed;
+    border-color: var(--color-slate-200);
+}
+
+.er-input-locked:focus {
+    box-shadow: none;
+    border-color: var(--color-slate-200);
+}
+
+/* Cabecera de lista de ejercicios */
+.er-list-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    margin-bottom: 18px;
+    flex-wrap: wrap;
+}
+
+.card-section-title {
+    font-size: 1.08rem;
+    font-weight: bold;
+    color: var(--color-slate-900);
+    margin-bottom: 2px;
+}
+
+.er-list-sub {
+    font-size: 0.85rem;
+    color: var(--color-slate-600);
+}
+
+.er-btn-add {
+    padding: 9px 16px;
+}
+
+/* Lista de ejercicios */
+.er-exercises-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.er-exercise-card {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    padding: 16px 18px;
+    border-radius: 16px;
+    border: 1px solid var(--color-slate-200);
+    background-color: #F8FAF9;
+    transition: var(--transition-fast);
+}
+
+.er-exercise-card:hover {
+    border-color: var(--color-qero-300);
+    background-color: white;
+}
+
+.er-exercise-left {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    flex: 1;
+}
+
+.er-order-num {
+    width: 34px;
+    height: 34px;
+    border-radius: 10px;
+    background-color: var(--color-qero-700);
+    color: white;
+    font-size: 0.88rem;
+    font-weight: bold;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.er-exercise-info h3 {
+    font-size: 0.98rem;
+    font-weight: bold;
+    color: var(--color-slate-900);
+    margin-bottom: 5px;
+}
+
+.er-exercise-meta {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+    font-size: 0.82rem;
+    color: var(--color-slate-600);
+}
+
+.er-cat-tag {
+    padding: 2px 9px;
+    border-radius: 6px;
+    background-color: var(--color-qero-50);
+    color: var(--color-qero-800);
+    font-weight: bold;
+    font-size: 0.76rem;
+}
+
+/* Columna derecha de cada tarjeta: Tachito arriba + "Asignado" abajo */
+.er-exercise-right {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 8px;
+    flex-shrink: 0;
+}
+
+.er-trash-btn {
+    width: 34px;
+    height: 34px;
+    border-radius: 10px;
+    border: 1px solid #FECACA;
+    background-color: #FEF2F2;
+    color: #DC2626;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.88rem;
+    cursor: pointer;
+    transition: var(--transition-fast);
+}
+
+.er-trash-btn:hover {
+    background-color: #DC2626;
+    border-color: #DC2626;
+    color: white;
+}
+
+.er-assigned-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    padding: 4px 10px;
+    border-radius: 999px;
+    font-size: 0.75rem;
+    font-weight: bold;
+    background-color: var(--color-qero-50);
+    color: var(--color-qero-800);
+    border: 1px solid var(--color-qero-200);
+}
+
+.er-assigned-pill i {
+    font-size: 0.65rem;
+}
+
+
+.er-pending-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    padding: 4px 10px;
+    border-radius: 999px;
+    font-size: 0.75rem;
+    font-weight: bold;
+    background-color: #FEF3C7;
+    color: #92400E;
+    border: 1px solid #FDE68A;
+}
+
+.er-pending-pill i {
+    font-size: 0.68rem;
+}
+
+
+/* Barra inferior de acciones */
+.er-actions-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 14px;
+    background: white;
+    border: 1px solid var(--color-slate-200);
+    border-radius: 18px;
+    padding: 16px 20px;
+    box-shadow: var(--shadow-sm);
+    flex-wrap: wrap;
+}
+
+.er-actions-secondary {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.er-btn-save {
+    padding: 11px 22px;
+}
+
+.empty-state {
+    text-align: center;
+    padding: 28px 16px;
+    color: var(--color-slate-500);
+    font-size: 0.92rem;
+    border: 1px dashed var(--color-slate-300);
+    border-radius: 14px;
+}
+
+/* ==============================================================
+   MODO ORDENAR RUTINA (Pág. 21 integrado en editar-rutina)
+============================================================== */
+.er-actions-bar.mode-order {
+    justify-content: flex-end;
+}
+
+.er-exercise-card.is-draggable {
+    cursor: grab;
+    user-select: none;
+}
+
+.er-exercise-card.is-draggable:active {
+    cursor: grabbing;
+}
+
+.er-exercise-card.dragging {
+    opacity: 0.45;
+    border-style: dashed;
+    border-color: var(--color-qero-600);
+}
+
+.er-exercise-card.drag-over {
+    border-color: var(--color-qero-700);
+    background-color: var(--color-qero-50);
+    transform: scale(1.01);
+}
+
+.er-drag-handle {
+    color: var(--color-slate-400);
+    font-size: 1.1rem;
+    padding: 4px 6px 4px 0;
+    display: inline-flex;
+    align-items: center;
+    cursor: grab;
+}
+
+.er-move-controls {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    flex-shrink: 0;
+}
+
+.er-move-btn {
+    width: 34px;
+    height: 34px;
+    border-radius: 10px;
+    border: 1px solid var(--color-slate-200);
+    background-color: white;
+    color: var(--color-qero-800);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.85rem;
+    cursor: pointer;
+    transition: var(--transition-fast);
+}
+
+.er-move-btn:hover:not(:disabled) {
+    background-color: var(--color-qero-700);
+    border-color: var(--color-qero-700);
+    color: white;
+}
+
+.er-move-btn:disabled {
+    opacity: 0.35;
+    cursor: not-allowed;
+}
+
+.er-list-head-right {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+/* Cuadrito celeste/azul de Orden accesible (Pág. 21) */
+.er-order-hint {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 14px;
+    border-radius: 12px;
+    background-color: #EFF6FF;
+    border: 1px solid #BFDBFE;
+    color: #1E40AF;
+    font-size: 0.82rem;
+    line-height: 1.3;
+}
+
+.er-order-hint i {
+    color: #2563EB;
+    font-size: 0.9rem;
+}
+
+/* Mensaje de confirmación al guardar orden */
+.er-order-saved {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 7px 12px;
+    border-radius: 10px;
+    background-color: var(--color-qero-50);
+    border: 1px solid var(--color-qero-200);
+    color: var(--color-qero-800);
+    font-size: 0.82rem;
+    font-weight: bold;
+    animation: fadeInMsg 0.25s ease;
+}
+
+@keyframes fadeInMsg {
+    from { opacity: 0; transform: translateY(-4px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* ==============================================================
+    MEDIA QUERY 1: TABLETS (Máximo 900px)
+============================================================== */
+@media (max-width: 900px) {
+    .er-fields-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .er-actions-bar {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .er-actions-secondary {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .er-actions-secondary .btn,
+    .er-btn-save {
+        justify-content: center;
+        width: 100%;
+    }
+}
+
+/* ==============================================================
+    MEDIA QUERY 2: MÓVILES (Máximo 450px)
+============================================================== */
+@media (max-width: 450px) {
+    .er-card {
+        padding: 18px;
+    }
+
+    .er-list-head {
+        align-items: stretch;
+    }
+
+    .er-btn-add {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .er-exercise-card {
+        align-items: flex-start;
+    }
+
+    .er-actions-secondary {
+        grid-template-columns: 1fr;
+    }
+}

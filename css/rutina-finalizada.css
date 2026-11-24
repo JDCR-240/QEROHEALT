@@ -1,0 +1,262 @@
+/* ==============================================================
+   RUTINA FINALIZADA — PACIENTE (rutina-finalizada.html - Pág. 11)
+============================================================== */
+.rf-top-bar {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    max-width: 700px;
+    margin: 0 auto 18px;
+}
+
+.back-btn {
+    width: 48px;
+    height: 48px;
+    border-radius: 14px;
+    border: 1px solid var(--color-slate-200);
+    background-color: white;
+    color: var(--color-qero-800);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.05rem;
+    text-decoration: none;
+    flex-shrink: 0;
+    transition: var(--transition-fast);
+}
+
+.back-btn:hover {
+    background-color: var(--color-qero-50);
+    border-color: var(--color-qero-300);
+}
+
+.rf-top-label {
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: var(--color-slate-600);
+}
+
+.rf-wrapper {
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+.rf-card {
+    background: white;
+    border: 1px solid var(--color-slate-200);
+    border-radius: 24px;
+    padding: 34px 32px;
+    box-shadow: var(--shadow-sm);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 16px;
+}
+
+.rf-hero-icon {
+    width: 82px;
+    height: 82px;
+    border-radius: 50%;
+    background-color: #DCFCE7;
+    color: #16A34A;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2.35rem;
+}
+
+.rf-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 5px 14px;
+    border-radius: 999px;
+    background-color: var(--color-qero-50);
+    border: 1px solid var(--color-qero-200);
+    color: var(--color-qero-800);
+    font-size: 0.84rem;
+    font-weight: 700;
+}
+
+.rf-title {
+    font-size: 1.9rem;
+    font-weight: 800;
+    color: var(--color-slate-900);
+    line-height: 1.2;
+}
+
+.rf-subtitle {
+    font-size: 1rem;
+    color: var(--color-slate-600);
+    max-width: 520px;
+    line-height: 1.5;
+}
+
+/* Resumen de métricas */
+.rf-stats-grid {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+    margin-top: 4px;
+}
+
+.rf-stat-item {
+    background-color: #F8FAF9;
+    border: 1px solid var(--color-slate-200);
+    border-radius: 16px;
+    padding: 16px 12px;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.rf-stat-label {
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: var(--color-slate-500);
+    text-transform: uppercase;
+    letter-spacing: 0.4px;
+}
+
+.rf-stat-value {
+    font-size: 1.35rem;
+    font-weight: 800;
+    color: var(--color-slate-900);
+}
+
+.rf-stat-green {
+    color: #16A34A;
+}
+
+/* Colores estéticos por métrica */
+.rf-stat-item:nth-child(1) {
+    background-color: #EFF6FF;
+    border-color: #BFDBFE;
+}
+
+.rf-stat-item:nth-child(1) .rf-stat-label {
+    color: #2563EB;
+}
+
+.rf-stat-item:nth-child(1) .rf-stat-value {
+    color: #1E40AF;
+}
+
+.rf-stat-item:nth-child(2) {
+    background-color: #FFFBEB;
+    border-color: #FDE68A;
+}
+
+.rf-stat-item:nth-child(2) .rf-stat-label {
+    color: #D97706;
+}
+
+.rf-stat-item:nth-child(2) .rf-stat-value {
+    color: #B45309;
+}
+
+.rf-stat-item:nth-child(3) {
+    background-color: #F0FDF4;
+    border-color: #BBF7D0;
+}
+
+.rf-stat-item:nth-child(3) .rf-stat-label {
+    color: #15803D;
+}
+
+
+
+/* Barra de progreso 100% */
+.rf-progress-box {
+    width: 100%;
+    background-color: var(--color-qero-50);
+    border: 1px solid var(--color-qero-200);
+    border-radius: 16px;
+    padding: 16px 20px;
+    text-align: left;
+}
+
+.rf-progress-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    margin-bottom: 10px;
+    font-size: 0.92rem;
+    font-weight: 700;
+    color: var(--color-qero-900);
+}
+
+.rf-progress-head strong {
+    font-size: 1.05rem;
+    color: #166534;
+}
+
+.rf-progress-track {
+    width: 100%;
+    height: 14px;
+    border-radius: 999px;
+    background-color: #DCFCE7;
+    overflow: hidden;
+}
+
+.rf-progress-fill {
+    height: 100%;
+    border-radius: 999px;
+    background-color: #16A34A;
+}
+
+/* Botones de acción */
+.rf-actions {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-top: 6px;
+}
+
+.rf-actions-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+}
+
+.rf-btn {
+    width: 100%;
+    min-height: 54px;
+    justify-content: center;
+    font-size: 1rem;
+}
+
+/* ==============================================================
+   MEDIA QUERY 1: TABLETS (Máximo 900px)
+============================================================== */
+@media (max-width: 900px) {
+    .rf-card {
+        padding: 28px 24px;
+    }
+}
+
+/* ==============================================================
+   MEDIA QUERY 2: MÓVILES (Máximo 450px)
+============================================================== */
+@media (max-width: 450px) {
+    .rf-card {
+        padding: 22px 18px;
+        border-radius: 20px;
+    }
+
+    .rf-title {
+        font-size: 1.5rem;
+    }
+
+    .rf-stats-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .rf-actions-row {
+        grid-template-columns: 1fr;
+    }
+}

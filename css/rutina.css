@@ -1,0 +1,617 @@
+/* ==============================================================
+   DETALLE DEL VIDEO / RUTINA (rutina.html)
+============================================================== */
+.detail-head {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 20px;
+}
+
+.back-btn {
+    width: 42px;
+    height: 42px;
+    border-radius: 12px;
+    border: 1px solid var(--color-slate-200);
+    background-color: white;
+    color: var(--color-qero-800);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    font-size: 1rem;
+    flex-shrink: 0;
+    transition: var(--transition-fast);
+}
+
+.back-btn:hover {
+    background-color: var(--color-qero-50);
+    border-color: var(--color-qero-300);
+}
+
+.detail-subtitle {
+    margin-top: 2px;
+    font-size: 0.9rem;
+    color: var(--color-slate-600);
+}
+
+/* Tabs: Videos / Guías */
+.detail-tabs {
+    display: inline-flex;
+    gap: 8px;
+    background-color: white;
+    border: 1px solid var(--color-slate-200);
+    padding: 5px;
+    border-radius: 14px;
+    margin-bottom: 24px;
+}
+
+.detail-tab {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 9px 20px;
+    border: none;
+    border-radius: 10px;
+    background: transparent;
+    color: var(--color-slate-600);
+    font-size: 0.9rem;
+    font-weight: bold;
+    font-family: inherit;
+    cursor: pointer;
+    transition: var(--transition-fast);
+}
+
+.detail-tab:hover {
+    color: var(--color-qero-800);
+}
+
+.detail-tab.active {
+    background-color: var(--color-qero-700);
+    color: white;
+}
+
+/* Layout principal */
+.detail-layout {
+    display: grid;
+    grid-template-columns: 1.45fr 1fr;
+    gap: 24px;
+    align-items: start;
+}
+
+.detail-side-col {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+/* Tarjeta de Video + Facade de YouTube */
+.video-card {
+    background: white;
+    border: 1px solid var(--color-slate-200);
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: var(--shadow-sm);
+}
+
+.video-facade {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    background-color: #0F291E;
+    cursor: pointer;
+    overflow: hidden;
+}
+
+.video-facade img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.25s ease;
+}
+
+.video-facade:hover img {
+    transform: scale(1.03);
+}
+
+.video-facade-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(10, 38, 28, 0.35);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.2s ease;
+}
+
+.video-facade:hover .video-facade-overlay {
+    background: rgba(10, 38, 28, 0.2);
+}
+
+.custom-play-btn {
+    width: 72px;
+    height: 72px;
+    border-radius: 50%;
+    background-color: var(--color-qero-700);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.6rem;
+    padding-left: 5px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.35);
+    border: 3px solid rgba(255, 255, 255, 0.9);
+    transition: transform 0.2s ease, background-color 0.2s ease;
+}
+
+.video-facade:hover .custom-play-btn {
+    transform: scale(1.08);
+    background-color: var(--color-qero-800);
+}
+
+.video-facade iframe {
+    width: 100%;
+    height: 100%;
+    border: 0;
+    display: block;
+}
+
+
+
+.video-caption {
+    padding: 20px 22px;
+}
+
+.video-caption-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    margin-bottom: 8px;
+}
+
+.video-title {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: var(--color-slate-900);
+}
+
+.exercise-cat-pill {
+    padding: 4px 12px;
+    border-radius: 999px;
+    font-size: 0.78rem;
+    font-weight: bold;
+    background-color: var(--color-qero-50);
+    color: var(--color-qero-800);
+    border: 1px solid var(--color-qero-200);
+    white-space: nowrap;
+}
+
+.video-desc {
+    font-size: 0.95rem;
+    color: var(--color-slate-600);
+    line-height: 1.5;
+}
+
+.video-duration {
+    margin-top: 12px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--color-qero-700);
+}
+
+/* Tarjeta de Guía */
+.guide-card {
+    background: white;
+    border: 1px solid var(--color-slate-200);
+    border-radius: 20px;
+    padding: 24px;
+    box-shadow: var(--shadow-sm);
+}
+
+.guide-card-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    margin-bottom: 18px;
+    flex-wrap: wrap;
+}
+
+.guide-tag {
+    font-size: 0.78rem;
+    font-weight: bold;
+    color: var(--color-qero-800);
+    background-color: var(--color-qero-50);
+    padding: 4px 10px;
+    border-radius: 8px;
+}
+
+.guide-steps-list {
+    margin: 0;
+    padding-left: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    color: var(--color-slate-700);
+    font-size: 0.95rem;
+    line-height: 1.5;
+}
+
+.guide-steps-list li::marker {
+    font-weight: bold;
+    color: var(--color-qero-700);
+}
+
+.guide-tip {
+    margin-top: 20px;
+    padding: 14px 16px;
+    border-radius: 14px;
+    background-color: var(--color-qero-50);
+    border: 1px solid var(--color-qero-200);
+    color: var(--color-qero-900);
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    font-size: 0.88rem;
+    line-height: 1.45;
+}
+
+.guide-tip i {
+    color: var(--color-qero-700);
+    margin-top: 2px;
+}
+
+/* Tarjetas laterales */
+.side-card {
+    background: white;
+    border: 1px solid var(--color-slate-200);
+    border-radius: 20px;
+    padding: 20px;
+    box-shadow: var(--shadow-sm);
+}
+
+.side-card-head {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 10px;
+    margin-bottom: 14px;
+}
+
+.side-card-title {
+    font-size: 1rem;
+    font-weight: bold;
+    color: var(--color-slate-900);
+}
+
+.side-card-sub {
+    margin-top: 2px;
+    font-size: 0.84rem;
+    color: var(--color-slate-600);
+}
+
+.steps-pill {
+    font-size: 0.78rem;
+    font-weight: bold;
+    color: var(--color-qero-800);
+    background-color: var(--color-qero-50);
+    border: 1px solid var(--color-qero-200);
+    padding: 4px 10px;
+    border-radius: 999px;
+    white-space: nowrap;
+}
+
+/* Grid de imágenes de secuencia */
+.steps-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+}
+
+.step-thumb-card {
+    border: 1px solid var(--color-slate-200);
+    border-radius: 12px;
+    overflow: hidden;
+    background-color: #F8FAF9;
+}
+
+.step-thumb-media {
+    width: 100%;
+    height: 76px;
+    background-color: var(--color-qero-50);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.step-thumb-media img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.step-thumb-fallback {
+    display: none;
+    color: var(--color-qero-700);
+    font-size: 1.2rem;
+}
+
+.step-thumb-media.no-img img {
+    display: none;
+}
+
+.step-thumb-media.no-img .step-thumb-fallback {
+    display: block;
+}
+
+.step-thumb-label {
+    padding: 6px 8px;
+    font-size: 0.75rem;
+    font-weight: bold;
+    color: var(--color-slate-700);
+    text-align: center;
+}
+
+/* Accesibilidad del recurso */
+.access-list {
+    margin-top: 14px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.access-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 10px 12px;
+    border-radius: 12px;
+    background-color: #F8FAF9;
+    border: 1px solid var(--color-slate-200);
+    cursor: pointer;
+}
+
+.access-row span {
+    display: flex;
+    flex-direction: column;
+}
+
+.access-row strong {
+    font-size: 0.88rem;
+    color: var(--color-slate-900);
+}
+
+.access-row small {
+    font-size: 0.78rem;
+    color: var(--color-slate-500);
+}
+
+/* Switch verde QeroHealth */
+/* Switch verde QeroHealth */
+.qero-switch {
+    appearance: none;
+    width: 46px;
+    height: 26px;
+    background-color: #CBD5E1;
+    border: 1px solid #94A3B8;
+    border-radius: 999px;
+    position: relative;
+    cursor: pointer;
+    flex-shrink: 0;
+    box-shadow: inset 0 2px 4px rgba(15, 23, 42, 0.18), 0 1px 2px rgba(15, 23, 42, 0.1);
+    transition: background-color 0.2s ease, border-color 0.2s ease;
+}
+
+.qero-switch::after {
+    content: "";
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background-color: white;
+    box-shadow: 0 2px 5px rgba(15, 23, 42, 0.3);
+    transition: transform 0.2s ease;
+}
+
+.qero-switch:checked {
+    background-color: var(--color-qero-700);
+    border-color: var(--color-qero-700);
+}
+
+.qero-switch:checked::after {
+    transform: translateX(20px);
+}
+
+.assign-status-inline {
+    padding: 12px 14px;
+    border-radius: 12px;
+    background-color: var(--color-qero-50);
+    border: 1px solid var(--color-qero-200);
+    color: var(--color-qero-800);
+    font-size: 0.86rem;
+    font-weight: 600;
+    text-align: center;
+}
+
+/* Visor / Carrusel de Imágenes (Tab Imágenes) */
+.image-viewer-card {
+    background: white;
+    border: 1px solid var(--color-slate-200);
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: var(--shadow-sm);
+}
+
+.image-stage {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    background-color: #F1F5F3;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.stage-media-box {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.stage-media-box img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.stage-img-fallback {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    color: var(--color-qero-700);
+    font-weight: 600;
+}
+
+.stage-img-fallback i {
+    font-size: 2.5rem;
+}
+
+.stage-media-box.no-img img {
+    display: none;
+}
+
+.stage-media-box.no-img .stage-img-fallback {
+    display: flex;
+}
+
+.stage-nav-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    border: 2px solid white;
+    background-color: var(--color-qero-700);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1rem;
+    cursor: pointer;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+    transition: var(--transition-fast);
+    z-index: 2;
+}
+
+.stage-nav-btn:hover {
+    background-color: var(--color-qero-800);
+    transform: translateY(-50%) scale(1.06);
+}
+
+.stage-prev { left: 14px; }
+.stage-next { right: 14px; }
+
+.image-stage-footer {
+    padding: 20px 22px;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 12px;
+}
+
+/* Miniaturas clickeables y tarjeta "+" en la columna lateral */
+
+.step-thumb-card {
+    cursor: pointer;
+    transition: var(--transition-fast);
+}
+
+.step-thumb-card:hover {
+    border-color: var(--color-qero-600);
+    transform: translateY(-2px);
+}
+
+.step-thumb-card.active-step {
+    border-color: var(--color-qero-700);
+    box-shadow: 0 0 0 2px rgba(21, 128, 61, 0.2);
+}
+
+.step-more-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+    background-color: var(--color-qero-50);
+    border: 1px dashed var(--color-qero-500);
+    color: var(--color-qero-800);
+    min-height: 104px;
+}
+
+.step-more-card i {
+    font-size: 1.25rem;
+}
+
+.step-more-card span {
+    font-size: 0.78rem;
+    font-weight: bold;
+}
+
+
+/* ==============================================================
+   MEDIA QUERY 1: TABLETS (Máximo 900px)
+============================================================== */
+@media (max-width: 900px) {
+    .detail-layout {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* ==============================================================
+   MEDIA QUERY 2: MÓVILES (Máximo 450px)
+============================================================== */
+@media (max-width: 450px) {
+    .detail-tabs {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        width: 100%;
+    }
+
+    .detail-tab {
+        justify-content: center;
+        padding: 10px 12px;
+    }
+
+    .custom-play-btn {
+        width: 60px;
+        height: 60px;
+        font-size: 1.35rem;
+    }
+
+    .video-caption {
+        padding: 16px;
+    }
+
+    .video-caption-top {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .steps-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 8px;
+    }
+}

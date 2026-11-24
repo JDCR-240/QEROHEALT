@@ -1,0 +1,455 @@
+/* ==============================================================
+   MI RUTINA — PACIENTE (html/paciente/mi-rutina.html)
+============================================================== */
+.pr-top-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    margin-bottom: 22px;
+    flex-wrap: wrap;
+}
+
+.pr-top-left {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
+
+.back-btn {
+    width: 48px;
+    height: 48px;
+    border-radius: 14px;
+    border: 1px solid var(--color-slate-200);
+    background-color: white;
+    color: var(--color-qero-800);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.05rem;
+    text-decoration: none;
+    flex-shrink: 0;
+    transition: var(--transition-fast);
+}
+
+.back-btn:hover {
+    background-color: var(--color-qero-50);
+    border-color: var(--color-qero-300);
+}
+
+.pr-kicker {
+    font-size: 0.8rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: var(--color-qero-700);
+    margin-bottom: 2px;
+}
+
+.pr-sub {
+    font-size: 0.94rem;
+    color: var(--color-slate-600);
+    margin-top: 2px;
+}
+
+.pr-main-cta {
+    min-height: 48px;
+    padding: 12px 22px;
+    font-size: 1rem;
+}
+
+/* Tarjeta resumen de progreso */
+.pr-summary-card {
+    background-color: var(--color-qero-50);
+    border: 1px solid var(--color-qero-200);
+    border-radius: 20px;
+    padding: 22px 24px;
+    margin-bottom: 24px;
+    box-shadow: var(--shadow-sm);
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.pr-summary-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 14px;
+    flex-wrap: wrap;
+}
+
+.pr-summary-label {
+    display: block;
+    font-size: 0.84rem;
+    font-weight: 700;
+    color: var(--color-qero-700);
+    margin-bottom: 2px;
+}
+
+.pr-completed-text {
+    font-size: 1.2rem;
+    font-weight: 800;
+    color: var(--color-qero-900);
+}
+
+.pr-summary-badges {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.pr-meta-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 6px 12px;
+    border-radius: 999px;
+    background-color: white;
+    border: 1px solid var(--color-qero-200);
+    color: var(--color-qero-800);
+    font-size: 0.84rem;
+    font-weight: 700;
+}
+
+.pr-pct-badge {
+    padding: 6px 14px;
+    border-radius: 999px;
+    background-color: var(--color-qero-700);
+    color: white;
+    font-size: 0.95rem;
+    font-weight: 800;
+}
+
+.pr-progress-track {
+    width: 100%;
+    height: 14px;
+    border-radius: 999px;
+    background-color: #DCFCE7;
+    overflow: hidden;
+}
+
+.pr-progress-fill {
+    height: 100%;
+    border-radius: 999px;
+    background-color: var(--color-qero-700);
+    transition: width 0.35s ease;
+}
+
+/* Variantes de color del resumen (Amarillo / Rojo) */
+.pr-summary-card.is-warning {
+    background-color: #FFFBEB;
+    border-color: #FDE68A;
+}
+
+.pr-summary-card.is-warning .pr-summary-label {
+    color: #B45309;
+}
+
+.pr-summary-card.is-warning .pr-completed-text {
+    color: #78350F;
+}
+
+.pr-summary-card.is-warning .pr-meta-pill {
+    border-color: #FDE68A;
+    color: #92400E;
+}
+
+.pr-summary-card.is-warning .pr-pct-badge,
+.pr-summary-card.is-warning .pr-progress-fill {
+    background-color: #D97706;
+}
+
+.pr-summary-card.is-warning .pr-progress-track {
+    background-color: #FEF3C7;
+}
+
+.pr-summary-card.is-alert {
+    background-color: #FEF2F2;
+    border-color: #FECACA;
+}
+
+.pr-summary-card.is-alert .pr-summary-label {
+    color: #B91C1C;
+}
+
+.pr-summary-card.is-alert .pr-completed-text {
+    color: #7F1D1D;
+}
+
+.pr-summary-card.is-alert .pr-meta-pill {
+    border-color: #FECACA;
+    color: #991B1B;
+}
+
+.pr-summary-card.is-alert .pr-pct-badge,
+.pr-summary-card.is-alert .pr-progress-fill {
+    background-color: #DC2626;
+}
+
+.pr-summary-card.is-alert .pr-progress-track {
+    background-color: #FEE2E2;
+}
+
+/* Sección lista de ejercicios */
+.pr-list-section {
+    background: white;
+    border: 1px solid var(--color-slate-200);
+    border-radius: 22px;
+    padding: 24px;
+    box-shadow: var(--shadow-sm);
+}
+
+.pr-list-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    margin-bottom: 18px;
+    flex-wrap: wrap;
+}
+
+.pr-list-title {
+    font-size: 1.15rem;
+    font-weight: 800;
+    color: var(--color-slate-900);
+}
+
+.pr-count-badge {
+    padding: 5px 12px;
+    border-radius: 999px;
+    background-color: var(--color-slate-100);
+    color: var(--color-slate-700);
+    font-size: 0.82rem;
+    font-weight: 700;
+}
+
+.pr-exercises-list {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+/* Tarjeta de cada ejercicio */
+.pr-ex-card {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 18px;
+    padding: 18px;
+    border-radius: 18px;
+    background-color: #F8FAF9;
+    border: 1px solid var(--color-slate-200);
+    transition: var(--transition-fast);
+}
+
+.pr-ex-card.is-next {
+    background-color: var(--color-qero-50);
+    border: 2px solid var(--color-qero-600);
+}
+
+.pr-ex-card.is-done {
+    background-color: #FFFFFF;
+    border-color: #BBF7D0;
+}
+
+.pr-ex-left {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    flex: 1;
+    min-width: 0;
+}
+
+.pr-ex-thumb-wrap {
+    position: relative;
+    width: 130px;
+    height: 110px;
+    border-radius: 14px;
+    overflow: hidden;
+    flex-shrink: 0;
+    background-color: var(--color-slate-100);
+    border: 1px solid var(--color-slate-200);
+}
+
+.pr-ex-thumb-wrap img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.pr-ex-order {
+    position: absolute;
+    top: 6px;
+    left: 6px;
+    width: 26px;
+    height: 26px;
+    border-radius: 50%;
+    background-color: var(--color-qero-700);
+    color: white;
+    font-size: 0.8rem;
+    font-weight: 800;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+}
+
+.pr-ex-card.is-done .pr-ex-order {
+    background-color: #16A34A;
+}
+
+.pr-ex-info {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    flex: 1;
+    min-width: 0;
+}
+
+.pr-ex-top-row {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+.pr-ex-name {
+    font-size: 1.05rem;
+    font-weight: 800;
+    color: var(--color-slate-900);
+}
+
+.pr-ex-status {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    padding: 3px 10px;
+    border-radius: 999px;
+    font-size: 0.76rem;
+    font-weight: 700;
+}
+
+.pr-ex-status.done {
+    background-color: #DCFCE7;
+    color: #166534;
+}
+
+.pr-ex-status.next {
+    background-color: var(--color-qero-700);
+    color: white;
+}
+
+.pr-ex-status.pending {
+    background-color: var(--color-slate-200);
+    color: var(--color-slate-700);
+}
+
+.pr-ex-meta {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    flex-wrap: wrap;
+    font-size: 0.86rem;
+    color: var(--color-slate-600);
+}
+
+.pr-ex-meta i {
+    color: var(--color-qero-700);
+    margin-right: 4px;
+}
+
+.pr-ex-indication {
+    font-size: 0.88rem;
+    color: var(--color-slate-600);
+    line-height: 1.45;
+}
+
+/* Barra mini de equivalencia (100% o 0%) */
+.pr-ex-mini-progress {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 2px;
+}
+
+.pr-ex-mini-track {
+    width: 140px;
+    height: 8px;
+    border-radius: 999px;
+    background-color: var(--color-slate-200);
+    overflow: hidden;
+}
+
+.pr-ex-mini-fill {
+    height: 100%;
+    border-radius: 999px;
+    background-color: #16A34A;
+}
+
+.pr-ex-mini-pct {
+    font-size: 0.8rem;
+    font-weight: 800;
+    color: var(--color-slate-700);
+}
+
+.pr-ex-actions {
+    flex-shrink: 0;
+}
+
+.pr-ex-btn {
+    min-height: 48px;
+    min-width: 138px;
+    justify-content: center;
+    font-size: 0.95rem;
+}
+
+/* ==============================================================
+   MEDIA QUERY 1: TABLETS (Máximo 900px)
+============================================================== */
+@media (max-width: 900px) {
+    .pr-ex-card {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .pr-ex-actions {
+        width: 100%;
+        padding-top: 6px;
+    }
+
+    .pr-ex-btn {
+        width: 100%;
+    }
+}
+
+/* ==============================================================
+   MEDIA QUERY 2: MÓVILES (Máximo 450px)
+============================================================== */
+@media (max-width: 450px) {
+    .pr-main-cta {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .pr-summary-card,
+    .pr-list-section {
+        padding: 18px;
+    }
+
+    .pr-ex-left {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .pr-ex-thumb-wrap {
+        width: 100%;
+        height: 140px;
+    }
+
+    .pr-ex-mini-track {
+        flex: 1;
+        width: auto;
+    }
+}

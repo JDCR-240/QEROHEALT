@@ -1,0 +1,125 @@
+/* ==============================================================
+   NOMBRAR NUEVA RUTINA (nombrar-rutina.html)
+============================================================== */
+.nr-wrapper {
+    max-width: 640px;
+    margin: 0 auto;
+}
+
+.nr-top {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 22px;
+}
+
+.back-btn {
+    width: 42px;
+    height: 42px;
+    border-radius: 12px;
+    border: 1px solid var(--color-slate-200);
+    background-color: white;
+    color: var(--color-qero-800);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1rem;
+    text-decoration: none;
+    flex-shrink: 0;
+    transition: var(--transition-fast);
+}
+
+.back-btn:hover {
+    background-color: var(--color-qero-50);
+    border-color: var(--color-qero-300);
+}
+
+.nr-sub {
+    font-size: 0.9rem;
+    color: var(--color-slate-600);
+    margin-top: 2px;
+}
+
+.nr-card {
+    background: white;
+    border: 1px solid var(--color-slate-200);
+    border-radius: 20px;
+    padding: 26px;
+    box-shadow: var(--shadow-sm);
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.nr-summary-banner {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px 16px;
+    border-radius: 12px;
+    background-color: var(--color-qero-50);
+    border: 1px solid var(--color-qero-200);
+    color: var(--color-qero-800);
+    font-size: 0.88rem;
+    font-weight: 600;
+}
+
+.nr-field {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.nr-label {
+    font-size: 0.92rem;
+    font-weight: 700;
+    color: var(--color-slate-800);
+}
+
+.nr-input {
+    width: 100%;
+    padding: 13px 16px;
+    border-radius: 12px;
+    border: 1px solid var(--color-slate-300, #CBD5E1);
+    font-family: inherit;
+    font-size: 1rem;
+    color: var(--color-slate-900);
+    outline: none;
+    transition: var(--transition-fast);
+}
+
+.nr-input:focus {
+    border-color: var(--color-qero-700);
+    box-shadow: 0 0 0 3px rgba(15, 118, 110, 0.14);
+}
+
+.nr-actions {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 12px;
+    padding-top: 4px;
+}
+
+/* ==============================================================
+   MEDIA QUERY 1: TABLETS (Máximo 900px)
+============================================================== */
+@media (max-width: 900px) {
+    .nr-card {
+        padding: 22px;
+    }
+}
+
+/* ==============================================================
+   MEDIA QUERY 2: MÓVILES (Máximo 450px)
+============================================================== */
+@media (max-width: 450px) {
+    .nr-actions {
+        flex-direction: column-reverse;
+    }
+
+    .nr-actions .btn {
+        width: 100%;
+        justify-content: center;
+    }
+}

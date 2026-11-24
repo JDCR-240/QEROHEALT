@@ -1,0 +1,360 @@
+/* ==============================================================
+   TUTORIALES PASO A PASO (html/tutoriales.html)
+============================================================== */
+.tut-header {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 18px;
+    margin-bottom: 22px;
+    flex-wrap: wrap;
+}
+
+.tut-back-row {
+    margin-bottom: 18px;
+}
+
+.tut-back-btn {
+    min-height: 42px;
+    padding: 8px 16px;
+    border-radius: 12px;
+    font-size: 0.88rem;
+}
+
+.tut-header .page-title {
+    font-size: 2rem;
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    line-height: 1.15;
+    margin: 0;
+}
+
+.tut-subtitle {
+    font-size: 0.96rem;
+    color: var(--color-slate-600);
+    margin: 6px 0 0;
+    max-width: 620px;
+}
+
+/* Pestañas por rol */
+.tut-role-tabs {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 24px;
+    flex-wrap: wrap;
+}
+
+.tut-tab-btn {
+    padding: 9px 16px;
+    border-radius: 999px;
+    border: 1px solid var(--color-slate-200);
+    background-color: white;
+    color: var(--color-slate-700);
+    font-size: 0.88rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: var(--transition-fast);
+}
+
+.tut-tab-btn:hover {
+    border-color: var(--color-qero-300);
+    color: var(--color-qero-800);
+}
+
+.tut-tab-btn.active {
+    background-color: var(--color-qero-700);
+    border-color: var(--color-qero-700);
+    color: white;
+}
+
+/* Grilla de tarjetas */
+.tut-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.tut-card {
+    background-color: white;
+    border: 1px solid var(--color-slate-200);
+    border-radius: 22px;
+    padding: 22px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    box-shadow: var(--shadow-sm);
+    transition: var(--transition-fast);
+}
+
+.tut-card:hover {
+    transform: translateY(-3px);
+    border-color: var(--color-qero-300);
+    box-shadow: 0 14px 26px -16px rgba(15, 118, 110, 0.22);
+}
+
+.tut-card-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+.tut-icon-box {
+    width: 46px;
+    height: 46px;
+    border-radius: 14px;
+    background-color: var(--color-qero-50);
+    color: var(--color-qero-700);
+    border: 1px solid var(--color-qero-200);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    flex-shrink: 0;
+}
+
+.tut-role-tag {
+    padding: 4px 11px;
+    border-radius: 999px;
+    font-size: 0.74rem;
+    font-weight: 800;
+    background-color: #F1F5F9;
+    color: var(--color-slate-700);
+}
+
+.tut-role-tag.is-paciente { background-color: #CCFBF1; color: #115E59; }
+.tut-role-tag.is-especialista { background-color: #DBEAFE; color: #1E40AF; }
+.tut-role-tag.is-cuidador { background-color: #FEF3C7; color: #92400E; }
+
+.tut-card-title {
+    font-size: 1.06rem;
+    font-weight: 800;
+    color: var(--color-slate-900);
+    margin: 0;
+    line-height: 1.3;
+}
+
+.tut-card-desc {
+    font-size: 0.88rem;
+    color: var(--color-slate-600);
+    line-height: 1.5;
+    margin: 0;
+    flex: 1;
+}
+
+.tut-steps-preview {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    padding: 12px;
+    border-radius: 14px;
+    background-color: #F8FAF9;
+    border: 1px solid var(--color-slate-100);
+    font-size: 0.8rem;
+    color: var(--color-slate-700);
+}
+
+.tut-steps-preview span {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.tut-step-num {
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    background-color: var(--color-qero-700);
+    color: white;
+    font-size: 0.68rem;
+    font-weight: 800;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.tut-btn-open {
+    width: 100%;
+    justify-content: center;
+    min-height: 44px;
+    border-radius: 12px;
+    font-size: 0.88rem;
+    margin-top: 4px;
+}
+
+/* Modal interactivo paso a paso */
+.tm-card {
+    background-color: white;
+    border-radius: 24px;
+    width: 100%;
+    max-width: 560px;
+    padding: 24px 26px;
+    box-shadow: 0 24px 48px -12px rgba(15, 23, 42, 0.28);
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+.tm-header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 14px;
+}
+
+.tm-title {
+    font-size: 1.24rem;
+    font-weight: 800;
+    color: var(--color-slate-900);
+    margin: 8px 0 0;
+    line-height: 1.25;
+}
+
+.tm-close-btn {
+    width: 38px;
+    height: 38px;
+    border-radius: 12px;
+    border: 1px solid var(--color-slate-200);
+    background-color: #F8FAF9;
+    color: var(--color-slate-700);
+    font-size: 1.05rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    flex-shrink: 0;
+}
+
+.tm-progress-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid var(--color-slate-200);
+}
+
+.tm-step-indicator {
+    font-size: 0.8rem;
+    font-weight: 800;
+    color: var(--color-qero-800);
+}
+
+.tm-dots {
+    display: flex;
+    gap: 6px;
+}
+
+.tm-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 999px;
+    background-color: var(--color-slate-200);
+    transition: var(--transition-fast);
+}
+
+.tm-dot.active {
+    width: 22px;
+    background-color: var(--color-qero-700);
+}
+
+.tm-step-box {
+    background-color: #F8FAF9;
+    border: 1px solid var(--color-slate-200);
+    border-radius: 18px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.tm-step-icon-wrap {
+    width: 44px;
+    height: 44px;
+    border-radius: 12px;
+    background-color: var(--color-qero-100);
+    color: var(--color-qero-800);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.15rem;
+}
+
+.tm-step-heading {
+    font-size: 1.04rem;
+    font-weight: 800;
+    color: var(--color-slate-900);
+    margin: 0;
+}
+
+.tm-step-text {
+    font-size: 0.92rem;
+    color: var(--color-slate-700);
+    line-height: 1.55;
+    margin: 0;
+}
+
+.tm-step-tip {
+    margin: 4px 0 0;
+    padding: 10px 12px;
+    border-radius: 12px;
+    background-color: #FFFBEB;
+    border: 1px solid #FDE68A;
+    color: #92400E;
+    font-size: 0.82rem;
+    font-weight: 600;
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+    line-height: 1.4;
+}
+
+.tm-footer {
+    display: flex;
+    justify-content: space-between;
+    gap: 12px;
+}
+
+/* ==============================================================
+   MEDIA QUERY 1: TABLETS (Máximo 900px)
+============================================================== */
+@media (max-width: 900px) {
+    .tut-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 16px;
+    }
+}
+
+/* ==============================================================
+   MEDIA QUERY 2: MÓVILES (Máximo 450px)
+============================================================== */
+@media (max-width: 450px) {
+    .tut-header .page-title {
+        font-size: 1.65rem;
+    }
+
+    .tut-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .tut-card,
+    .tm-card {
+        padding: 18px;
+        border-radius: 18px;
+    }
+
+    .tm-footer {
+        flex-direction: column-reverse;
+    }
+
+    .tm-footer .btn {
+        width: 100%;
+        justify-content: center;
+    }
+    .tut-back-btn {
+        width: 100%;
+        justify-content: center;
+    }
+}

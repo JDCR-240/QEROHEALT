@@ -1,0 +1,776 @@
+/* ==============================================================
+   INICIO CUIDADOR — ESTILO UNIFICADO Y ORDENADO
+============================================================== */
+.cp-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    margin-bottom: 24px;
+    flex-wrap: wrap;
+}
+
+.cp-date-label {
+    font-size: 0.84rem;
+    font-weight: 700;
+    color: var(--color-qero-700);
+    text-transform: uppercase;
+    letter-spacing: 0.4px;
+    margin-bottom: 2px;
+}
+
+.cp-title {
+    font-size: 1.65rem;
+    font-weight: 800;
+    color: var(--color-slate-900);
+    line-height: 1.2;
+    margin: 0;
+}
+
+.cp-subtitle {
+    font-size: 0.94rem;
+    color: var(--color-slate-600);
+    margin-top: 2px;
+}
+
+.cp-role-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    padding: 6px 14px;
+    border-radius: 999px;
+    background-color: var(--color-qero-50);
+    border: 1px solid var(--color-qero-200);
+    color: var(--color-qero-800);
+    font-size: 0.84rem;
+    font-weight: 700;
+    flex-shrink: 0;
+}
+
+.cp-role-pill i {
+    font-size: 0.52rem;
+}
+
+/* 3 Tarjetas KPI (idénticas al panel de Paciente) */
+.cp-stats-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+    margin-bottom: 22px;
+}
+
+.cp-stat-card {
+    background: white;
+    border: 1px solid var(--color-slate-200);
+    border-radius: 18px;
+    padding: 18px 20px;
+    box-shadow: var(--shadow-sm);
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
+
+.cp-stat-icon {
+    width: 48px;
+    height: 48px;
+    border-radius: 14px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    flex-shrink: 0;
+}
+
+.icon-green {
+    background-color: var(--color-qero-50);
+    color: var(--color-qero-700);
+}
+
+.icon-blue {
+    background-color: #EFF6FF;
+    color: #1D4ED8;
+}
+
+.icon-amber {
+    background-color: #FEF3C7;
+    color: #B45309;
+}
+
+.cp-stat-label {
+    display: block;
+    font-size: 0.82rem;
+    font-weight: 600;
+    color: var(--color-slate-500);
+    margin-bottom: 2px;
+}
+
+.cp-stat-value {
+    font-size: 1.35rem;
+    font-weight: 800;
+    color: var(--color-slate-900);
+}
+
+/* Tarjeta principal del paciente asociado (Ancho completo) */
+.cp-hero-card {
+    background-color: var(--color-qero-50);
+    border: 1px solid var(--color-qero-200);
+    border-radius: 22px;
+    padding: 22px 28px;
+    box-shadow: var(--shadow-sm);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+    margin-bottom: 22px;
+}
+
+.cp-hero-left {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    min-width: 0;
+}
+
+.cp-patient-row {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.cp-avatar {
+    width: 62px;
+    height: 62px;
+    border-radius: 50%;
+    background-color: white;
+    border: 2px solid var(--color-qero-200);
+    color: var(--color-qero-800);
+    font-size: 1.35rem;
+    font-weight: 800;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.cp-badges-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-bottom: 4px;
+}
+
+.cp-kicker {
+    font-size: 0.78rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.6px;
+    color: var(--color-qero-700);
+}
+
+.cp-status-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 4px 10px;
+    border-radius: 999px;
+    font-size: 0.76rem;
+    font-weight: 700;
+}
+
+.cp-status-badge i {
+    font-size: 0.48rem;
+}
+
+.cp-status-badge.is-green {
+    background-color: #DCFCE7;
+    color: #166534;
+}
+
+.cp-status-badge.is-amber {
+    background-color: #FEF3C7;
+    color: #92400E;
+}
+
+.cp-status-badge.is-red {
+    background-color: #FEE2E2;
+    color: #991B1B;
+}
+
+.cp-patient-name {
+    font-size: 1.38rem;
+    font-weight: 800;
+    color: var(--color-slate-900);
+    line-height: 1.2;
+    margin: 0;
+}
+
+.cp-patient-meta {
+    font-size: 0.88rem;
+    color: var(--color-qero-800);
+    margin: 4px 0 0;
+}
+
+.cp-routine-strip {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    align-self: flex-start;
+    padding: 9px 14px;
+    border-radius: 12px;
+    background-color: white;
+    border: 1px solid var(--color-qero-200);
+    color: var(--color-qero-900);
+    font-size: 0.88rem;
+    font-weight: 700;
+}
+
+.cp-routine-strip i {
+    color: var(--color-qero-700);
+}
+
+/* Anillo circular */
+.cp-hero-right {
+    flex-shrink: 0;
+}
+
+.cp-progress-ring {
+    --pct: 0;
+    width: 124px;
+    height: 124px;
+    border-radius: 50%;
+    background: conic-gradient(
+        var(--color-qero-700) calc(var(--pct) * 1%),
+        #DCE7E3 0
+    );
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    transition: background 0.4s ease;
+}
+
+.cp-progress-ring::before {
+    content: "";
+    position: absolute;
+    inset: 11px;
+    border-radius: 50%;
+    background-color: white;
+}
+
+.cp-ring-center {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 2px;
+}
+
+.cp-pct-value {
+    font-size: 1.55rem;
+    font-weight: 800;
+    color: var(--color-qero-800);
+    line-height: 1;
+}
+
+.cp-ring-sub {
+    font-size: 0.68rem;
+    font-weight: 700;
+    color: var(--color-slate-500);
+}
+
+/* Grid único de 2 columnas para las 4 tarjetas */
+.cp-modules-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-auto-flow: dense;
+    gap: 22px;
+    align-items: start;
+}
+.cp-col {
+    display: flex;
+    flex-direction: column;
+    gap: 22px;
+    min-width: 0;
+}
+
+
+
+/* Tarjetas blancas estándar */
+.cp-card {
+    background: white;
+    border: 1px solid var(--color-slate-200);
+    border-radius: 20px;
+    padding: 22px;
+    box-shadow: var(--shadow-sm);
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.cp-module-card {
+    justify-content: flex-start;
+}
+
+.cp-card-top-group {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.cp-card-head {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 12px;
+}
+
+.cp-card-title {
+    font-size: 1.05rem;
+    font-weight: 800;
+    color: var(--color-slate-900);
+    margin: 0;
+}
+
+.cp-card-sub {
+    font-size: 0.82rem;
+    color: var(--color-slate-500);
+    margin: 2px 0 0;
+}
+
+/* Siguiente ejercicio */
+.cp-next-badge {
+    padding: 4px 10px;
+    border-radius: 999px;
+    font-size: 0.76rem;
+    font-weight: 700;
+    background-color: #FEF3C7;
+    color: #92400E;
+    white-space: nowrap;
+}
+
+.cp-next-badge.is-done {
+    background-color: #DCFCE7;
+    color: #166534;
+}
+
+.cp-next-box {
+    background-color: #F8FAF9;
+    border: 1px solid var(--color-slate-200);
+    border-radius: 14px;
+    padding: 18px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.cp-next-title {
+    font-size: 1.02rem;
+    font-weight: 800;
+    color: var(--color-slate-900);
+    margin: 0;
+}
+
+.cp-next-meta {
+    font-size: 0.84rem;
+    font-weight: 700;
+    color: var(--color-qero-700);
+}
+
+.cp-next-indication {
+    font-size: 0.88rem;
+    color: var(--color-slate-600);
+    line-height: 1.5;
+    margin: 2px 0 0;
+}
+
+/* Actividad reciente */
+.cp-recent-count {
+    font-size: 0.78rem;
+    font-weight: 700;
+    color: var(--color-qero-800);
+    background-color: var(--color-qero-50);
+    border: 1px solid var(--color-qero-200);
+    padding: 4px 10px;
+    border-radius: 999px;
+    white-space: nowrap;
+}
+
+.cp-recent-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.cp-recent-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    padding: 11px 14px;
+    border-radius: 12px;
+    border: 1px solid var(--color-slate-200);
+    background-color: #F8FAF9;
+}
+
+.cp-recent-left {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    min-width: 0;
+}
+
+.cp-recent-icon {
+    width: 34px;
+    height: 34px;
+    border-radius: 10px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.9rem;
+    flex-shrink: 0;
+}
+
+.cp-recent-icon.is-done {
+    background-color: #DCFCE7;
+    color: #15803D;
+}
+
+.cp-recent-icon.is-pending {
+    background-color: #FEF3C7;
+    color: #B45309;
+}
+
+.cp-recent-info {
+    min-width: 0;
+}
+
+.cp-recent-title {
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: var(--color-slate-900);
+    margin: 0;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.cp-recent-meta {
+    font-size: 0.78rem;
+    color: var(--color-slate-500);
+    margin: 2px 0 0;
+}
+
+.cp-recent-tag {
+    padding: 4px 10px;
+    border-radius: 999px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    flex-shrink: 0;
+}
+
+.cp-recent-tag.is-done {
+    background-color: #DCFCE7;
+    color: #166534;
+}
+
+.cp-recent-tag.is-pending {
+    background-color: #FEF3C7;
+    color: #92400E;
+}
+
+.cp-recent-empty {
+    padding: 18px;
+    text-align: center;
+    font-size: 0.88rem;
+    color: var(--color-slate-500);
+    background-color: #F8FAF9;
+    border: 1px dashed var(--color-slate-300);
+    border-radius: 12px;
+}
+
+/* Módulo Especialista: Banner verde estilo panel de Especialista */
+.cp-specialist-hero {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 16px 18px;
+    border-radius: 16px;
+    background: linear-gradient(135deg, var(--color-qero-800) 0%, var(--color-qero-700) 100%);
+    color: white;
+    box-shadow: 0 8px 18px -10px rgba(17, 94, 89, 0.4);
+}
+
+.cp-specialist-avatar {
+    width: 52px;
+    height: 52px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.16);
+    border: 2px solid rgba(255, 255, 255, 0.35);
+    color: white;
+    font-size: 1.15rem;
+    font-weight: 800;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    letter-spacing: 0.4px;
+}
+
+.cp-specialist-info {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 6px;
+    min-width: 0;
+}
+
+.cp-specialist-name {
+    font-size: 1.08rem;
+    font-weight: 800;
+    color: white;
+    line-height: 1.2;
+}
+
+.cp-specialist-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    padding: 3px 10px;
+    border-radius: 999px;
+    background-color: rgba(255, 255, 255, 0.14);
+    border: 1px solid rgba(255, 255, 255, 0.24);
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: white;
+}
+
+.cp-specialist-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background-color: #4ADE80;
+}
+
+/* Bloque rápido: ¿Quieres consultar algo? */
+.cp-quick-consult {
+    background-color: #F8FAF9;
+    border: 1px solid var(--color-slate-200);
+    border-radius: 14px;
+    padding: 14px 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.cp-consult-title {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.92rem;
+    font-weight: 800;
+    color: var(--color-slate-900);
+    margin: 0;
+}
+
+.cp-consult-title i {
+    color: var(--color-qero-700);
+}
+
+.cp-consult-sub {
+    font-size: 0.8rem;
+    color: var(--color-slate-500);
+    margin: 0;
+}
+
+.cp-consult-chips {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+    margin-top: 4px;
+}
+
+.cp-consult-chip {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 9px 12px;
+    border-radius: 10px;
+    background-color: white;
+    border: 1px solid var(--color-slate-200);
+    color: var(--color-slate-700);
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-decoration: none;
+    transition: var(--transition-fast);
+}
+
+.cp-consult-chip i {
+    color: var(--color-qero-700);
+    font-size: 0.85rem;
+    flex-shrink: 0;
+}
+
+.cp-consult-chip:hover {
+    border-color: var(--color-qero-300);
+    background-color: var(--color-qero-50);
+    color: var(--color-qero-900);
+}
+
+/* Módulo Videos guía (con miniaturas reales) */
+.cp-video-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.cp-video-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 10px 12px;
+    border-radius: 14px;
+    border: 1px solid var(--color-slate-200);
+    background-color: #F8FAF9;
+    text-decoration: none;
+    transition: var(--transition-fast);
+}
+
+.cp-video-item:hover {
+    background-color: white;
+    border-color: var(--color-qero-300);
+    box-shadow: var(--shadow-sm);
+}
+
+.cp-video-thumb {
+    width: 78px;
+    height: 54px;
+    border-radius: 10px;
+    overflow: hidden;
+    position: relative;
+    flex-shrink: 0;
+    background-color: var(--color-qero-100);
+    border: 1px solid var(--color-slate-200);
+}
+
+.cp-video-thumb img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.cp-video-play {
+    position: absolute;
+    inset: 0;
+    background: rgba(15, 23, 42, 0.28);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.cp-video-play i {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.92);
+    color: var(--color-qero-800);
+    font-size: 0.65rem;
+    padding-left: 2px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.25);
+}
+
+.cp-video-info {
+    flex: 1;
+    min-width: 0;
+}
+
+.cp-video-cat {
+    display: inline-block;
+    font-size: 0.7rem;
+    font-weight: 800;
+    color: var(--color-qero-700);
+    text-transform: uppercase;
+    letter-spacing: 0.3px;
+    margin-bottom: 2px;
+}
+
+.cp-video-title {
+    font-size: 0.88rem;
+    font-weight: 700;
+    color: var(--color-slate-900);
+    margin: 0;
+    line-height: 1.3;
+    max-height: calc(0.88rem * 1.3 * 2);
+    overflow: hidden;
+}
+
+/* Botones inferiores en verde cálido con hover sólido */
+.cp-footer-btn {
+    min-height: 44px;
+    border-radius: 12px;
+}
+
+.cp-soft-btn {
+    background-color: #EBF7F3;
+    border: 1px solid #BCE0D5;
+    color: var(--color-qero-800);
+    font-weight: 700;
+    transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.cp-soft-btn:hover {
+    background-color: var(--color-qero-700);
+    border-color: var(--color-qero-700);
+    color: white;
+    box-shadow: 0 8px 18px -8px rgba(23, 88, 77, 0.45);
+}
+
+/* ==============================================================
+   MEDIA QUERY 1: TABLETS (Máximo 900px)
+============================================================== */
+@media (max-width: 900px) {
+    .cp-stats-grid,
+    .cp-modules-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .cp-hero-card {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .cp-hero-right {
+        display: flex;
+        justify-content: center;
+    }
+}
+
+/* ==============================================================
+   MEDIA QUERY 2: MÓVILES (Máximo 450px)
+============================================================== */
+@media (max-width: 450px) {
+    .cp-title {
+        font-size: 1.35rem;
+    }
+
+    .cp-hero-card,
+    .cp-card {
+        padding: 18px;
+    }
+
+    .cp-patient-row {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .cp-consult-chips {
+        grid-template-columns: 1fr;
+    }
+}

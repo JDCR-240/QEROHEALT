@@ -1,0 +1,468 @@
+/* ==============================================================
+   ESPECIALISTA CUIDADOR — MENSAJERÍA (html/cuidador/especialista.html)
+============================================================== */
+.ce-header {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 18px;
+    margin-bottom: 24px;
+    flex-wrap: wrap;
+}
+
+.ce-kicker {
+    display: block;
+    font-size: 0.76rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.7px;
+    color: var(--color-qero-700);
+    margin-bottom: 5px;
+}
+
+.ce-header .page-title {
+    font-size: 2rem;
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    line-height: 1.15;
+    margin: 0;
+}
+
+.ce-subtitle {
+    font-size: 0.96rem;
+    color: var(--color-slate-600);
+    margin: 6px 0 0;
+    max-width: 620px;
+}
+
+.ce-response-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 14px;
+    border-radius: 999px;
+    background-color: #EFF6FF;
+    border: 1px solid #BFDBFE;
+    color: #1D4ED8;
+    font-size: 0.82rem;
+    font-weight: 800;
+    flex-shrink: 0;
+}
+
+/* Grid 2 columnas */
+.ce-grid {
+    display: grid;
+    grid-template-columns: 1.05fr 0.95fr;
+    gap: 22px;
+    align-items: start;
+}
+
+.ce-left-col {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+/* Tarjeta del especialista */
+.ce-doc-card {
+    background: linear-gradient(135deg, #0F766E 0%, #115E59 100%);
+    color: white;
+    border-radius: 22px;
+    padding: 22px 24px;
+    box-shadow: 0 12px 26px -14px rgba(15, 118, 110, 0.45);
+}
+
+.ce-doc-top {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.ce-doc-avatar {
+    width: 56px;
+    height: 56px;
+    border-radius: 16px;
+    background-color: rgba(255, 255, 255, 0.18);
+    border: 1px solid rgba(255, 255, 255, 0.28);
+    color: white;
+    font-size: 1.25rem;
+    font-weight: 800;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.ce-doc-badge {
+    display: inline-block;
+    font-size: 0.72rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    padding: 3px 10px;
+    border-radius: 999px;
+    background-color: rgba(255, 255, 255, 0.16);
+    margin-bottom: 4px;
+}
+
+.ce-doc-name {
+    font-size: 1.25rem;
+    font-weight: 800;
+    margin: 0;
+    line-height: 1.2;
+}
+
+.ce-doc-role {
+    font-size: 0.86rem;
+    color: rgba(255, 255, 255, 0.86);
+    margin: 3px 0 0;
+}
+
+.ce-doc-meta {
+    margin-top: 16px;
+    padding-top: 14px;
+    border-top: 1px solid rgba(255, 255, 255, 0.18);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    flex-wrap: wrap;
+    font-size: 0.82rem;
+    color: rgba(255, 255, 255, 0.9);
+}
+
+.ce-doc-meta span {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+}
+
+/* Tarjeta compositor */
+.ce-compose-card,
+.ce-inbox-card {
+    background-color: white;
+    border: 1px solid var(--color-slate-200);
+    border-radius: 22px;
+    padding: 24px 26px;
+    box-shadow: var(--shadow-sm);
+}
+
+.ce-compose-sub,
+.ce-inbox-sub {
+    font-size: 0.88rem;
+    color: var(--color-slate-500);
+    margin: 4px 0 18px;
+}
+
+.ce-form {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+.ce-field {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.ce-label {
+    font-size: 0.84rem;
+    font-weight: 700;
+    color: var(--color-slate-800);
+}
+
+.ce-optional {
+    font-weight: 600;
+    color: var(--color-slate-400);
+}
+
+/* Chips de motivo */
+.ce-topic-chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.ce-chip {
+    padding: 8px 13px;
+    border-radius: 12px;
+    border: 1px solid var(--color-slate-200);
+    background-color: #F8FAF9;
+    color: var(--color-slate-700);
+    font-size: 0.82rem;
+    font-weight: 700;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    transition: var(--transition-fast);
+}
+
+.ce-chip:hover {
+    border-color: var(--color-qero-300);
+    color: var(--color-qero-800);
+}
+
+.ce-chip.active {
+    background-color: var(--color-qero-700);
+    border-color: var(--color-qero-700);
+    color: white;
+}
+
+/* Select y textarea */
+.ce-select,
+.ce-textarea {
+    width: 100%;
+    padding: 12px 14px;
+    border-radius: 12px;
+    border: 1px solid var(--color-slate-300);
+    background-color: white;
+    color: var(--color-slate-900);
+    font-size: 0.92rem;
+    font-family: inherit;
+    transition: var(--transition-fast);
+}
+
+.ce-select:focus,
+.ce-textarea:focus {
+    outline: none;
+    border-color: var(--color-qero-600);
+    box-shadow: 0 0 0 3px rgba(15, 118, 110, 0.14);
+}
+
+.ce-textarea {
+    min-height: 112px;
+    resize: none;
+}
+
+.ce-textarea[aria-invalid="true"] {
+    border-color: #DC2626;
+}
+
+.ce-error {
+    margin: 0;
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: #DC2626;
+}
+
+.ce-send-btn {
+    width: 100%;
+    justify-content: center;
+    min-height: 48px;
+    border-radius: 12px;
+    font-size: 0.94rem;
+}
+
+.ce-toast {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px 14px;
+    border-radius: 12px;
+    background-color: #DCFCE7;
+    color: #166534;
+    font-size: 0.86rem;
+    font-weight: 700;
+}
+
+/* Columna derecha: Bandeja de consultas */
+.ce-inbox-head {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 12px;
+}
+
+.ce-count-pill {
+    font-size: 0.78rem;
+    font-weight: 800;
+    color: var(--color-qero-800);
+    background-color: var(--color-qero-50);
+    border: 1px solid var(--color-qero-200);
+    padding: 5px 12px;
+    border-radius: 999px;
+    flex-shrink: 0;
+}
+
+.ce-messages-list {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.ce-messages-list.is-expanded {
+    max-height: 520px;
+    overflow-y: auto;
+    padding-right: 6px;
+}
+
+.ce-more-wrap {
+    margin-top: 14px;
+    display: flex;
+    justify-content: center;
+}
+
+.ce-more-btn {
+    width: 100%;
+    justify-content: center;
+    min-height: 42px;
+    border-radius: 12px;
+    font-size: 0.86rem;
+}
+
+.ce-msg-card {
+    border: 1px solid var(--color-slate-200);
+    border-radius: 18px;
+    padding: 16px 18px;
+    background-color: #FAFDFC;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.ce-msg-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.ce-msg-date {
+    font-size: 0.76rem;
+    font-weight: 700;
+    color: var(--color-slate-500);
+}
+
+.ce-msg-status {
+    font-size: 0.74rem;
+    font-weight: 800;
+    padding: 3px 10px;
+    border-radius: 999px;
+}
+
+.ce-msg-status.is-sent {
+    background-color: #FEF3C7;
+    color: #92400E;
+}
+
+.ce-msg-status.is-replied {
+    background-color: #DCFCE7;
+    color: #166534;
+}
+
+.ce-msg-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+}
+
+.ce-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    padding: 4px 10px;
+    border-radius: 8px;
+    font-size: 0.76rem;
+    font-weight: 700;
+}
+
+.ce-tag.is-topic {
+    background-color: #EFF6FF;
+    color: #1D4ED8;
+}
+
+.ce-tag.is-exercise {
+    background-color: var(--color-qero-50);
+    color: var(--color-qero-800);
+    border: 1px solid var(--color-qero-200);
+}
+
+.ce-msg-body {
+    margin: 0;
+    font-size: 0.9rem;
+    color: var(--color-slate-800);
+    line-height: 1.5;
+}
+
+/* Respuesta del especialista dentro de la tarjeta */
+.ce-reply-box {
+    margin-top: 4px;
+    padding: 12px 14px;
+    border-radius: 12px;
+    background-color: white;
+    border: 1px solid var(--color-qero-200);
+    border-left: 3px solid var(--color-qero-700);
+}
+
+.ce-reply-author {
+    display: block;
+    font-size: 0.78rem;
+    font-weight: 800;
+    color: var(--color-qero-800);
+    margin-bottom: 4px;
+}
+
+.ce-reply-text {
+    margin: 0;
+    font-size: 0.85rem;
+    color: var(--color-slate-600);
+    line-height: 1.45;
+}
+
+/* Nota de emergencia */
+.ce-emergency-note {
+    margin-top: 18px;
+    padding: 12px 14px;
+    border-radius: 12px;
+    background-color: #FEF2F2;
+    border: 1px solid #FECACA;
+    color: #991B1B;
+    font-size: 0.8rem;
+    line-height: 1.45;
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+}
+
+.ce-emergency-note i {
+    margin-top: 2px;
+    flex-shrink: 0;
+}
+
+/* ==============================================================
+   MEDIA QUERY 1: TABLETS (Máximo 900px)
+============================================================== */
+@media (max-width: 900px) {
+    .ce-grid {
+        grid-template-columns: 1fr;
+        gap: 18px;
+    }
+
+    .ce-messages-list {
+        max-height: none;
+    }
+}
+
+/* ==============================================================
+   MEDIA QUERY 2: MÓVILES (Máximo 450px)
+============================================================== */
+@media (max-width: 450px) {
+    .ce-header .page-title {
+        font-size: 1.65rem;
+    }
+
+    .ce-doc-card,
+    .ce-compose-card,
+    .ce-inbox-card {
+        padding: 18px;
+        border-radius: 18px;
+    }
+
+    .ce-doc-meta {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+}

@@ -1,0 +1,228 @@
+/* ==============================================================
+   AGREGAR RUTINA (agregar-rutina.html)
+============================================================== */
+.add-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 24px;
+}
+
+.add-head-left {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
+
+.back-btn {
+    width: 42px;
+    height: 42px;
+    border-radius: 12px;
+    border: 1px solid var(--color-slate-200);
+    background-color: white;
+    color: var(--color-qero-800);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1rem;
+    text-decoration: none;
+    flex-shrink: 0;
+    transition: var(--transition-fast);
+}
+
+.back-btn:hover {
+    background-color: var(--color-qero-50);
+    border-color: var(--color-qero-300);
+}
+
+.add-subtitle {
+    margin-top: 2px;
+    font-size: 0.9rem;
+    color: var(--color-slate-600);
+}
+
+/* Layout 2 columnas */
+.add-routine-layout {
+    display: grid;
+    grid-template-columns: 1fr 1.15fr;
+    gap: 24px;
+    align-items: start;
+}
+
+.form-card {
+    background: white;
+    border: 1px solid var(--color-slate-200);
+    border-radius: 20px;
+    padding: 24px;
+    box-shadow: var(--shadow-sm);
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.card-section-title {
+    font-size: 1.05rem;
+    font-weight: bold;
+    color: var(--color-slate-900);
+    margin-bottom: 4px;
+}
+
+.form-field {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.filter-label {
+    font-size: 0.85rem;
+    font-weight: bold;
+    color: var(--color-slate-700);
+}
+
+.form-input-page {
+    width: 100%;
+    padding: 11px 14px;
+    border-radius: 12px;
+    border: 1px solid var(--color-slate-200);
+    font-family: inherit;
+    font-size: 0.92rem;
+    color: var(--color-slate-900);
+    background-color: white;
+    transition: var(--transition-fast);
+}
+
+.form-input-page:focus {
+    outline: none;
+    border-color: var(--color-qero-600);
+    box-shadow: 0 0 0 3px rgba(21, 128, 61, 0.12);
+}
+
+#routine-desc {
+    resize: none;
+    height: 86px;
+    overflow-y: auto;
+}
+
+.file-input-page {
+    padding: 8px 10px;
+    font-size: 0.85rem;
+    background-color: #F8FAF9;
+}
+
+.form-hint {
+    font-size: 0.78rem;
+    color: var(--color-slate-500);
+}
+
+/* Constructor dinámico de pasos */
+.steps-builder-head {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 12px;
+}
+
+.btn-add-step {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 8px 14px;
+    border-radius: 10px;
+    border: 1px solid var(--color-qero-300);
+    background-color: var(--color-qero-50);
+    color: var(--color-qero-800);
+    font-size: 0.82rem;
+    font-weight: bold;
+    font-family: inherit;
+    cursor: pointer;
+    white-space: nowrap;
+    transition: var(--transition-fast);
+}
+
+.btn-add-step:hover {
+    background-color: var(--color-qero-700);
+    border-color: var(--color-qero-700);
+    color: white;
+}
+
+.steps-builder-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.step-input-row {
+    background-color: #F8FAF9;
+    border: 1px solid var(--color-slate-200);
+    border-radius: 14px;
+    padding: 12px 14px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.step-input-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.step-input-badge {
+    font-size: 0.82rem;
+    font-weight: bold;
+    color: var(--color-qero-800);
+}
+
+.step-remove-btn {
+    border: none;
+    background: transparent;
+    color: #DC2626;
+    font-size: 0.88rem;
+    cursor: pointer;
+    padding: 4px 8px;
+    border-radius: 6px;
+}
+
+.step-remove-btn:hover {
+    background-color: #FEE2E2;
+}
+
+.form-footer-actions {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin-top: 8px;
+    padding-top: 16px;
+    border-top: 1px solid var(--color-slate-100);
+}
+
+/* ==============================================================
+   MEDIA QUERY 1: TABLETS (Máximo 900px)
+============================================================== */
+@media (max-width: 900px) {
+    .add-routine-layout {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* ==============================================================
+   MEDIA QUERY 2: MÓVILES (Máximo 450px)
+============================================================== */
+@media (max-width: 450px) {
+    .form-card {
+        padding: 18px;
+    }
+
+    .steps-builder-head {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .btn-add-step {
+        justify-content: center;
+    }
+
+    .form-footer-actions {
+        grid-template-columns: 1fr;
+    }
+}

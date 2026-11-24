@@ -1,0 +1,262 @@
+/* ==============================================================
+   HISTORIAL DE SESIONES (historial.html)
+============================================================== */
+.hist-top-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+}
+
+.hist-top-left {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
+
+.back-btn {
+    width: 42px;
+    height: 42px;
+    border-radius: 12px;
+    border: 1px solid var(--color-slate-200);
+    background-color: white;
+    color: var(--color-qero-800);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1rem;
+    text-decoration: none;
+    flex-shrink: 0;
+    transition: var(--transition-fast);
+}
+
+.back-btn:hover {
+    background-color: var(--color-qero-50);
+    border-color: var(--color-qero-300);
+}
+
+.hist-patient-sub {
+    font-size: 0.9rem;
+    color: var(--color-slate-600);
+    margin-top: 2px;
+}
+
+/* Aviso de recordatorio enviado */
+.reminder-toast {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 14px 18px;
+    margin-bottom: 20px;
+    border-radius: 14px;
+    background-color: #DCFCE7;
+    border: 1px solid #86EFAC;
+    color: #166534;
+    font-size: 0.92rem;
+    font-weight: 700;
+}
+
+.reminder-toast-left {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.reminder-toast-left i {
+    font-size: 1.1rem;
+    flex-shrink: 0;
+}
+
+.reminder-toast-close {
+    background: transparent;
+    border: none;
+    color: #166534;
+    font-size: 1rem;
+    cursor: pointer;
+    padding: 4px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Tarjeta contenedora del historial */
+.hist-card {
+    background: white;
+    border: 1px solid var(--color-slate-200);
+    border-radius: 20px;
+    padding: 24px;
+    box-shadow: var(--shadow-sm);
+}
+
+.hist-card-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    margin-bottom: 18px;
+    flex-wrap: wrap;
+}
+
+.hist-card-title {
+    font-size: 1.1rem;
+    font-weight: 800;
+    color: var(--color-slate-900);
+}
+
+.hist-total-badge {
+    padding: 4px 12px;
+    border-radius: 999px;
+    background-color: var(--color-slate-100);
+    color: var(--color-slate-700);
+    font-size: 0.8rem;
+    font-weight: 700;
+}
+
+.hist-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+/* Cada fila de sesión */
+.hist-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    padding: 18px 20px;
+    border-radius: 16px;
+    background-color: #F8FAF9;
+    border: 1px solid var(--color-slate-200);
+    flex-wrap: wrap;
+}
+
+.hist-item.is-current {
+    background-color: var(--color-qero-50);
+    border-color: var(--color-qero-200);
+}
+
+.hist-item-info {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    flex: 1;
+    min-width: 240px;
+}
+
+.hist-item-top {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+.hist-current-tag {
+    padding: 2px 9px;
+    border-radius: 999px;
+    background-color: var(--color-qero-700);
+    color: white;
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.4px;
+}
+
+.hist-item-title {
+    font-size: 1rem;
+    font-weight: 800;
+    color: var(--color-slate-900);
+}
+
+.hist-item-meta {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    flex-wrap: wrap;
+    font-size: 0.84rem;
+    color: var(--color-slate-600);
+}
+
+.hist-item-meta i {
+    color: var(--color-qero-700);
+    margin-right: 5px;
+}
+
+.hist-item-note {
+    font-size: 0.84rem;
+    color: var(--color-slate-500);
+    line-height: 1.4;
+}
+
+.hist-item-right {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.hist-item-pct {
+    font-size: 1rem;
+    font-weight: 800;
+    color: var(--color-slate-900);
+}
+
+.hist-status-pill {
+    padding: 5px 12px;
+    border-radius: 999px;
+    font-size: 0.78rem;
+    font-weight: 700;
+    white-space: nowrap;
+}
+
+.hist-status-current {
+    background-color: white;
+    color: var(--color-qero-800);
+    border: 1px solid var(--color-qero-200);
+}
+
+.hist-status-done {
+    background-color: #DCFCE7;
+    color: #166534;
+}
+
+.hist-status-partial {
+    background-color: #FEF3C7;
+    color: #92400E;
+}
+
+/* ==============================================================
+   MEDIA QUERY 1: TABLETS (Máximo 900px)
+============================================================== */
+@media (max-width: 900px) {
+    .hist-card {
+        padding: 20px;
+    }
+}
+
+/* ==============================================================
+   MEDIA QUERY 2: MÓVILES (Máximo 450px)
+============================================================== */
+@media (max-width: 450px) {
+    #btn-send-reminder {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .hist-card {
+        padding: 16px;
+    }
+
+    .hist-item {
+        padding: 15px;
+    }
+
+    .hist-item-right {
+        width: 100%;
+        justify-content: space-between;
+        padding-top: 8px;
+        border-top: 1px solid var(--color-slate-200);
+    }
+}

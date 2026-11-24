@@ -1,0 +1,427 @@
+/* ==============================================================
+   SOBRE QEROHEALTH — COMPARTIDA POR LOS 3 ROLES (html/sobre.html)
+============================================================== */
+.sob-back-row {
+    margin-bottom: 18px;
+}
+
+.sob-back-btn {
+    min-height: 42px;
+    padding: 8px 16px;
+    border-radius: 12px;
+    font-size: 0.88rem;
+}
+
+.sob-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 18px;
+    margin-bottom: 24px;
+    flex-wrap: wrap;
+}
+
+.sob-header .page-title {
+    font-size: 2rem;
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    line-height: 1.15;
+    margin: 0;
+}
+
+.sob-subtitle {
+    font-size: 0.98rem;
+    color: var(--color-slate-600);
+    margin: 6px 0 0;
+    max-width: 620px;
+}
+
+.sob-version-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 7px 14px;
+    border-radius: 999px;
+    background-color: var(--color-qero-50);
+    border: 1px solid var(--color-qero-200);
+    color: var(--color-qero-800);
+    font-size: 0.82rem;
+    font-weight: 800;
+    flex-shrink: 0;
+}
+
+/* Grid principal 2 columnas */
+.sob-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 22px;
+    align-items: start;
+}
+
+/* Columna izquierda: Tarjeta institucional */
+.sob-brand-card {
+    background-color: white;
+    border: 1px solid var(--color-slate-200);
+    border-radius: 24px;
+    overflow: hidden;
+    box-shadow: var(--shadow-sm);
+}
+
+.sob-brand-hero {
+    background: linear-gradient(135deg, #0F766E 0%, #115E59 100%);
+    padding: 38px 24px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 10px;
+    color: white;
+}
+
+.sob-brand-icon {
+    width: 68px;
+    height: 68px;
+    border-radius: 20px;
+    background-color: rgba(255, 255, 255, 0.16);
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.85rem;
+}
+
+.sob-brand-name {
+    font-size: 1.5rem;
+    font-weight: 800;
+    letter-spacing: -0.02em;
+}
+
+.sob-brand-tag {
+    font-size: 0.8rem;
+    font-weight: 700;
+    padding: 4px 12px;
+    border-radius: 999px;
+    background-color: rgba(255, 255, 255, 0.15);
+}
+
+.sob-brand-body {
+    padding: 26px;
+}
+
+.sob-lema {
+    font-size: 1.45rem;
+    font-weight: 800;
+    color: var(--color-slate-900);
+    line-height: 1.25;
+    margin: 0 0 12px;
+}
+
+.sob-text {
+    font-size: 0.94rem;
+    color: var(--color-slate-600);
+    line-height: 1.6;
+    margin: 0;
+}
+
+/* Columna derecha */
+.sob-right-col {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+.sob-card {
+    background-color: white;
+    border: 1px solid var(--color-slate-200);
+    border-radius: 22px;
+    padding: 24px 26px;
+    box-shadow: var(--shadow-sm);
+}
+
+.sob-principles-list {
+    list-style: none;
+    margin: 16px 0 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.sob-principles-list li {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 0.94rem;
+    font-weight: 700;
+    color: var(--color-slate-800);
+}
+
+.sob-p-icon {
+    width: 36px;
+    height: 36px;
+    border-radius: 10px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.95rem;
+    flex-shrink: 0;
+}
+
+.sob-p-icon.is-teal { background-color: var(--color-qero-50); color: var(--color-qero-700); }
+.sob-p-icon.is-blue { background-color: #EFF6FF; color: #2563EB; }
+.sob-p-icon.is-green { background-color: #F0FDF4; color: #16A34A; }
+.sob-p-icon.is-amber { background-color: #FFFBEB; color: #D97706; }
+
+/* Aviso médico ámbar */
+.sob-notice-warn {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    background-color: #FFFBEB;
+    border: 1px solid #FDE68A;
+    border-left: 4px solid #D97706;
+    border-radius: 18px;
+    padding: 18px 20px;
+}
+
+.sob-notice-icon {
+    width: 42px;
+    height: 42px;
+    border-radius: 12px;
+    background-color: white;
+    color: #D97706;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.15rem;
+    flex-shrink: 0;
+    box-shadow: 0 4px 10px -4px rgba(217, 119, 6, 0.2);
+}
+
+.sob-notice-text {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+}
+
+.sob-notice-text strong {
+    font-size: 0.95rem;
+    font-weight: 800;
+    color: #92400E;
+}
+
+.sob-notice-text span {
+    font-size: 0.88rem;
+    color: #78350F;
+    line-height: 1.45;
+}
+
+/* Tarjeta enlace: Privacidad y datos */
+.sob-tile {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    background-color: white;
+    border: 1px solid var(--color-slate-200);
+    border-radius: 20px;
+    padding: 20px 22px;
+    text-decoration: none;
+    box-shadow: 0 6px 18px -12px rgba(15, 23, 42, 0.08);
+    transition: var(--transition-fast);
+}
+
+.sob-tile:hover {
+    border-color: var(--color-qero-300);
+    transform: translateY(-2px);
+    box-shadow: 0 12px 24px -14px rgba(15, 118, 110, 0.22);
+}
+
+.sob-tile-icon {
+    width: 46px;
+    height: 46px;
+    border-radius: 12px;
+    background-color: var(--color-qero-50);
+    color: var(--color-qero-700);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.15rem;
+    flex-shrink: 0;
+}
+
+.sob-tile-content {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+    flex: 1;
+    min-width: 0;
+}
+
+.sob-tile-title {
+    font-size: 1rem;
+    font-weight: 800;
+    color: var(--color-slate-900);
+}
+
+.sob-tile-desc {
+    font-size: 0.86rem;
+    color: var(--color-slate-600);
+}
+
+.sob-tile-chevron {
+    color: var(--color-slate-400);
+    font-size: 0.88rem;
+    flex-shrink: 0;
+    transition: transform 0.2s ease, color 0.2s ease;
+}
+
+.sob-tile:hover .sob-tile-chevron {
+    color: var(--color-qero-700);
+    transform: translateX(3px);
+}
+
+/* ==============================================================
+   EXTRAS PARA PRIVACIDAD Y LÍMITES MÉDICOS (sobre-privacidad.html)
+============================================================== */
+.sob-notice-danger {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    background-color: #FEF2F2;
+    border: 1px solid #FECACA;
+    border-left: 4px solid #DC2626;
+    border-radius: 18px;
+    padding: 18px 20px;
+}
+
+.sob-notice-icon.is-danger {
+    color: #DC2626;
+    box-shadow: 0 4px 10px -4px rgba(220, 38, 38, 0.2);
+}
+
+.sob-notice-danger .sob-notice-text strong {
+    color: #991B1B;
+}
+
+.sob-notice-danger .sob-notice-text span {
+    color: #7F1D1D;
+}
+
+.sob-card-warn {
+    background-color: #FFFBEB;
+    border-color: #FDE68A;
+}
+
+.sob-scope-list {
+    list-style: none;
+    margin: 14px 0 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.sob-scope-list li {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 0.92rem;
+    font-weight: 600;
+    color: var(--color-slate-800);
+}
+
+.sob-scope-icon {
+    width: 28px;
+    height: 28px;
+    border-radius: 8px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.82rem;
+    flex-shrink: 0;
+}
+
+.sob-scope-icon.is-check {
+    background-color: #DCFCE7;
+    color: #15803D;
+}
+
+.sob-scope-icon.is-no {
+    background-color: #FEE2E2;
+    color: #B91C1C;
+}
+
+.sob-priv-head {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 14px;
+}
+
+.sob-priv-sub {
+    font-size: 0.84rem;
+    color: var(--color-slate-500);
+    margin: 2px 0 0;
+}
+
+.sob-priv-text {
+    margin-bottom: 20px;
+}
+
+.sob-priv-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.sob-priv-btn {
+    width: 100%;
+    justify-content: center;
+    min-height: 46px;
+    border-radius: 12px;
+}
+
+
+/* ==============================================================
+   MEDIA QUERY 1: TABLETS (Máximo 900px)
+============================================================== */
+@media (max-width: 900px) {
+    .sob-grid {
+        grid-template-columns: 1fr;
+        gap: 18px;
+    }
+}
+
+/* ==============================================================
+   MEDIA QUERY 2: MÓVILES (Máximo 450px)
+============================================================== */
+@media (max-width: 450px) {
+    .sob-header .page-title {
+        font-size: 1.65rem;
+    }
+
+    .sob-back-btn {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .sob-brand-hero {
+        padding: 28px 18px;
+    }
+
+    .sob-brand-body,
+    .sob-card,
+    .sob-notice-warn,
+    .sob-tile {
+        padding: 18px;
+        border-radius: 18px;
+    }
+
+    .sob-lema {
+        font-size: 1.25rem;
+    }
+
+    .sob-notice-warn {
+        align-items: flex-start;
+    }
+}

@@ -1,0 +1,275 @@
+/* ==============================================================
+   SELECCIÓN DE PERFIL (Desktop Base)
+============================================================== */
+.perfiles-body {
+    background-color: #F8FAF9;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.perfiles-main {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    padding: 48px 0;
+}
+
+.perfiles-container {
+    max-width: 1040px;
+}
+
+.perfiles-header {
+    margin-bottom: 32px;
+}
+
+.perfiles-title {
+    font-size: 2.1rem;
+    font-weight: 800;
+    color: var(--color-slate-900);
+    margin-bottom: 8px;
+}
+
+.perfiles-subtitle {
+    font-size: 1rem;
+    color: var(--color-slate-600);
+}
+
+/* Grilla 2 columnas en Desktop */
+.perfiles-layout {
+    display: grid;
+    grid-template-columns: 7fr 5fr;
+    gap: 32px;
+    align-items: start;
+}
+
+/* Stack de tarjetas de rol */
+.role-cards-stack {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    margin-bottom: 20px;
+}
+
+.role-card {
+    width: 100%;
+    background: white;
+    border: 2px solid var(--color-slate-200);
+    border-radius: 20px;
+    padding: 20px 22px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    cursor: pointer;
+    text-align: left;
+}
+
+.role-card:hover {
+    border-color: var(--color-qero-300);
+}
+
+.role-card.active-role {
+    border-color: var(--color-qero-600);
+    background-color: var(--color-qero-50);
+    box-shadow: 0 8px 20px -6px rgba(27, 107, 93, 0.18);
+}
+
+.role-card-left {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.role-icon {
+    width: 48px;
+    height: 48px;
+    border-radius: 14px;
+    background: var(--color-qero-100);
+    color: var(--color-qero-700);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.25rem;
+    flex-shrink: 0;
+    transition: var(--transition-fast);
+}
+
+.active-role .role-icon {
+    background: var(--color-qero-600);
+    color: white;
+}
+
+.role-text h2 {
+    font-size: 1.125rem;
+    font-weight: bold;
+    color: var(--color-slate-900);
+    margin-bottom: 2px;
+}
+
+.role-text p {
+    font-size: 0.875rem;
+    color: var(--color-slate-600);
+}
+
+.role-chevron {
+    color: var(--color-slate-400);
+    font-size: 0.9rem;
+    transition: transform var(--transition-fast), color var(--transition-fast);
+}
+
+.active-role .role-chevron {
+    color: var(--color-qero-600);
+    transform: translateX(3px);
+}
+
+/* Caja informativa inferior */
+.info-diff-box {
+    background: white;
+    border: 1px solid var(--color-qero-200);
+    border-radius: 16px;
+    padding: 16px 20px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
+
+.info-diff-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 12px;
+    background: var(--color-qero-50);
+    color: var(--color-qero-700);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.info-diff-title {
+    font-size: 0.875rem;
+    font-weight: bold;
+    color: var(--color-slate-900);
+}
+
+.info-diff-desc {
+    font-size: 0.8rem;
+    color: var(--color-slate-600);
+}
+
+/* Columna derecha: Preview con imagen */
+.preview-card {
+    background: white;
+    border: 1px solid var(--color-slate-200);
+    border-radius: 24px;
+    padding: 24px;
+    box-shadow: var(--shadow-sm);
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.preview-badge {
+    align-self: flex-start;
+    font-size: 0.75rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    background: var(--color-qero-100);
+    color: var(--color-qero-700);
+    padding: 5px 12px;
+    border-radius: 8px;
+}
+
+.preview-img-box {
+    width: 100%;
+    height: 220px;
+    border-radius: 16px;
+    overflow: hidden;
+    background: var(--color-qero-50);
+    border: 1px solid var(--color-slate-100);
+}
+
+.preview-img-box img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: opacity 0.25s ease;
+}
+
+.preview-caption {
+    font-size: 0.875rem;
+    color: var(--color-slate-600);
+    line-height: 1.5;
+}
+
+.perfiles-body .toast {
+    bottom: 24px;
+}
+
+/* ==============================================================
+   MEDIA QUERY 1: TABLETS (Máximo 900px)
+============================================================== */
+@media (max-width: 900px) {
+    .perfiles-main {
+        padding: 36px 0;
+        align-items: flex-start;
+    }
+
+    .perfiles-layout {
+        grid-template-columns: 1fr;
+        gap: 24px;
+    }
+
+    .preview-img-box {
+        height: 240px;
+    }
+}
+
+/* ==============================================================
+   MEDIA QUERY 2: TELÉFONOS MÓVILES (Máximo 450px)
+============================================================== */
+@media (max-width: 450px) {
+    .perfiles-main {
+        padding: 24px 0 36px;
+    }
+
+    .perfiles-header {
+        margin-bottom: 20px;
+    }
+
+    .perfiles-title {
+        font-size: 1.55rem;
+    }
+
+    .perfiles-subtitle {
+        font-size: 0.9rem;
+    }
+
+    .role-card {
+        padding: 16px;
+        border-radius: 16px;
+    }
+
+    .role-icon {
+        width: 42px;
+        height: 42px;
+        font-size: 1.1rem;
+    }
+
+    .role-text h2 {
+        font-size: 1rem;
+    }
+
+    .role-text p {
+        font-size: 0.8rem;
+    }
+
+    .preview-card {
+        padding: 18px;
+        border-radius: 20px;
+    }
+
+    .preview-img-box {
+        height: 180px;
+    }
+}

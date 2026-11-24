@@ -1,0 +1,301 @@
+/* ==============================================================
+   CENTRO DE AYUDA — COMPARTIDA POR LOS 3 ROLES (html/ayuda.html)
+============================================================== */
+.ay-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 18px;
+    margin-bottom: 24px;
+    flex-wrap: wrap;
+}
+
+.ay-header .page-title {
+    font-size: 2rem;
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    line-height: 1.15;
+    margin: 0;
+}
+
+.ay-subtitle {
+    font-size: 0.98rem;
+    color: var(--color-slate-600);
+    margin: 6px 0 0;
+    max-width: 620px;
+}
+
+.ay-role-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 7px 14px;
+    border-radius: 999px;
+    background-color: var(--color-qero-50);
+    border: 1px solid var(--color-qero-200);
+    color: var(--color-qero-800);
+    font-size: 0.82rem;
+    font-weight: 800;
+    flex-shrink: 0;
+}
+
+.ay-role-pill i {
+    font-size: 0.5rem;
+}
+
+/* Banner de pausa segura */
+.ay-notice-banner {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    background: linear-gradient(135deg, #F0FDF9 0%, #E6F6F1 100%);
+    border: 1px solid var(--color-qero-200);
+    border-left: 4px solid var(--color-qero-700);
+    border-radius: 18px;
+    padding: 18px 22px;
+    margin-bottom: 28px;
+}
+
+.ay-notice-icon {
+    width: 44px;
+    height: 44px;
+    border-radius: 12px;
+    background-color: white;
+    color: var(--color-qero-700);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.25rem;
+    flex-shrink: 0;
+    box-shadow: 0 4px 10px -4px rgba(15, 118, 110, 0.2);
+}
+
+.ay-notice-text {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+}
+
+.ay-notice-text strong {
+    font-size: 0.98rem;
+    font-weight: 800;
+    color: var(--color-qero-900);
+}
+
+.ay-notice-text span {
+    font-size: 0.9rem;
+    color: var(--color-slate-700);
+    line-height: 1.45;
+}
+
+/* Sección Explora la ayuda */
+.ay-explore-section {
+    margin-bottom: 24px;
+}
+
+.ay-section-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    margin-bottom: 16px;
+}
+
+.ay-section-hint {
+    font-size: 0.82rem;
+    font-weight: 700;
+    color: var(--color-slate-500);
+}
+
+.ay-grid-2x2 {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 18px;
+}
+
+.ay-tile {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    background-color: white;
+    border: 1px solid var(--color-slate-200);
+    border-radius: 20px;
+    padding: 22px 24px;
+    text-decoration: none;
+    box-shadow: 0 6px 18px -12px rgba(15, 23, 42, 0.08);
+    transition: var(--transition-fast);
+}
+
+.ay-tile:hover {
+    border-color: var(--color-qero-300);
+    transform: translateY(-2px);
+    box-shadow: 0 12px 24px -14px rgba(15, 118, 110, 0.22);
+}
+
+.ay-tile-icon {
+    width: 50px;
+    height: 50px;
+    border-radius: 14px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.25rem;
+    flex-shrink: 0;
+}
+
+.ay-tile-icon.is-teal { background-color: var(--color-qero-50); color: var(--color-qero-700); }
+.ay-tile-icon.is-blue { background-color: #EFF6FF; color: #2563EB; }
+.ay-tile-icon.is-amber { background-color: #FFFBEB; color: #D97706; }
+.ay-tile-icon.is-green { background-color: #F0FDF4; color: #16A34A; }
+
+.ay-tile-content {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    flex: 1;
+    min-width: 0;
+}
+
+.ay-tile-title {
+    font-size: 1.04rem;
+    font-weight: 800;
+    color: var(--color-slate-900);
+}
+
+.ay-tile-desc {
+    font-size: 0.88rem;
+    color: var(--color-slate-600);
+    line-height: 1.45;
+}
+
+.ay-tile-chevron {
+    color: var(--color-slate-400);
+    font-size: 0.88rem;
+    flex-shrink: 0;
+    transition: transform 0.2s ease, color 0.2s ease;
+}
+
+.ay-tile:hover .ay-tile-chevron {
+    color: var(--color-qero-700);
+    transform: translateX(3px);
+}
+
+/* Franja inferior: Hablar con soporte */
+.ay-support-card {
+    background-color: white;
+    border: 1px solid var(--color-slate-200);
+    border-radius: 22px;
+    padding: 24px 26px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    box-shadow: var(--shadow-sm);
+    flex-wrap: wrap;
+}
+
+.ay-support-info {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    flex: 1;
+    min-width: 240px;
+}
+
+.ay-support-icon {
+    width: 48px;
+    height: 48px;
+    border-radius: 14px;
+    background-color: var(--color-qero-50);
+    color: var(--color-qero-700);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.25rem;
+    flex-shrink: 0;
+}
+
+.ay-support-title {
+    font-size: 1.05rem;
+    font-weight: 800;
+    color: var(--color-slate-900);
+    margin: 0 0 4px;
+}
+
+.ay-support-desc {
+    font-size: 0.88rem;
+    color: var(--color-slate-600);
+    margin: 0;
+    line-height: 1.45;
+}
+
+.ay-support-btn {
+    min-height: 46px;
+    padding: 10px 22px;
+    border-radius: 12px;
+    flex-shrink: 0;
+}
+
+
+.modal-icon-info {
+    width: 56px;
+    height: 56px;
+    margin: 0 auto 14px;
+    border-radius: 16px;
+    background-color: var(--color-qero-50);
+    color: var(--color-qero-700);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+}
+
+#support-modal .modal-actions {
+    display: flex;
+    justify-content: center;
+}
+
+/* ==============================================================
+   MEDIA QUERY 1: TABLETS (Máximo 900px)
+============================================================== */
+@media (max-width: 900px) {
+    .ay-grid-2x2 {
+        grid-template-columns: 1fr;
+        gap: 14px;
+    }
+
+    .ay-support-card {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .ay-support-btn {
+        width: 100%;
+        justify-content: center;
+    }
+}
+
+/* ==============================================================
+   MEDIA QUERY 2: MÓVILES (Máximo 450px)
+============================================================== */
+@media (max-width: 450px) {
+    .ay-header .page-title {
+        font-size: 1.65rem;
+    }
+
+    .ay-notice-banner,
+    .ay-tile,
+    .ay-support-card {
+        padding: 18px;
+        border-radius: 18px;
+    }
+
+    .ay-notice-banner {
+        align-items: flex-start;
+    }
+
+    .ay-support-info {
+        min-width: 0;
+        align-items: flex-start;
+    }
+}

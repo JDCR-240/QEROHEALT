@@ -1,0 +1,181 @@
+/* ==============================================================
+   ESTILOS DE AUTENTICACIÓN (Desktop Base)
+============================================================== */
+.auth-body {
+    background-color: #F8FAF9;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.auth-main {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 48px 20px;
+}
+
+.auth-wrapper {
+    width: 100%;
+    max-width: 480px;
+}
+
+.auth-card {
+    background: white;
+    border-radius: 24px;
+    padding: 36px;
+    border: 1px solid var(--color-slate-200);
+    box-shadow: 0 10px 25px -5px rgba(15, 23, 42, 0.06);
+}
+
+.auth-header {
+    margin-bottom: 20px;
+}
+
+.auth-badge {
+    display: inline-block;
+    font-size: 0.75rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: var(--color-qero-700);
+    letter-spacing: 0.05em;
+}
+
+.auth-title {
+    font-size: 1.875rem;
+    font-weight: 800;
+    color: var(--color-slate-900);
+    margin-top: 4px;
+}
+
+.auth-role-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    margin-top: 10px;
+    padding: 6px 12px;
+    background: var(--color-qero-100);
+    color: var(--color-qero-800);
+    border-radius: 10px;
+    font-size: 0.8rem;
+    font-weight: bold;
+}
+
+.auth-form {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.input-icon-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.input-icon {
+    position: absolute;
+    left: 14px;
+    color: var(--color-slate-400);
+    font-size: 0.95rem;
+    pointer-events: none;
+}
+
+.input-with-icon {
+    padding: 12px 14px 12px 40px;
+    font-size: 0.95rem;
+}
+
+.auth-divider {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    color: var(--color-slate-400);
+    font-size: 0.8rem;
+    margin: 4px 0;
+}
+
+.auth-divider::before,
+.auth-divider::after {
+    content: "";
+    flex: 1;
+    border-bottom: 1px solid var(--color-slate-200);
+}
+
+.auth-divider span {
+    padding: 0 12px;
+}
+
+.auth-support-text {
+    margin-top: 24px;
+    text-align: center;
+    font-size: 0.85rem;
+    color: var(--color-slate-600);
+}
+
+.auth-support-text a {
+    color: var(--color-qero-700);
+    font-weight: bold;
+}
+
+.auth-support-text a:hover {
+    text-decoration: underline;
+}
+
+/* Bloque superior decorativo de Recuperar Acceso */
+.recover-hero-icon {
+    background: var(--color-qero-50);
+    border: 1px solid var(--color-qero-100);
+    border-radius: 16px;
+    padding: 24px;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.recover-icon-circle {
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    background: white;
+    color: var(--color-qero-600);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.4rem;
+    box-shadow: var(--shadow-sm);
+}
+
+/* Ajuste de toast en esta página (no hay botón fixed) */
+.auth-body .toast {
+    bottom: 24px;
+}
+
+/* ==============================================================
+   MEDIA QUERY 1: TABLETS (Máximo 900px)
+============================================================== */
+@media (max-width: 900px) {
+    .auth-main {
+        padding: 36px 20px;
+    }
+}
+
+/* ==============================================================
+   MEDIA QUERY 2: TELÉFONOS MÓVILES (Máximo 450px)
+============================================================== */
+@media (max-width: 450px) {
+    .auth-main {
+        padding: 24px 16px;
+        align-items: flex-start;
+    }
+
+    .auth-card {
+        padding: 24px 20px;
+        border-radius: 20px;
+    }
+
+    .auth-title {
+        font-size: 1.5rem;
+    }
+}

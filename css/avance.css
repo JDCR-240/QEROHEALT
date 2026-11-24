@@ -1,0 +1,547 @@
+/* ==============================================================
+   MI AVANCE — PACIENTE (Estilo unificado con Seguimiento)
+============================================================== */
+.av-header {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 20px;
+    margin-bottom: 24px;
+    flex-wrap: wrap;
+}
+
+.av-kicker {
+    font-size: 0.78rem;
+    font-weight: 800;
+    color: var(--color-qero-700);
+    letter-spacing: 0.7px;
+    text-transform: uppercase;
+    margin: 0 0 4px;
+}
+
+.av-title {
+    font-size: 1.85rem;
+    font-weight: 800;
+    color: var(--color-slate-900);
+    letter-spacing: -0.02em;
+    line-height: 1.15;
+    margin: 0;
+}
+
+.av-subtitle {
+    font-size: 0.94rem;
+    color: var(--color-slate-600);
+    margin: 6px 0 0;
+}
+
+.av-status-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 16px;
+    border-radius: 999px;
+    font-size: 0.84rem;
+    font-weight: 700;
+    flex-shrink: 0;
+}
+
+.av-status-badge i {
+    font-size: 0.5rem;
+}
+
+.av-status-badge.is-green {
+    background-color: #DCFCE7;
+    color: #166534;
+    border: 1px solid #BBF7D0;
+}
+
+.av-status-badge.is-amber {
+    background-color: #FEF3C7;
+    color: #92400E;
+    border: 1px solid #FDE68A;
+}
+
+.av-status-badge.is-red {
+    background-color: #FEE2E2;
+    color: #991B1B;
+    border: 1px solid #FECACA;
+}
+
+/* Layout principal 2 columnas (igual a Seguimiento) */
+.av-layout {
+    display: grid;
+    grid-template-columns: 1.65fr 1fr;
+    gap: 24px;
+    align-items: start;
+}
+
+.av-main-col,
+.av-side-col {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    min-width: 0;
+}
+
+/* Tarjeta base blanca */
+.av-card {
+    background: white;
+    border: 1px solid var(--color-slate-200);
+    border-radius: 20px;
+    padding: 22px 24px;
+    box-shadow: var(--shadow-sm);
+}
+
+.av-card-title {
+    font-size: 1.12rem;
+    font-weight: 800;
+    color: var(--color-slate-900);
+    margin: 0;
+}
+
+.av-card-sub {
+    font-size: 0.84rem;
+    color: var(--color-slate-500);
+    margin: 4px 0 0;
+}
+
+/* Tarjeta superior de progreso horizontal */
+.av-progress-label {
+    display: block;
+    font-size: 0.84rem;
+    font-weight: 700;
+    color: var(--color-slate-700);
+    margin-bottom: 8px;
+}
+
+.av-progress-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    flex-wrap: wrap;
+    margin-bottom: 14px;
+}
+
+.av-progress-num-wrap {
+    display: flex;
+    align-items: baseline;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+.av-pct-big {
+    font-size: 2.15rem;
+    font-weight: 800;
+    line-height: 1;
+    color: var(--color-qero-800);
+}
+
+.av-pct-big.is-amber { color: #B45309; }
+.av-pct-big.is-red { color: #B91C1C; }
+
+.av-completed-text {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--color-slate-600);
+}
+
+.av-time-pills {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+.av-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 6px 12px;
+    border-radius: 10px;
+    font-size: 0.8rem;
+    font-weight: 700;
+}
+
+.av-pill.is-done {
+    background-color: #F0FDF4;
+    border: 1px solid #BBF7D0;
+    color: #166534;
+}
+
+.av-pill.is-rest {
+    background-color: #F8FAF9;
+    border: 1px solid var(--color-slate-200);
+    color: var(--color-slate-700);
+}
+
+.av-bar-track {
+    width: 100%;
+    height: 10px;
+    border-radius: 999px;
+    background-color: var(--color-slate-100);
+    overflow: hidden;
+}
+
+.av-bar-fill {
+    height: 100%;
+    border-radius: 999px;
+    background-color: #16A34A;
+    transition: width 0.45s ease;
+}
+
+.av-bar-fill.is-amber { background-color: #D97706; }
+.av-bar-fill.is-red { background-color: #DC2626; }
+
+/* Registro de ejercicios + filtros */
+.av-list-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 14px;
+    margin-bottom: 18px;
+    flex-wrap: wrap;
+}
+
+.av-filter-group {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+.av-filter-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 7px 13px;
+    border-radius: 10px;
+    border: 1px solid var(--color-slate-200);
+    background-color: white;
+    color: var(--color-slate-700);
+    font-size: 0.82rem;
+    font-weight: 700;
+    font-family: inherit;
+    cursor: pointer;
+    transition: var(--transition-fast);
+}
+
+.av-filter-btn:hover {
+    border-color: var(--color-qero-300);
+    color: var(--color-qero-800);
+}
+
+.av-filter-btn.active {
+    background-color: var(--color-qero-800);
+    border-color: var(--color-qero-800);
+    color: white;
+}
+
+.av-filter-count {
+    font-size: 0.74rem;
+    padding: 1px 6px;
+    border-radius: 999px;
+    background-color: var(--color-slate-100);
+    color: var(--color-slate-700);
+}
+
+.av-filter-btn.active .av-filter-count {
+    background-color: rgba(255, 255, 255, 0.2);
+    color: white;
+}
+
+.av-exercises-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.av-ex-row {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 14px;
+    padding: 16px 18px;
+    border-radius: 16px;
+    border: 1px solid var(--color-slate-200);
+    background-color: #F8FAF9;
+    transition: var(--transition-fast);
+}
+
+.av-ex-row:hover {
+    background-color: white;
+    border-color: var(--color-qero-200);
+}
+
+.av-ex-left {
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+    min-width: 0;
+}
+
+.av-ex-icon {
+    width: 36px;
+    height: 36px;
+    border-radius: 10px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.92rem;
+    flex-shrink: 0;
+    margin-top: 2px;
+}
+
+.av-ex-icon.is-done {
+    background-color: #DCFCE7;
+    color: #16A34A;
+}
+
+.av-ex-icon.is-pending {
+    background-color: #FEF3C7;
+    color: #D97706;
+}
+
+.av-ex-body {
+    min-width: 0;
+}
+
+.av-ex-title {
+    font-size: 0.98rem;
+    font-weight: 800;
+    color: var(--color-slate-900);
+    margin: 0;
+}
+
+.av-ex-meta {
+    font-size: 0.82rem;
+    font-weight: 700;
+    color: var(--color-qero-700);
+    margin: 3px 0 6px;
+}
+
+.av-ex-desc {
+    font-size: 0.84rem;
+    color: var(--color-slate-600);
+    line-height: 1.45;
+    margin: 0;
+}
+
+.av-ex-tag {
+    padding: 5px 12px;
+    border-radius: 999px;
+    font-size: 0.76rem;
+    font-weight: 700;
+    flex-shrink: 0;
+    white-space: nowrap;
+}
+
+.av-ex-tag.is-done {
+    background-color: #DCFCE7;
+    color: #166534;
+}
+
+.av-ex-tag.is-pending {
+    background-color: #FEF3C7;
+    color: #92400E;
+}
+
+/* Sidebar: Avance por área */
+.av-side-head {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 10px;
+    margin-bottom: 16px;
+}
+
+.av-mini-pill {
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: var(--color-qero-800);
+    background-color: var(--color-qero-50);
+    border: 1px solid var(--color-qero-200);
+    padding: 4px 10px;
+    border-radius: 999px;
+    white-space: nowrap;
+}
+
+.av-area-list {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.av-area-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 0.86rem;
+    font-weight: 700;
+    color: var(--color-slate-800);
+    margin-bottom: 6px;
+}
+
+.av-area-track {
+    width: 100%;
+    height: 8px;
+    border-radius: 999px;
+    background-color: var(--color-slate-100);
+    overflow: hidden;
+}
+
+.av-area-fill {
+    height: 100%;
+    border-radius: 999px;
+    background-color: #16A34A;
+    transition: width 0.4s ease;
+}
+
+.av-area-fill.is-amber { background-color: #D97706; }
+.av-area-fill.is-red { background-color: #DC2626; }
+
+/* Tarjeta verde oscura destacada (igual a Cuidador / Especialista) */
+.av-cta-card {
+    background: linear-gradient(135deg, var(--color-qero-800) 0%, var(--color-qero-700) 100%);
+    border-radius: 20px;
+    padding: 24px;
+    color: white;
+    box-shadow: 0 12px 26px -12px rgba(17, 94, 89, 0.45);
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+}
+
+.av-cta-icon {
+    width: 44px;
+    height: 44px;
+    border-radius: 12px;
+    background-color: rgba(255, 255, 255, 0.16);
+    border: 1px solid rgba(255, 255, 255, 0.24);
+    color: white;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.05rem;
+}
+
+.av-cta-title {
+    font-size: 1.2rem;
+    font-weight: 800;
+    color: white;
+    margin: 0;
+}
+
+.av-cta-desc {
+    font-size: 0.88rem;
+    color: rgba(255, 255, 255, 0.86);
+    line-height: 1.5;
+    margin: 0;
+}
+
+.av-cta-btn {
+    width: 100%;
+    min-height: 44px;
+    margin-top: 6px;
+    border-radius: 12px;
+    background-color: white;
+    color: var(--color-qero-800);
+    font-size: 0.9rem;
+    font-weight: 800;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    transition: var(--transition-fast);
+}
+
+.av-cta-btn:hover {
+    background-color: var(--color-qero-50);
+    transform: translateY(-1px);
+}
+
+/* Semanas anteriores */
+.av-history-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.av-hist-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    padding: 11px 14px;
+    border-radius: 12px;
+    border: 1px solid var(--color-slate-200);
+    background-color: #F8FAF9;
+}
+
+.av-hist-info {
+    min-width: 0;
+}
+
+.av-hist-name {
+    font-size: 0.86rem;
+    font-weight: 700;
+    color: var(--color-slate-900);
+    margin: 0;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.av-hist-date {
+    font-size: 0.76rem;
+    color: var(--color-slate-500);
+    margin: 2px 0 0;
+}
+
+.av-hist-pct {
+    padding: 4px 10px;
+    border-radius: 999px;
+    font-size: 0.76rem;
+    font-weight: 800;
+    flex-shrink: 0;
+}
+
+.av-hist-pct.is-green {
+    background-color: #DCFCE7;
+    color: #166534;
+}
+
+.av-hist-pct.is-amber {
+    background-color: #FEF3C7;
+    color: #92400E;
+}
+
+/* ==============================================================
+   MEDIA QUERY 1: TABLETS (Máximo 900px)
+============================================================== */
+@media (max-width: 900px) {
+    .av-layout {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* ==============================================================
+   MEDIA QUERY 2: MÓVILES (Máximo 450px)
+============================================================== */
+@media (max-width: 450px) {
+    .av-title {
+        font-size: 1.45rem;
+    }
+
+    .av-card,
+    .av-cta-card {
+        padding: 18px;
+    }
+
+    .av-ex-row {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+}

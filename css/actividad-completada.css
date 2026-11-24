@@ -1,0 +1,199 @@
+/* ==============================================================
+   ACTIVIDAD COMPLETADA — PACIENTE (actividad-completada.html)
+============================================================== */
+.ac-wrapper {
+    max-width: 680px;
+    margin: 0 auto;
+}
+
+.ac-card {
+    background: white;
+    border: 1px solid var(--color-slate-200);
+    border-radius: 24px;
+    padding: 34px 32px;
+    box-shadow: var(--shadow-sm);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 16px;
+}
+
+.ac-hero-icon {
+    width: 78px;
+    height: 78px;
+    border-radius: 50%;
+    background-color: #DCFCE7;
+    color: #16A34A;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2.4rem;
+}
+
+.ac-step-pill {
+    padding: 5px 14px;
+    border-radius: 999px;
+    background-color: var(--color-qero-50);
+    border: 1px solid var(--color-qero-200);
+    color: var(--color-qero-800);
+    font-size: 0.84rem;
+    font-weight: 700;
+}
+
+.ac-title {
+    font-size: 1.85rem;
+    font-weight: 800;
+    color: var(--color-slate-900);
+    line-height: 1.2;
+}
+
+.ac-subtitle {
+    font-size: 1rem;
+    color: var(--color-slate-600);
+    max-width: 500px;
+    line-height: 1.5;
+}
+
+/* Caja de progreso semanal */
+.ac-progress-box {
+    width: 100%;
+    background-color: #F8FAF9;
+    border: 1px solid var(--color-slate-200);
+    border-radius: 16px;
+    padding: 18px 20px;
+    text-align: left;
+    margin-top: 4px;
+}
+
+.ac-progress-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    margin-bottom: 10px;
+    font-size: 0.92rem;
+    font-weight: 700;
+    color: var(--color-slate-800);
+}
+
+.ac-progress-head strong {
+    font-size: 1.15rem;
+    color: var(--color-qero-800);
+}
+
+.ac-progress-track {
+    width: 100%;
+    height: 14px;
+    border-radius: 999px;
+    background-color: #DCFCE7;
+    overflow: hidden;
+    margin-bottom: 8px;
+}
+
+.ac-progress-fill {
+    height: 100%;
+    border-radius: 999px;
+    background-color: var(--color-qero-700);
+    transition: width 0.4s ease;
+}
+
+.ac-progress-detail {
+    font-size: 0.86rem;
+    font-weight: 600;
+    color: var(--color-slate-600);
+}
+
+/* Caja de siguiente actividad */
+.ac-next-box {
+    width: 100%;
+    background-color: var(--color-qero-50);
+    border: 1px solid var(--color-qero-200);
+    border-radius: 18px;
+    padding: 20px;
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.ac-next-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.ac-next-kicker {
+    font-size: 0.78rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: var(--color-qero-700);
+}
+
+.ac-next-meta {
+    font-size: 0.82rem;
+    font-weight: 700;
+    color: var(--color-qero-800);
+    background-color: white;
+    border: 1px solid var(--color-qero-200);
+    padding: 3px 10px;
+    border-radius: 999px;
+}
+
+.ac-next-title {
+    font-size: 1.15rem;
+    font-weight: 800;
+    color: var(--color-qero-900);
+}
+
+.ac-next-indication {
+    font-size: 0.9rem;
+    color: var(--color-qero-800);
+    line-height: 1.45;
+}
+
+/* Botones de acción */
+.ac-actions {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-top: 6px;
+}
+
+.ac-btn {
+    width: 100%;
+    min-height: 54px;
+    justify-content: center;
+    font-size: 1.02rem;
+}
+
+/* ==============================================================
+   MEDIA QUERY 1: TABLETS (Máximo 900px)
+============================================================== */
+@media (max-width: 900px) {
+    .ac-card {
+        padding: 28px 24px;
+    }
+}
+
+/* ==============================================================
+   MEDIA QUERY 2: MÓVILES (Máximo 450px)
+============================================================== */
+@media (max-width: 450px) {
+    .ac-card {
+        padding: 22px 18px;
+        border-radius: 20px;
+    }
+
+    .ac-title {
+        font-size: 1.45rem;
+    }
+
+    .ac-btn {
+        font-size: 0.96rem;
+    }
+}

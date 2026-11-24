@@ -1,0 +1,499 @@
+/* ==============================================================
+   VISTA PREVIA DE RUTINA (vista-previa-rutina.html - Pág. 8)
+============================================================== */
+.vp-top-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    margin-bottom: 22px;
+    flex-wrap: wrap;
+}
+
+.vp-top-left {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
+
+.back-btn {
+    width: 42px;
+    height: 42px;
+    border-radius: 12px;
+    border: 1px solid var(--color-slate-200);
+    background-color: white;
+    color: var(--color-qero-800);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1rem;
+    text-decoration: none;
+    flex-shrink: 0;
+    transition: var(--transition-fast);
+}
+
+.back-btn:hover {
+    background-color: var(--color-qero-50);
+    border-color: var(--color-qero-300);
+}
+
+.vp-title-row {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-wrap: wrap;
+    margin-bottom: 4px;
+}
+
+.vp-preview-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 3px 10px;
+    border-radius: 999px;
+    background-color: #EFF6FF;
+    border: 1px solid #BFDBFE;
+    color: #1D4ED8;
+    font-size: 0.75rem;
+    font-weight: 700;
+}
+
+.vp-step-badge {
+    padding: 3px 10px;
+    border-radius: 999px;
+    background-color: var(--color-qero-50);
+    border: 1px solid var(--color-qero-200);
+    color: var(--color-qero-800);
+    font-size: 0.75rem;
+    font-weight: 700;
+}
+
+.vp-routine-title {
+    font-size: 1.45rem;
+    font-weight: 800;
+    color: var(--color-slate-900);
+    line-height: 1.2;
+}
+
+/* Layout principal en 1 sola columna (video grande arriba, controles abajo) */
+.vp-layout {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 12px;
+    max-width: 960px;
+    margin: 0 auto;
+}
+
+.vp-video-col {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+/* Contenedor de video 16:9 */
+.vp-video-wrapper {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    border-radius: 20px;
+    overflow: hidden;
+    background-color: #0F172A;
+    box-shadow: var(--shadow-sm);
+    border: 1px solid var(--color-slate-200);
+}
+
+.vp-media-container,
+.vp-media-container iframe,
+.vp-media-container img {
+    width: 100%;
+    height: 100%;
+    border: none;
+    display: block;
+    object-fit: cover;
+}
+
+.vp-paused-overlay {
+    position: absolute;
+    inset: 0;
+    background-color: rgba(15, 23, 42, 0.65);
+    backdrop-filter: blur(3px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 5;
+    cursor: pointer;
+}
+
+.vp-paused-box {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px 22px;
+    border-radius: 999px;
+    background-color: white;
+    color: var(--color-slate-900);
+    font-weight: 800;
+    font-size: 0.95rem;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
+}
+
+.vp-paused-box i {
+    color: var(--color-qero-700);
+}
+
+/* Tarjeta de información del ejercicio */
+.vp-info-card {
+    background: white;
+    border: 1px solid var(--color-slate-200);
+    border-radius: 18px;
+    padding: 20px 22px;
+    box-shadow: var(--shadow-sm);
+}
+
+.vp-info-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+.vp-cat-tag {
+    padding: 4px 10px;
+    border-radius: 8px;
+    background-color: var(--color-qero-50);
+    color: var(--color-qero-800);
+    font-size: 0.78rem;
+    font-weight: 700;
+}
+
+.vp-interval-hint {
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--color-slate-500);
+}
+
+.vp-ex-name {
+    font-size: 1.2rem;
+    font-weight: 800;
+    color: var(--color-slate-900);
+    margin-bottom: 8px;
+}
+
+.vp-ex-indication {
+    font-size: 0.92rem;
+    color: var(--color-slate-600);
+    line-height: 1.5;
+}
+
+/* Columna derecha: Panel de control */
+.vp-control-card {
+    background: white;
+    border: 1px solid var(--color-slate-200);
+    border-radius: 20px;
+    padding: 24px;
+    box-shadow: var(--shadow-sm);
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.vp-timer-block {
+    text-align: center;
+    padding: 20px 16px;
+    border-radius: 16px;
+    background-color: #F8FAF9;
+    border: 1px solid var(--color-slate-200);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+}
+
+.vp-metric-label {
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: var(--color-slate-600);
+    text-transform: uppercase;
+    letter-spacing: 0.4px;
+}
+
+.vp-timer-display {
+    font-size: 3rem;
+    font-weight: 800;
+    color: var(--color-qero-800);
+    line-height: 1;
+    font-variant-numeric: tabular-nums;
+}
+
+.vp-status-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 4px 12px;
+    border-radius: 999px;
+    font-size: 0.76rem;
+    font-weight: 700;
+}
+
+.vp-status-pill i {
+    font-size: 0.5rem;
+}
+
+.status-running {
+    background-color: var(--color-qero-50);
+    color: var(--color-qero-800);
+}
+
+.status-paused {
+    background-color: #FEF3C7;
+    color: #92400E;
+}
+
+.status-done {
+    background-color: #DCFCE7;
+    color: #166534;
+}
+
+/* Bloque de repeticiones y barra de progreso */
+.vp-reps-block {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.vp-reps-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.vp-reps-count {
+    font-size: 1.25rem;
+    font-weight: 800;
+    color: var(--color-slate-900);
+    min-width:70px;
+    text-align: center;
+}
+
+.vp-progress-track {
+    width: 100%;
+    height: 12px;
+    border-radius: 999px;
+    background-color: var(--color-slate-100);
+    overflow: hidden;
+}
+
+.vp-progress-fill {
+    height: 100%;
+    border-radius: 999px;
+    background: linear-gradient(90deg, var(--color-qero-700) 0%, #16A34A 100%);
+    transition: width 0.35s ease;
+}
+
+.vp-progress-meta {
+    font-size: 0.82rem;
+    font-weight: 600;
+    color: var(--color-slate-500);
+}
+
+/* Botones de acción lado a lado */
+.vp-actions {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+}
+
+.vp-btn-pause,
+.vp-btn-next {
+    width: 100%;
+    justify-content: center;
+    padding: 12px 18px;
+}
+
+.vp-btn-prev {
+    background: transparent;
+    border: none;
+    color: var(--color-slate-600);
+    font-size: 0.85rem;
+    font-weight: 600;
+    font-family: inherit;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    padding: 15px 6px 0px;
+    transition: var(--transition-fast);
+}
+
+.vp-btn-prev:hover {
+    color: var(--color-qero-800);
+}
+.vp-video-notice {
+    position: absolute;
+    left: 14px;
+    bottom: 14px;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 14px;
+    border-radius: 10px;
+    background-color: rgba(15, 23, 42, 0.82);
+    color: white;
+    font-size: 0.8rem;
+    font-weight: 600;
+    backdrop-filter: blur(4px);
+    z-index: 4;
+}
+
+/* Selector de modo: Video / Guía paso a paso */
+.vp-mode-switch {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+    padding: 6px;
+    background-color: white;
+    border: 1px solid var(--color-slate-200);
+    border-radius: 14px;
+    box-shadow: var(--shadow-sm);
+}
+
+.vp-mode-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 12px 16px;
+    border: none;
+    border-radius: 10px;
+    background-color: transparent;
+    color: var(--color-slate-600);
+    font-family: inherit;
+    font-size: 0.92rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: var(--transition-fast);
+}
+
+.vp-mode-btn:hover {
+    background-color: var(--color-slate-50);
+    color: var(--color-slate-900);
+}
+
+.vp-mode-btn.active {
+    background-color: var(--color-qero-700);
+    color: white;
+    box-shadow: 0 2px 8px rgba(15, 118, 110, 0.25);
+}
+
+/* Panel de Guía paso a paso con fotos */
+.vp-steps-wrapper {
+    background: white;
+    border: 1px solid var(--color-slate-200);
+    border-radius: 20px;
+    padding: 22px;
+    box-shadow: var(--shadow-sm);
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+
+
+.vp-step-media {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    border-radius: 14px;
+    overflow: hidden;
+    background-color: var(--color-slate-100);
+    border: 1px solid var(--color-slate-200);
+}
+
+.vp-step-media img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.vp-step-info-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 14px;
+    padding: 14px 16px;
+    border-radius: 12px;
+    background-color: #F8FAF9;
+    border: 1px solid var(--color-slate-200);
+}
+
+.vp-step-desc {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--color-slate-800);
+    line-height: 1.5;
+    margin: 0;
+}
+
+.vp-step-counter {
+    padding: 4px 12px;
+    border-radius: 999px;
+    background-color: var(--color-qero-50);
+    border: 1px solid var(--color-qero-200);
+    color: var(--color-qero-800);
+    font-size: 0.8rem;
+    font-weight: 700;
+    white-space: nowrap;
+    flex-shrink: 0;
+}
+
+.vp-step-nav {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+}
+
+.vp-step-nav button {
+    justify-content: center;
+}
+
+.vp-step-nav button:disabled {
+    opacity: 0.45;
+    cursor: not-allowed;
+}
+/* ==============================================================
+   MEDIA QUERY 1: TABLETS (Máximo 900px)
+============================================================== */
+@media (max-width: 900px) {
+    .vp-layout {
+        gap: 18px;
+    }
+}
+
+/* ==============================================================
+   MEDIA QUERY 2: MÓVILES (Máximo 450px)
+============================================================== */
+@media (max-width: 450px) {
+    .vp-routine-title {
+        font-size: 1.2rem;
+    }
+
+    #btn-exit-preview {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .vp-control-card,
+    .vp-info-card {
+        padding: 18px;
+    }
+
+    .vp-timer-display {
+        font-size: 2.5rem;
+    }
+
+    .vp-actions {
+        grid-template-columns: 1fr;
+    }
+}

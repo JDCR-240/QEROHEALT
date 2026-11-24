@@ -1,0 +1,331 @@
+
+.page-head {
+    display: block;
+}
+/* ==============================================================
+   CATÁLOGO DE RUTINAS (catalogo.html)
+============================================================== */
+.catalog-subtitle {
+    margin-top: 6px;
+    font-size: 0.95rem;
+    color: var(--color-slate-600);
+}
+
+.catalog-search-bar {
+    margin-bottom: 16px;
+}
+
+.catalog-toolbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    margin-bottom: 24px;
+    flex-wrap: wrap;
+}
+
+.catalog-filters {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+.catalog-chip {
+    padding: 9px 18px;
+    border-radius: 999px;
+    border: 1px solid var(--color-slate-200);
+    background-color: white;
+    color: var(--color-slate-700);
+    font-size: 0.88rem;
+    font-weight: bold;
+    font-family: inherit;
+    cursor: pointer;
+    transition: var(--transition-fast);
+}
+
+.catalog-chip:hover {
+    border-color: var(--color-qero-300);
+    color: var(--color-qero-800);
+}
+
+.catalog-chip.active {
+    background-color: var(--color-qero-700);
+    border-color: var(--color-qero-700);
+    color: white;
+}
+
+.catalog-add-btn {
+    padding: 10px 20px;
+    font-size: 0.9rem;
+    border-radius: 12px;
+}
+
+/* Grid de tarjetas */
+.catalog-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.exercise-card {
+    display: flex;
+    flex-direction: column;
+    background: white;
+    border: 1px solid var(--color-slate-200);
+    border-radius: 20px;
+    overflow: hidden;
+    text-decoration: none;
+    color: inherit;
+    box-shadow: var(--shadow-sm);
+    transition: var(--transition-fast);
+}
+
+.exercise-card:hover {
+    transform: translateY(-3px);
+    border-color: var(--color-qero-300);
+    box-shadow: var(--shadow-md);
+}
+
+.exercise-thumb {
+    position: relative;
+    width: 100%;
+    height: 165px;
+    background-color: var(--color-qero-50);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.exercise-thumb img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.exercise-thumb-fallback {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+    color: var(--color-qero-700);
+    font-size: 0.8rem;
+    font-weight: bold;
+}
+
+.exercise-thumb-fallback i {
+    font-size: 2rem;
+    opacity: 0.7;
+}
+
+.exercise-thumb.no-img img {
+    display: none;
+}
+
+.exercise-thumb.no-img .exercise-thumb-fallback {
+    display: flex;
+}
+
+.exercise-badge {
+    position: absolute;
+    top: 12px;
+    left: 12px;
+    padding: 4px 12px;
+    border-radius: 999px;
+    font-size: 0.75rem;
+    font-weight: bold;
+    background-color: rgba(255, 255, 255, 0.94);
+    color: var(--color-qero-800);
+    border: 1px solid var(--color-qero-200);
+}
+
+.exercise-body {
+    padding: 18px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    flex: 1;
+}
+
+.exercise-title {
+    font-size: 1.05rem;
+    font-weight: bold;
+    color: var(--color-slate-900);
+    line-height: 1.3;
+}
+
+.exercise-desc {
+    font-size: 0.88rem;
+    color: var(--color-slate-600);
+    line-height: 1.45;
+    flex: 1;
+}
+
+.exercise-footer {
+    margin-top: 8px;
+    padding-top: 12px;
+    border-top: 1px solid var(--color-slate-100);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 0.82rem;
+    font-weight: 600;
+    color: var(--color-slate-500);
+}
+
+.exercise-footer-link {
+    color: var(--color-qero-700);
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.form-textarea-modal {
+    resize: vertical;
+    min-height: 78px;
+}
+
+
+
+/* Modal con scroll interno y constructor de pasos */
+.modal-card-scroll {
+    max-height: 90vh;
+    overflow-y: auto;
+    text-align: left;
+}
+
+.file-input-modal {
+    padding: 8px 10px;
+    font-size: 0.85rem;
+    background-color: #F8FAF9;
+}
+
+.form-hint {
+    display: block;
+    margin-top: 4px;
+    font-size: 0.78rem;
+    color: var(--color-slate-500);
+}
+
+.steps-builder-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    margin-bottom: 8px;
+}
+
+.btn-add-step {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 6px 12px;
+    border-radius: 8px;
+    border: 1px solid var(--color-qero-300);
+    background-color: var(--color-qero-50);
+    color: var(--color-qero-800);
+    font-size: 0.8rem;
+    font-weight: bold;
+    font-family: inherit;
+    cursor: pointer;
+    transition: var(--transition-fast);
+}
+
+.btn-add-step:hover {
+    background-color: var(--color-qero-700);
+    color: white;
+}
+
+.steps-builder-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.step-input-row {
+    background-color: #F8FAF9;
+    border: 1px solid var(--color-slate-200);
+    border-radius: 12px;
+    padding: 10px 12px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.step-input-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.step-input-badge {
+    font-size: 0.8rem;
+    font-weight: bold;
+    color: var(--color-qero-800);
+}
+
+.step-remove-btn {
+    border: none;
+    background: transparent;
+    color: #DC2626;
+    font-size: 0.85rem;
+    cursor: pointer;
+    padding: 2px 6px;
+    border-radius: 6px;
+}
+
+.step-remove-btn:hover {
+    background-color: #FEE2E2;
+}
+#routine-desc {
+    resize: none;
+    height: 76px;
+    overflow-y: auto;
+}
+
+
+/* ==============================================================
+   MEDIA QUERY 1: TABLETS (Máximo 900px)
+============================================================== */
+@media (max-width: 900px) {
+    .catalog-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 16px;
+    }
+}
+
+/* ==============================================================
+   MEDIA QUERY 2: MÓVILES (Máximo 450px)
+============================================================== */
+@media (max-width: 450px) {
+    .catalog-toolbar {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 12px;
+    }
+
+    .catalog-filters {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .catalog-chip {
+        text-align: center;
+        padding: 9px 10px;
+    }
+
+    .catalog-add-btn {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .catalog-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .exercise-thumb {
+        height: 150px;
+    }
+}

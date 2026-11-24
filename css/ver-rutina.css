@@ -1,0 +1,225 @@
+/* ==============================================================
+   VER RUTINA DEL PACIENTE (ver-rutina.html)
+============================================================== */
+.vr-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    margin-bottom: 22px;
+    flex-wrap: wrap;
+}
+
+.vr-head-left {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
+
+.back-btn {
+    width: 42px;
+    height: 42px;
+    border-radius: 12px;
+    border: 1px solid var(--color-slate-200);
+    background-color: white;
+    color: var(--color-qero-800);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1rem;
+    text-decoration: none;
+    flex-shrink: 0;
+    transition: var(--transition-fast);
+}
+
+.back-btn:hover {
+    background-color: var(--color-qero-50);
+    border-color: var(--color-qero-300);
+}
+
+.vr-subtitle {
+    margin-top: 2px;
+    font-size: 0.9rem;
+    color: var(--color-slate-600);
+}
+
+
+
+
+/* Contenedor de lista de ejercicios */
+.vr-list-card {
+    background: white;
+    border: 1px solid var(--color-slate-200);
+    border-radius: 20px;
+    padding: 24px;
+    box-shadow: var(--shadow-sm);
+}
+
+.vr-list-head {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 12px;
+    margin-bottom: 18px;
+    flex-wrap: wrap;
+}
+
+.card-section-title {
+    font-size: 1.08rem;
+    font-weight: bold;
+    color: var(--color-slate-900);
+    margin-bottom: 2px;
+}
+
+.vr-list-sub {
+    font-size: 0.86rem;
+    color: var(--color-slate-600);
+}
+
+.count-pill {
+    padding: 4px 12px;
+    border-radius: 999px;
+    font-size: 0.78rem;
+    font-weight: bold;
+    background-color: var(--color-qero-50);
+    color: var(--color-qero-800);
+    border: 1px solid var(--color-qero-200);
+    white-space: nowrap;
+}
+
+.vr-exercises-list {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.vr-exercise-row {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 16px;
+    padding: 16px 18px;
+    border-radius: 16px;
+    border: 1px solid var(--color-slate-200);
+    background-color: #F8FAF9;
+    transition: var(--transition-fast);
+}
+
+.vr-exercise-row:hover {
+    border-color: var(--color-qero-300);
+    background-color: white;
+}
+
+.vr-exercise-left {
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+    flex: 1;
+}
+
+.vr-order-badge {
+    width: 34px;
+    height: 34px;
+    border-radius: 10px;
+    background-color: var(--color-qero-700);
+    color: white;
+    font-size: 0.9rem;
+    font-weight: bold;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.vr-exercise-info h3 {
+    font-size: 0.98rem;
+    font-weight: bold;
+    color: var(--color-slate-900);
+    margin-bottom: 6px;
+}
+
+.vr-exercise-meta {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+    font-size: 0.82rem;
+    color: var(--color-slate-600);
+    margin-bottom: 8px;
+}
+
+.vr-cat-tag {
+    padding: 2px 9px;
+    border-radius: 6px;
+    background-color: var(--color-qero-50);
+    color: var(--color-qero-800);
+    font-weight: bold;
+    font-size: 0.76rem;
+}
+
+.vr-indication {
+    font-size: 0.85rem;
+    color: var(--color-slate-600);
+    line-height: 1.45;
+}
+
+.vr-exercise-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 8px 14px;
+    border-radius: 10px;
+    background-color: white;
+    border: 1px solid var(--color-slate-200);
+    color: var(--color-qero-800);
+    font-size: 0.82rem;
+    font-weight: bold;
+    text-decoration: none;
+    white-space: nowrap;
+    align-self: center;
+    transition: var(--transition-fast);
+}
+
+.vr-exercise-link:hover {
+    background-color: var(--color-qero-700);
+    border-color: var(--color-qero-700);
+    color: white;
+}
+
+.empty-state {
+    text-align: center;
+    padding: 28px 16px;
+    color: var(--color-slate-500);
+    font-size: 0.92rem;
+}
+
+
+/* ==============================================================
+   MEDIA QUERY 2: MÓVILES (Máximo 450px)
+============================================================== */
+@media (max-width: 450px) {
+    .vr-head-actions {
+        width: 100%;
+    }
+
+    .vr-head-actions .btn {
+        width: 100%;
+        justify-content: center;
+    }
+
+
+
+    .vr-list-card {
+        padding: 18px;
+    }
+
+    .vr-exercise-row {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .vr-exercise-link {
+        width: 100%;
+        justify-content: center;
+    }
+}
